@@ -21,19 +21,19 @@ namespace PO_project.Models
 
         [Required]
         public int JezykId { get; set; }
-        public Jezyk Jezyk { get; set; }
+        public Jezyk? Jezyk { get; set; }
 
         [Required, NotNull]
         public int StopienId { get; set; }
-        public Stopien Stopien { get; set; }
+        public Stopien? Stopien { get; set; }
 
         [Required, NotNull]
         public int TrybId { get; set; }
-        public Tryb Tryb { get; set; }
+        public Tryb? Tryb { get; set; }
 
         [Required]
         public int CzasTrwaniaId { get; set; }
-        public CzasTrwania CzasTrwania { get; set; }
+        public CzasTrwania? CzasTrwania { get; set; }
 
 
         public List<KierunekPerspektywy> Perpektywy { get; } = new();

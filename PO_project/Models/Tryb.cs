@@ -8,6 +8,6 @@ namespace PO_project.Models
 
 		[Required]
 		[MaxLength(40)]
-		public string Name { get; set; }
+		public string Name { get; set; } = string.Empty;
 	}
 }

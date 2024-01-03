@@ -1,11 +1,43 @@
-﻿namespace PO_project.Models
+﻿using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.CodeAnalysis;
+
+namespace PO_project.Models
 {
     public class Kierunek
     {
-        public int Id { get; set; }
+        public int KierunekId { get; set; }
 
-        public string Name { get; set; }
-    
-        public string Description { get; set; }
+        [Required, NotNull]
+        [MaxLength(255)]
+        public string Name { get; set; } = string.Empty;
+
+        [Required, NotNull]
+        [MinLength(1)]
+        [MaxLength(4)]
+        public string Abbreviation {  get; set; } = string.Empty;
+
+        [AllowNull]
+        public string Description { get; set; } = string.Empty;
+
+        [Required]
+        public int JezykId { get; set; }
+        public Jezyk Jezyk { get; set; }
+
+        [Required, NotNull]
+        public int StopienId { get; set; }
+        public Stopien Stopien { get; set; }
+
+        [Required, NotNull]
+        public int TrybId { get; set; }
+        public Tryb Tryb { get; set; }
+
+        [Required]
+        public int CzasTrwaniaId { get; set; }
+        public CzasTrwania CzasTrwania { get; set; }
+
+
+        public List<KierunekPerspektywy> Perpektywy { get; } = new();
+        public List<KierunekPraktyki> Praktyki { get; } = new();
+        public List<KierunekMiejscaPracy> MiejscaPracy { get; } = new();
     }
 }

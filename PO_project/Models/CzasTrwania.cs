@@ -4,7 +4,7 @@ namespace PO_project.Models
 {
 	public class CzasTrwania
 	{
-		public int Id { get; set; }
+		public int CzasTrwaniaId { get; set; }
 
 		[Required]
 		public double Value { get; set; }

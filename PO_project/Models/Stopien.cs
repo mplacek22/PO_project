@@ -4,7 +4,7 @@ namespace PO_project.Models
 {
 	public class Stopien
 	{
-		public int Id { get; set; }
+		public int StopienId { get; set; }
 
 		[Required]
 		[MaxLength(5)]

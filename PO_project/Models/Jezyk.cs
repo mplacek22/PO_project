@@ -4,7 +4,7 @@ namespace PO_project.Models
 {
 	public class Jezyk
 	{
-		public int Id { get; set; }
+		public int JezykId { get; set; }
 
 		[Required]
 		[MaxLength(40)]

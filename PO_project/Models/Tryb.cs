@@ -4,7 +4,7 @@ namespace PO_project.Models
 {
 	public class Tryb
 	{
-		public int Id { get; set; }
+		public int TrybId { get; set; }
 
 		[Required]
 		[MaxLength(40)]

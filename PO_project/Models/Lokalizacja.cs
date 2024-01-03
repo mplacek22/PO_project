@@ -4,7 +4,7 @@ namespace PO_project.Models
 {
 	public class Lokalizacja
 	{
-		public int Id { get; set; }
+		public int LokalizacjaId { get; set; }
 
 		[Required]
 		[MaxLength(40)]

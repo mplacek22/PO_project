@@ -7,7 +7,6 @@ namespace PO_project.Models
 		public int Id { get; set; }
 
 		[Required]
-		[MaxLength(3)]
-		public string Name { get; set; }
+		public double Value { get; set; }
 	}
 }

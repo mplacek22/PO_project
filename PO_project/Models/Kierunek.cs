@@ -2,5 +2,6 @@
 {
     public class Kierunek
     {
+        public int Id { get; set; } 
     }
 }

@@ -7,6 +7,21 @@ namespace PO_project.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Pracodawca>().HasData(
+                new Pracodawca()
+                {
+                    PracodawcaId = 1
+                },
+                new Pracodawca()
+                {
+                    PracodawcaId = 2
+                },
+                new Pracodawca()
+                {
+                    PracodawcaId = 3
+                }
+                );
+
             modelBuilder.Entity<Adres>().HasData(
                 new Adres()
                 {
@@ -80,43 +95,43 @@ namespace PO_project.Data
                 }
             ); ;
 
-            modelBuilder.Entity<HistoryczneDane>().HasData(
-                new HistoryczneDane() 
-                {
-                    Year = 2020,
-                    PointThreshold = 370,
-                    CandidatesPerSpot = 2,
-                    KierunekId = 1
-                },
-                new HistoryczneDane()
-                {
-                    Year = 2020,
-                    PointThreshold = 360,
-                    CandidatesPerSpot = 1.85,
-                    KierunekId = 2
-                },
-                new HistoryczneDane()
-                {
-                    Year = 2020,
-                    PointThreshold = 200,
-                    CandidatesPerSpot = 1.05,
-                    KierunekId = 3
-                },
-                new HistoryczneDane()
-                {
-                    Year = 2021,
-                    PointThreshold = 400,
-                    CandidatesPerSpot = 2,
-                    KierunekId = 1
-                },
-                new HistoryczneDane()
-                {
-                    Year = 2022,
-                    PointThreshold = 430,
-                    CandidatesPerSpot = 2.6,
-                    KierunekId = 1
-                }
-            ); ;
+            //modelBuilder.Entity<HistoryczneDane>().HasData(
+            //    new HistoryczneDane() 
+            //    {
+            //        Year = 2020,
+            //        PointThreshold = 370,
+            //        CandidatesPerSpot = 2,
+            //        KierunekId = 1
+            //    },
+            //    new HistoryczneDane()
+            //    {
+            //        Year = 2020,
+            //        PointThreshold = 360,
+            //        CandidatesPerSpot = 1.85,
+            //        KierunekId = 2
+            //    },
+            //    new HistoryczneDane()
+            //    {
+            //        Year = 2020,
+            //        PointThreshold = 200,
+            //        CandidatesPerSpot = 1.05,
+            //        KierunekId = 3
+            //    },
+            //    new HistoryczneDane()
+            //    {
+            //        Year = 2021,
+            //        PointThreshold = 400,
+            //        CandidatesPerSpot = 2,
+            //        KierunekId = 1
+            //    },
+            //    new HistoryczneDane()
+            //    {
+            //        Year = 2022,
+            //        PointThreshold = 430,
+            //        CandidatesPerSpot = 2.6,
+            //        KierunekId = 1
+            //    }
+            //); ;
 
         }
     }

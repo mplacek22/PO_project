@@ -1,6 +1,11 @@
+using Microsoft.EntityFrameworkCore;
+using PO_project.Data;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddDbContext<PwrDbContext>(options =>
+	options.UseSqlServer(builder.Configuration.GetConnectionString("PWRDb")));
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();

@@ -9,7 +9,6 @@
         public string PostCode { get; set; } = string.Empty;
         public string BuildingNumber { get; set; } = string.Empty;
 
-
         public int? PracodawcaId { get; set; }
         public Pracodawca? Pracodawca { get; set; }
     }

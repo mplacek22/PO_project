@@ -8,7 +8,7 @@
         public List<KierunekPraktyki> Praktyki { get; } = new();
         public List<KierunekMiejscaPracy> MiejscaPracy { get; } = new();
 
-        public int? AdresId { get; set; } = null;
-        public Adres? adres { get; set; } = null;
+        public int AdresId { get; set; }
+        public Adres adres { get; set; } = null!;
     }
 }

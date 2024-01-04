@@ -7,21 +7,6 @@ namespace PO_project.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<Pracodawca>().HasData(
-                new Pracodawca()
-                {
-                    PracodawcaId = 1
-                },
-                new Pracodawca()
-                {
-                    PracodawcaId = 2
-                },
-                new Pracodawca()
-                {
-                    PracodawcaId = 3
-                }
-                );
-
             modelBuilder.Entity<Adres>().HasData(
                 new Adres()
                 {
@@ -30,7 +15,6 @@ namespace PO_project.Data
                     Street = "Grabiszynska",
                     PostCode = "50-030",
                     BuildingNumber = "4",
-                    PracodawcaId = 2
                 },
                 new Adres()
                 {
@@ -39,7 +23,6 @@ namespace PO_project.Data
                     Street = "Piekna",
                     PostCode = "51-518",
                     BuildingNumber = "219",
-                    PracodawcaId = 1
                 },
                 new Adres()
                 {
@@ -48,10 +31,25 @@ namespace PO_project.Data
                     Street = "Gorna",
                     PostCode = "01-015",
                     BuildingNumber = "30",
-                    PracodawcaId = 3
                 }
-                ); ;
-
+            );
+            modelBuilder.Entity<Pracodawca>().HasData(
+                new Pracodawca()
+                {
+                    PracodawcaId = 1,
+                    AdresId = 3
+                },
+                new Pracodawca()
+                {
+                    PracodawcaId = 2,
+                    AdresId = 2
+                },
+                new Pracodawca()
+                {
+                    PracodawcaId = 3,
+                    AdresId = 1
+                }
+            );
             modelBuilder.Entity<CzasTrwania>().HasData(
                 new CzasTrwania()
                 {
@@ -93,7 +91,7 @@ namespace PO_project.Data
                     CzasTrwaniaId = 8,
                     Value = 5
                 }
-            ); ;
+            );
 
             //modelBuilder.Entity<HistoryczneDane>().HasData(
             //    new HistoryczneDane() 
@@ -131,7 +129,7 @@ namespace PO_project.Data
             //        CandidatesPerSpot = 2.6,
             //        KierunekId = 1
             //    }
-            //); ;
+            //);
 
         }
     }

@@ -5,9 +5,6 @@ namespace PO_project.Data
 {
     public class PwrDbContext : DbContext
     {
-        public PwrDbContext()
-        {
-        }
         public PwrDbContext(DbContextOptions<PwrDbContext> options) : base(options){}
         public DbSet<Adres> Adresy { get; set; }
         public DbSet<CzasTrwania> CzasyTrwania { get; set; }
@@ -22,12 +19,6 @@ namespace PO_project.Data
         public DbSet<Stopien> Stopnie { get; set; }
         public DbSet<Tryb> Tryby { get; set; }
         public DbSet<Wydzial> Wydzialy { get; set; }
-
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("PWRDb");
-            base.OnConfiguring(optionsBuilder);
-        }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

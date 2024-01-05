@@ -35,7 +35,12 @@ namespace PO_project.Models
         public int CzasTrwaniaId { get; set; }
         public CzasTrwania CzasTrwania { get; set; } = null!;
 
+        [Required, NotNull]
+        public int WydzialId { get; set; }
+        public Wydzial Wydzial { get; set; } = null!;
 
+        public List<HistoryczneDane> HistoryczneDane { get; } = new();
+        public List<Specjalizacja> Specjalizacje { get; } = new();
         public List<KierunekPerspektywy> Perpektywy { get; } = new();
         public List<KierunekPraktyki> Praktyki { get; } = new();
         public List<KierunekMiejscaPracy> MiejscaPracy { get; } = new();

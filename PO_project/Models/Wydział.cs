@@ -12,5 +12,7 @@ namespace PO_project.Models
         [Required]
         public int? LokalizacjaId { get; set; }
         public Lokalizacja Lokalizacja { get; set; } = null!;
+
+        public List<Kierunek> Kierunki { get; } = new();
     }
 }

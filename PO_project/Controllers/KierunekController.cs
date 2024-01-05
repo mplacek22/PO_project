@@ -39,7 +39,9 @@ namespace PO_project.Controllers
                 .Include(k => k.Jezyk)
                 .Include(k => k.Stopien)
                 .Include(k => k.Tryb)
+                .Include(k => k.Wydzial)
                 .FirstOrDefaultAsync(m => m.KierunekId == id);
+
             if (kierunek == null)
             {
                 return NotFound();

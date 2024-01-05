@@ -1,12 +1,15 @@
 ﻿@model PO_project.Models.Kierunek
 
 @{
-    ViewData["Title"] = "Details";
+    ViewData["Title"] = Model.Name;
 }
 
-<h1>Details</h1>
+@foreach (var specjalizacja in Model.Specjalizacje)
+{
+    <p>@specjalizacja.Name</p>
+}
 
-<div>
+<div class="kierunek-details">
     <h4>Kierunek</h4>
     <hr />
     <dl class="row">
@@ -50,11 +53,7 @@
             @Html.DisplayNameFor(model => model.CzasTrwania)
         </dt>
         <dd class = "col-sm-10">
-            @Html.DisplayFor(model => model.CzasTrwania.CzasTrwaniaId)
+            @Html.DisplayFor(model => model.CzasTrwania.Value)
         </dd>
     </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model?.KierunekId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
 </div>

@@ -2,12 +2,10 @@
 
 #nullable disable
 
-#pragma warning disable CA1814 // Prefer jagged arrays over multidimensional
-
 namespace PO_project.Migrations
 {
     /// <inheritdoc />
-    public partial class cos : Migration
+    public partial class addTables : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -39,6 +37,19 @@ namespace PO_project.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CzasyTrwania", x => x.CzasTrwaniaId);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Jezyki",
+                columns: table => new
+                {
+                    JezykId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(40)", maxLength: 40, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Jezyki", x => x.JezykId);
                 });
 
             migrationBuilder.CreateTable(
@@ -86,6 +97,9 @@ namespace PO_project.Migrations
                 {
                     PracodawcaId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
+                    CompanyName = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Link = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     AdresId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
@@ -107,7 +121,7 @@ namespace PO_project.Migrations
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Abbreviation = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    LokalizacjaId = table.Column<int>(type: "int", nullable: true)
+                    LokalizacjaId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -127,8 +141,8 @@ namespace PO_project.Migrations
                     KierunekId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Name = table.Column<string>(type: "nvarchar(255)", maxLength: 255, nullable: false),
-                    Abbreviation = table.Column<string>(type: "nvarchar(4)", maxLength: 4, nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Abbreviation = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     JezykId = table.Column<int>(type: "int", nullable: false),
                     StopienId = table.Column<int>(type: "int", nullable: false),
                     TrybId = table.Column<int>(type: "int", nullable: false),
@@ -255,39 +269,25 @@ namespace PO_project.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.InsertData(
-                table: "Adresy",
-                columns: new[] { "AdresId", "BuildingNumber", "City", "PostCode", "Street" },
-                values: new object[,]
+            migrationBuilder.CreateTable(
+                name: "Specjalizacje",
+                columns: table => new
                 {
-                    { 1, "4", "Wroclaw", "50-030", "Grabiszynska" },
-                    { 2, "219", "Wroclaw", "51-518", "Piekna" },
-                    { 3, "30", "Warszawa", "01-015", "Gorna" }
-                });
-
-            migrationBuilder.InsertData(
-                table: "CzasyTrwania",
-                columns: new[] { "CzasTrwaniaId", "Value" },
-                values: new object[,]
+                    SpecjalizacjaId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Name = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false),
+                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    KierunekId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
                 {
-                    { 1, 1.5 },
-                    { 2, 2.0 },
-                    { 3, 2.5 },
-                    { 4, 3.0 },
-                    { 5, 3.5 },
-                    { 6, 4.0 },
-                    { 7, 4.5 },
-                    { 8, 5.0 }
-                });
-
-            migrationBuilder.InsertData(
-                table: "Pracodawcy",
-                columns: new[] { "PracodawcaId", "AdresId" },
-                values: new object[,]
-                {
-                    { 1, 3 },
-                    { 2, 2 },
-                    { 3, 1 }
+                    table.PrimaryKey("PK_Specjalizacje", x => x.SpecjalizacjaId);
+                    table.ForeignKey(
+                        name: "FK_Specjalizacje_Kierunki_KierunekId",
+                        column: x => x.KierunekId,
+                        principalTable: "Kierunki",
+                        principalColumn: "KierunekId",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
@@ -337,6 +337,11 @@ namespace PO_project.Migrations
                 column: "PracodawcaId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Specjalizacje_KierunekId",
+                table: "Specjalizacje",
+                column: "KierunekId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Wydzialy_LokalizacjaId",
                 table: "Wydzialy",
                 column: "LokalizacjaId");
@@ -358,28 +363,34 @@ namespace PO_project.Migrations
                 name: "Praktyki");
 
             migrationBuilder.DropTable(
-                name: "Wydzialy");
+                name: "Specjalizacje");
 
             migrationBuilder.DropTable(
-                name: "Kierunki");
+                name: "Wydzialy");
 
             migrationBuilder.DropTable(
                 name: "Pracodawcy");
 
             migrationBuilder.DropTable(
+                name: "Kierunki");
+
+            migrationBuilder.DropTable(
                 name: "Lokalizacje");
 
             migrationBuilder.DropTable(
+                name: "Adresy");
+
+            migrationBuilder.DropTable(
                 name: "CzasyTrwania");
+
+            migrationBuilder.DropTable(
+                name: "Jezyki");
 
             migrationBuilder.DropTable(
                 name: "Stopnie");
 
             migrationBuilder.DropTable(
                 name: "Tryby");
-
-            migrationBuilder.DropTable(
-                name: "Adresy");
         }
     }
 }

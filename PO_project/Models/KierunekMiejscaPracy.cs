@@ -7,9 +7,9 @@ namespace PO_project.Models
     public class KierunekMiejscaPracy
     {
         public int KierunekId { get; set; }
-        public Kierunek Kierunek { get; set; }
+        public Kierunek Kierunek { get; set; } = null!;
 
         public int PracodawcaId { get; set; }
-        public Pracodawca Pracodawca { get; set;}
+        public Pracodawca Pracodawca { get; set; } = null!;
     }
 }

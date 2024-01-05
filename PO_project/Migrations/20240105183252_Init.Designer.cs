@@ -11,7 +11,7 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240103214601_Init")]
+    [Migration("20240105183252_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -23,24 +23,6 @@ namespace PO_project.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
-
-            modelBuilder.Entity("PO_project.Models.Jezyk", b =>
-                {
-                    b.Property<int>("JezykId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("JezykId"));
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(40)
-                        .HasColumnType("nvarchar(40)");
-
-                    b.HasKey("JezykId");
-
-                    b.ToTable("Jezyki");
-                });
 #pragma warning restore 612, 618
         }
     }

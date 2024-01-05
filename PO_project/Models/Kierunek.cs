@@ -13,27 +13,27 @@ namespace PO_project.Models
 
         [Required, NotNull]
         [MinLength(1)]
-        [MaxLength(4)]
+        [MaxLength(10)]
         public string Abbreviation {  get; set; } = string.Empty;
 
         [AllowNull]
-        public string Description { get; set; } = string.Empty;
+        public string? Description { get; set; } = null;
 
-        [Required]
+        [Required, NotNull]
         public int JezykId { get; set; }
-        public Jezyk? Jezyk { get; set; }
+        public Jezyk Jezyk { get; set; } = null!;
 
         [Required, NotNull]
         public int StopienId { get; set; }
-        public Stopien? Stopien { get; set; }
+        public Stopien Stopien { get; set; } = null!;
 
         [Required, NotNull]
         public int TrybId { get; set; }
-        public Tryb? Tryb { get; set; }
+        public Tryb Tryb { get; set; } = null!;
 
-        [Required]
+        [Required, NotNull]
         public int CzasTrwaniaId { get; set; }
-        public CzasTrwania? CzasTrwania { get; set; }
+        public CzasTrwania CzasTrwania { get; set; } = null!;
 
 
         public List<KierunekPerspektywy> Perpektywy { get; } = new();

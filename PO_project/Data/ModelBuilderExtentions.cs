@@ -7,6 +7,8 @@ namespace PO_project.Data
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
+
+            #region Adres
             modelBuilder.Entity<Adres>().HasData(
                 new Adres()
                 {
@@ -33,23 +35,34 @@ namespace PO_project.Data
                     BuildingNumber = "30",
                 }
             );
+            #endregion
+
+            #region Pracodawca
             modelBuilder.Entity<Pracodawca>().HasData(
                 new Pracodawca()
                 {
                     PracodawcaId = 1,
+                    CompanyName = "Zdisław Firma",
+                    Description = "Firma",
+                    Link = "https://ZdzislawFirma.pl",
                     AdresId = 3
                 },
                 new Pracodawca()
                 {
                     PracodawcaId = 2,
+                    CompanyName = "Firma Budowlana",
                     AdresId = 2
                 },
                 new Pracodawca()
                 {
                     PracodawcaId = 3,
+                    CompanyName = "Warsztaty Moniki",
                     AdresId = 1
                 }
             );
+            #endregion
+
+            #region Czas Trwania
             modelBuilder.Entity<CzasTrwania>().HasData(
                 new CzasTrwania()
                 {
@@ -92,44 +105,332 @@ namespace PO_project.Data
                     Value = 5
                 }
             );
+            #endregion
 
-            //modelBuilder.Entity<HistoryczneDane>().HasData(
-            //    new HistoryczneDane() 
-            //    {
-            //        Year = 2020,
-            //        PointThreshold = 370,
-            //        CandidatesPerSpot = 2,
-            //        KierunekId = 1
-            //    },
-            //    new HistoryczneDane()
-            //    {
-            //        Year = 2020,
-            //        PointThreshold = 360,
-            //        CandidatesPerSpot = 1.85,
-            //        KierunekId = 2
-            //    },
-            //    new HistoryczneDane()
-            //    {
-            //        Year = 2020,
-            //        PointThreshold = 200,
-            //        CandidatesPerSpot = 1.05,
-            //        KierunekId = 3
-            //    },
-            //    new HistoryczneDane()
-            //    {
-            //        Year = 2021,
-            //        PointThreshold = 400,
-            //        CandidatesPerSpot = 2,
-            //        KierunekId = 1
-            //    },
-            //    new HistoryczneDane()
-            //    {
-            //        Year = 2022,
-            //        PointThreshold = 430,
-            //        CandidatesPerSpot = 2.6,
-            //        KierunekId = 1
-            //    }
-            //);
+            #region Jezyk
+            modelBuilder.Entity<Jezyk>().HasData(
+                new Jezyk()
+                {
+                    JezykId = 1,
+                    Name = "Polski"
+                },
+                new Jezyk()
+                {
+                    JezykId = 2,
+                    Name = "Angielski"
+                }
+                );
+            #endregion
+
+            #region Tryb
+            modelBuilder.Entity<Tryb>().HasData(
+                new Tryb()
+                {
+                    TrybId = 1,
+                    Name = "Stacjonarny"
+                },
+                new Tryb()
+                {
+                    TrybId = 2,
+                    Name = "Niestacjonarny"
+                }
+            );
+            #endregion
+
+            #region Stopien
+            modelBuilder.Entity<Stopien>().HasData(
+                new Stopien()
+                {
+                    StopienId = 1,
+                    Name = "I"
+                },
+                new Stopien()
+                {
+                    StopienId = 2,
+                    Name = "II"
+                }
+            );
+            #endregion
+
+            #region Lokalizacja
+            modelBuilder.Entity<Lokalizacja>().HasData(
+                new Lokalizacja()
+                {
+                    LokalizacjaId = 1,
+                    Name = "Wroclaw"
+                },
+                new Lokalizacja()
+                {
+                    LokalizacjaId = 2,
+                    Name = "Jelenia Góra"
+                },
+                new Lokalizacja()
+                {
+                    LokalizacjaId = 3,
+                    Name = "Legnica"
+                },
+                new Lokalizacja()
+                {
+                    LokalizacjaId = 4,
+                    Name = "Wałbrzych"
+                }
+            );
+            #endregion
+
+            #region Wydzial
+            modelBuilder.Entity<Wydzial>().HasData(
+                new Wydzial()
+                {
+                    WydzialId = 1,
+                    Name = "Wydział Architektury",
+                    Abbreviation = "W1",
+                    LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 2,
+                    Name = "Wydział Budownictwa",
+                    Abbreviation = "W2",
+                    LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 3,
+                    Name = "Wydział Chemiczny",
+                    Abbreviation = "W3",
+                    LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 4,
+                    Name = "Wydział Informatyki i Telekomunikacji",
+                    Abbreviation = "W4",
+                    LokalizacjaId = 1
+                }
+            );
+            #endregion
+
+            #region Kierunek
+            modelBuilder.Entity<Kierunek>().HasData(
+                new Kierunek()
+                {
+                    KierunekId = 1,
+                    Name = "Informatyka Stosowana",
+                    Abbreviation = "IST",
+                    Description = "Najlepszy kierunek",
+                    CzasTrwaniaId = 5,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 2,
+                    Name = "Architektura",
+                    Abbreviation = "ARC",
+                    Description = "Opis architektury.",
+                    CzasTrwaniaId = 6,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 3,
+                    Name = "Applied Computer Science",
+                    Abbreviation = "ISTA",
+                    Description = "Second best one.",
+                    CzasTrwaniaId = 5,
+                    JezykId = 2,
+                    StopienId = 1,
+                    TrybId = 1,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 4,
+                    Name = "Budownictwo",
+                    Abbreviation = "BUD-2",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 2,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 5,
+                    Name = "Budownictwo",
+                    Abbreviation = "BUD-2N",
+                    Description = "",
+                    CzasTrwaniaId = 5,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 1,
+                }
+            );
+            #endregion
+
+            #region Specjalizacje
+            modelBuilder.Entity<Specjalizacja>().HasData(
+                new Specjalizacja()
+                {
+                    SpecjalizacjaId = 1,
+                    Name = "Budownictwo Lądowe",
+                    Description = "Opis budownictwa lądowego",
+                    KierunekId = 4
+                }
+                );
+            #endregion
+
+            #region Historyczne Dane
+            modelBuilder.Entity<HistoryczneDane>().HasData(
+                 new HistoryczneDane()
+                 {
+                     Year = 2020,
+                     PointThreshold = 370,
+                     CandidatesPerSpot = 2,
+                     KierunekId = 1
+                 },
+                 new HistoryczneDane()
+                 {
+                     Year = 2020,
+                     PointThreshold = 360,
+                     CandidatesPerSpot = 1.85,
+                     KierunekId = 2
+                 },
+                 new HistoryczneDane()
+                 {
+                     Year = 2020,
+                     PointThreshold = 200,
+                     CandidatesPerSpot = 1.05,
+                     KierunekId = 3
+                 },
+                 new HistoryczneDane()
+                 {
+                     Year = 2021,
+                     PointThreshold = 400,
+                     CandidatesPerSpot = 2,
+                     KierunekId = 1
+                 },
+                 new HistoryczneDane()
+                 {
+                     Year = 2022,
+                     PointThreshold = 430,
+                     CandidatesPerSpot = 2.6,
+                     KierunekId = 1
+                 }
+             );
+            #endregion
+
+            #region Kierunek-Perspektywy
+            modelBuilder.Entity<KierunekPerspektywy>().HasData(
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 1,
+                    PracodawcaId = 1,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 2,
+                    PracodawcaId = 1,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 1,
+                    PracodawcaId = 2,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 1,
+                    PracodawcaId = 3,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 2,
+                    PracodawcaId = 2,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 4,
+                    PracodawcaId = 2,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 4,
+                    PracodawcaId = 1,
+                },
+                new KierunekPerspektywy()
+                {
+                    KierunekId = 3,
+                    PracodawcaId = 1,
+                }
+            );
+            #endregion
+
+            #region Kierunek-Praktyki
+            modelBuilder.Entity<KierunekPraktyki>().HasData(
+                new KierunekPraktyki()
+                {
+                    KierunekId = 1,
+                    PracodawcaId = 2,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 2,
+                    PracodawcaId = 2,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 3,
+                    PracodawcaId = 2,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 4,
+                    PracodawcaId = 2,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 5,
+                    PracodawcaId = 2,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 1,
+                    PracodawcaId = 1,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 5,
+                    PracodawcaId = 3
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 4,
+                    PracodawcaId = 3,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 4,
+                    PracodawcaId = 1,
+                },
+                new KierunekPraktyki()
+                {
+                    KierunekId = 2,
+                    PracodawcaId = 1,
+                }
+            );
+            #endregion
+
+            #region Kierunek-Miejsca Pracy
+            modelBuilder.Entity<KierunekMiejscaPracy>().HasData(
+                new KierunekMiejscaPracy()
+                {
+                    KierunekId = 1,
+                    PracodawcaId = 1
+                }
+            );
+            #endregion
 
         }
     }

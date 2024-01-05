@@ -4,68 +4,28 @@
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<link rel="stylesheet" href="~/css/Kierunek.css" />
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Abbreviation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Jezyk)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stopien)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tryb)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CzasTrwania)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Abbreviation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Jezyk.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stopien.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tryb.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CzasTrwania.CzasTrwaniaId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.KierunekId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.KierunekId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.KierunekId">Delete</a>
-            </td>
-        </tr>
+
+<div>
+    <h1>Przegląd listy kierunków</h1>
+</div>
+
+@{
+    ViewData["Title"] = "Index";
 }
-    </tbody>
-</table>
+
+<div class="container-fluid">
+    <div class="row justify-content-center">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4">
+                <div class="card">
+                    <div class="card-header">
+                        <a asp-action="Details" asp-route-id="@item.KierunekId">@item.Name</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

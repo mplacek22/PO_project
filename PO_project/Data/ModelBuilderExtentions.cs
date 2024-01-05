@@ -259,10 +259,43 @@ namespace PO_project.Data
                 new Kierunek()
                 {
                     KierunekId = 5,
-                    Name = "Budownictwo",
-                    Abbreviation = "BUD-2N",
+                    Name = "Cyberbezpieczeństwo",
+                    Abbreviation = "CBE",
                     Description = "",
-                    CzasTrwaniaId = 5,
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 6,
+                    Name = "Energetyka",
+                    Abbreviation = "ENG",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 2,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 7,
+                    Name = "Matematyka",
+                    Abbreviation = "MAT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 2,
+                },
+                new Kierunek()
+                {
+                    KierunekId = 8,
+                    Name = "Optyka",
+                    Abbreviation = "OPT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 1,

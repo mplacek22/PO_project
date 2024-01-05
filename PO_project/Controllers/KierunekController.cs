@@ -40,6 +40,9 @@ namespace PO_project.Controllers
                 .Include(k => k.Stopien)
                 .Include(k => k.Tryb)
                 .Include(k => k.Wydzial)
+                .Include(k => k.Specjalizacje)
+                .Include(k => k.Perpektywy)
+                    .ThenInclude(kp => kp.Pracodawca)
                 .FirstOrDefaultAsync(m => m.KierunekId == id);
 
             if (kierunek == null)

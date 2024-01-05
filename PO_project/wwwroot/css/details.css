@@ -1,0 +1,22 @@
+﻿body {
+}
+
+p {
+    color: blue;
+}
+
+.top-choice-box {
+    height: 15%;
+    width: 50%;
+    left: 20%;
+    top: 20%;
+    margin-bottom: 5%;
+    border: 2px solid black;
+}
+
+.top-choice-box p {
+    color: blue;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 0.1;
+}

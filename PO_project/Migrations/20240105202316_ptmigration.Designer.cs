@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PO_project.Data;
 
@@ -11,9 +12,11 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    partial class PwrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240105202316_ptmigration")]
+    partial class ptmigration
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -256,9 +259,6 @@ namespace PO_project.Migrations
                     b.Property<int>("TrybId")
                         .HasColumnType("int");
 
-                    b.Property<int>("WydzialId")
-                        .HasColumnType("int");
-
                     b.HasKey("KierunekId");
 
                     b.HasIndex("CzasTrwaniaId");
@@ -268,8 +268,6 @@ namespace PO_project.Migrations
                     b.HasIndex("StopienId");
 
                     b.HasIndex("TrybId");
-
-                    b.HasIndex("WydzialId");
 
                     b.ToTable("Kierunki");
 
@@ -283,8 +281,7 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Informatyka Stosowana",
                             StopienId = 1,
-                            TrybId = 1,
-                            WydzialId = 4
+                            TrybId = 1
                         },
                         new
                         {
@@ -295,8 +292,7 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Architektura",
                             StopienId = 1,
-                            TrybId = 1,
-                            WydzialId = 1
+                            TrybId = 1
                         },
                         new
                         {
@@ -307,8 +303,7 @@ namespace PO_project.Migrations
                             JezykId = 2,
                             Name = "Applied Computer Science",
                             StopienId = 1,
-                            TrybId = 1,
-                            WydzialId = 4
+                            TrybId = 1
                         },
                         new
                         {
@@ -319,8 +314,7 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Budownictwo",
                             StopienId = 2,
-                            TrybId = 2,
-                            WydzialId = 2
+                            TrybId = 2
                         },
                         new
                         {
@@ -364,8 +358,7 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Optyka",
                             StopienId = 2,
-                            TrybId = 1,
-                            WydzialId = 2
+                            TrybId = 1
                         });
                 });
 
@@ -760,7 +753,7 @@ namespace PO_project.Migrations
             modelBuilder.Entity("PO_project.Models.HistoryczneDane", b =>
                 {
                     b.HasOne("PO_project.Models.Kierunek", "Kierunek")
-                        .WithMany("HistoryczneDane")
+                        .WithMany()
                         .HasForeignKey("KierunekId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -794,12 +787,6 @@ namespace PO_project.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("PO_project.Models.Wydzial", "Wydzial")
-                        .WithMany("Kierunki")
-                        .HasForeignKey("WydzialId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("CzasTrwania");
 
                     b.Navigation("Jezyk");
@@ -807,8 +794,6 @@ namespace PO_project.Migrations
                     b.Navigation("Stopien");
 
                     b.Navigation("Tryb");
-
-                    b.Navigation("Wydzial");
                 });
 
             modelBuilder.Entity("PO_project.Models.KierunekMiejscaPracy", b =>
@@ -882,7 +867,7 @@ namespace PO_project.Migrations
             modelBuilder.Entity("PO_project.Models.Specjalizacja", b =>
                 {
                     b.HasOne("PO_project.Models.Kierunek", "kierunek")
-                        .WithMany("Specjalizacje")
+                        .WithMany()
                         .HasForeignKey("KierunekId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -908,15 +893,11 @@ namespace PO_project.Migrations
 
             modelBuilder.Entity("PO_project.Models.Kierunek", b =>
                 {
-                    b.Navigation("HistoryczneDane");
-
                     b.Navigation("MiejscaPracy");
 
                     b.Navigation("Perpektywy");
 
                     b.Navigation("Praktyki");
-
-                    b.Navigation("Specjalizacje");
                 });
 
             modelBuilder.Entity("PO_project.Models.Pracodawca", b =>
@@ -926,11 +907,6 @@ namespace PO_project.Migrations
                     b.Navigation("Perpektywy");
 
                     b.Navigation("Praktyki");
-                });
-
-            modelBuilder.Entity("PO_project.Models.Wydzial", b =>
-                {
-                    b.Navigation("Kierunki");
                 });
 #pragma warning restore 612, 618
         }

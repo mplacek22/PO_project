@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PO_project.Enums;
 using PO_project.Models;
 
 namespace PO_project.Data
@@ -243,7 +244,9 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,                    
+					Olimpiady = new Olimpiada[] { Olimpiada.Matematyczna, Olimpiada.Informatyczna },
+                    PrzedmiotyDodatkowe = new (Matura, Matura)[] { (Matura.FizykaP, Matura.FizykaR), (Matura.InformatykaP, Matura.InformatykaR) }
                 },
                 new Kierunek()
                 {

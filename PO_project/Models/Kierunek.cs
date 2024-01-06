@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using PO_project.Enums;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Diagnostics.CodeAnalysis;
 
 namespace PO_project.Models
@@ -42,7 +44,13 @@ namespace PO_project.Models
         public List<HistoryczneDane> HistoryczneDane { get; } = new();
         public List<Specjalizacja> Specjalizacje { get; } = new();
         public List<KierunekPerspektywy> Perpektywy { get; } = new();
-        public List<KierunekPraktyki> Praktyki { get; } = new();
+        public List<KierunekPraktyki> Praktyki { get;} = new();
         public List<KierunekMiejscaPracy> MiejscaPracy { get; } = new();
-    }
+
+		[NotMapped]
+		public Olimpiada[] Olimpiady { get; set; }
+
+		[NotMapped]
+		public (Matura, Matura)[] PrzedmiotyDodatkowe { get; set; }
+	}
 }

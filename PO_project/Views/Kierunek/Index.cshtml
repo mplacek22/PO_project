@@ -2,6 +2,12 @@
 
 <link rel="stylesheet" href="~/css/Kierunek.css" />
 
+<script>
+    function submitForm() {
+        document.getElementById('filterForm').submit();
+    }
+</script>
+
 @{
     ViewData["Title"] = "Index";
 }
@@ -12,54 +18,6 @@
 </div>
 
 
-@using (Html.BeginForm("Index", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
-{
-    <div class="form-group">
-        <div class="select-container">
-            <h4> Wybierz stopień </h4>
-            <label class="control-label" title="Wybierz Stopień"></label>
-            <select name="stopienId" asp-items="ViewBag.Stopnie" onchange="submitForm()">
-                <option value="">Wybierz</option>
-            </select>
-        </div>
-
-        <br>
-
-        <div class="select-group">
-            <h4> Wybierz wydział </h4>
-            <label class="control-label" title="Wybierz wydział"></label>
-            <select name="wydzialId" asp-items="ViewBag.Wydzialy" onchange="submitForm()">
-                <option value="">Wybierz</option>
-            </select>
-        </div>
-
-        <div class="select-group">
-            <h4> Wybierz tryb </h4>
-            <label class="control-label" title="Wybierz tryb"></label>
-            <select name="trybId" asp-items="ViewBag.Tryby" onchange="submitForm()">
-                <option value="">Wybierz</option>
-            </select>
-        </div>
-
-        <div class="select-group">
-            <h4> Wybierz język </h4>
-            <label class="control-label" title="Wybierz język"></label>
-            <select name="jezykId" asp-items="ViewBag.Jezyki" onchange="submitForm()">
-                <option value="">Wybierz</option>
-            </select>
-        </div>
-    </div>
-
-}
-
-<script>
-    // JavaScript function to submit the form
-    function submitForm() {
-        document.getElementById('filterForm').submit();
-    }
-</script>
-
-
 
 
 <hr class="solid">
@@ -67,6 +25,48 @@
 
 @if (Model != null)
 {
+    @using (Html.BeginForm("Index", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+    {
+        <div class="form-group">
+            <div class="select-container">
+                <h4> Wybierz stopień </h4>
+                <label class="control-label" title="Wybierz Stopień"></label>
+                <select name="stopienId" asp-items="ViewBag.Stopnie" onchange="submitForm()">
+                    <option value="">Wybierz</option>
+                </select>
+            </div>
+
+            <br>
+
+            <div class="select-group">
+                <h4> Wybierz wydział </h4>
+                <label class="control-label" title="Wybierz wydział"></label>
+                <select name="wydzialId" asp-items="ViewBag.Wydzialy" onchange="submitForm()">
+                    <option value="">Wybierz</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <h4> Wybierz tryb </h4>
+                <label class="control-label" title="Wybierz tryb"></label>
+                <select name="trybId" asp-items="ViewBag.Tryby" onchange="submitForm()">
+                    <option value="">Wybierz</option>
+                </select>
+            </div>
+
+            <div class="select-group">
+                <h4> Wybierz język </h4>
+                <label class="control-label" title="Wybierz język"></label>
+                <select name="jezykId" asp-items="ViewBag.Jezyki" onchange="submitForm()">
+                    <option value="">Wybierz</option>
+                </select>
+            </div>
+        </div>
+    }
+
+    <hr class="solid">
+
+
     <div class="container-fluid">
         <div class="row justify-content-center">
             @foreach (var item in Model)
@@ -81,4 +81,22 @@
             }
         </div>
     </div>
+}
+else
+{
+    @using (Html.BeginForm("Index", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+    {
+        <div class="form-group">
+            <div class="select-container">
+                <h4> Wybierz stopień </h4>
+                <label class="control-label" title="Wybierz Stopień"></label>
+                <select name="stopienId" asp-items="ViewBag.Stopnie" onchange="submitForm()">
+                    <option value="">Wybierz</option>
+                </select>
+            </div>
+        </div>
+
+    }
+    <h4>Wybierz stopień</h4>
+    <p>Najwięcej kierunków zostało wprowadzone do 1 stopnia wydział Informayki i Telekomunikacji</p>
 }

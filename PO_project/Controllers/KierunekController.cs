@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
 using PO_project.Models;
+using PO_project.RecrutationCalc;
 
 namespace PO_project.Controllers
 {
@@ -77,6 +79,72 @@ namespace PO_project.Controllers
             }
 
             return View(kierunek);
+        }
+
+        public async Task<IActionResult> Calculator(int? id, double? pointsKierunek, double? points)
+        {
+            if (id == null || _context.Kierunki == null)
+            {
+                return NotFound();
+            }
+
+            var kierunek = await _context.Kierunki.FindAsync(id);
+
+            if (kierunek == null)
+            {
+                return NotFound();
+            }
+
+            if (kierunek.StopienId == 2)
+            {
+                return View("~/Views/Kalkulatory/" + kierunek.Name + "-" + kierunek.StopienId + ".cshtml", (kierunek, pointsKierunek, points));
+            }
+
+            return View("Details", kierunek);
+        }
+
+        public IActionResult Calculate(int? id, double d, double sr, double? e, int? od)
+        {
+            Bachelore batchelore = new Bachelore();
+            var kierunek = _context.Kierunki.Find(id);
+
+            if (kierunek == null)
+            {
+                return NotFound();
+            }
+
+            MethodInfo? calculatorMethodInfo;
+            double pointsKierunek;
+            double points = batchelore.Base(d, sr);
+
+            if (e == null)
+            {
+                if (od == null)
+                {
+                    calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double) });
+                    pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d, sr })!;
+
+                } 
+                else
+                {
+                    calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double), typeof(int) });
+                    pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d, sr, od! })!;
+                }
+            } else
+            {
+                if (od == null)
+                {
+                    calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double), typeof(double) });
+                    pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d, sr, e! })!;
+                } 
+                else
+                {
+                    calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double), typeof(double), typeof(int) });
+                    pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d, sr, e, od })!;
+                }
+            }
+
+            return RedirectToAction("Calculator", new {id, pointsKierunek, points});
         }
 
         // GET: Kierunek/Create

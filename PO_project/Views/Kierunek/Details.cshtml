@@ -74,6 +74,7 @@
                 <h3>@specjalizacja.Name</h3>
                 <p>@specjalizacja.Description</p>
             </div>
+            <button type="submit" class="btn btn-primary">Show Articles</button>
         }
     </div>
 
@@ -84,7 +85,7 @@
 </div>
 
 <div class="additional-links">
-    <a asp-action="Edit" asp-route-id="@Model.KierunekId">Policz swój wskaźnik</a>
+    <a asp-action="Calculator" asp-route-id="@Model.KierunekId">Policz swój wskaźnik</a>
     <a asp-action="Index" >Znajdź inne kierunki</a>
 </div>
 

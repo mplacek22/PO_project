@@ -10,11 +10,11 @@ using PO_project.Models;
 
 namespace PO_project.Controllers
 {
-    public class PytaniesController : Controller
+    public class PytanieController : Controller
     {
         private readonly PwrDbContext _context;
 
-        public PytaniesController(PwrDbContext context)
+        public PytanieController(PwrDbContext context)
         {
             _context = context;
         }

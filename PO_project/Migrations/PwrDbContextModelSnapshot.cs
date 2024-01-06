@@ -612,7 +612,7 @@ namespace PO_project.Migrations
 
                     b.HasIndex("PytanieId");
 
-                    b.ToTable("Odzpowiedz");
+                    b.ToTable("Odpowiedzi");
 
                     b.HasData(
                         new

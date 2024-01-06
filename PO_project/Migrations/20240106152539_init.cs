@@ -150,7 +150,7 @@ namespace PO_project.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Odzpowiedz",
+                name: "Odpowiedzi",
                 columns: table => new
                 {
                     OdzpowiedzId = table.Column<int>(type: "int", nullable: false)
@@ -160,9 +160,9 @@ namespace PO_project.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Odzpowiedz", x => x.OdzpowiedzId);
+                    table.PrimaryKey("PK_Odpowiedzi", x => x.OdzpowiedzId);
                     table.ForeignKey(
-                        name: "FK_Odzpowiedz_Pytanie_PytanieId",
+                        name: "FK_Odpowiedzi_Pytanie_PytanieId",
                         column: x => x.PytanieId,
                         principalTable: "Pytanie",
                         principalColumn: "PytanieId",
@@ -408,7 +408,7 @@ namespace PO_project.Migrations
                 });
 
             migrationBuilder.InsertData(
-                table: "Odzpowiedz",
+                table: "Odpowiedzi",
                 columns: new[] { "OdzpowiedzId", "PytanieId", "Tresc" },
                 values: new object[,]
                 {
@@ -561,8 +561,8 @@ namespace PO_project.Migrations
                 column: "PracodawcaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Odzpowiedz_PytanieId",
-                table: "Odzpowiedz",
+                name: "IX_Odpowiedzi_PytanieId",
+                table: "Odpowiedzi",
                 column: "PytanieId");
 
             migrationBuilder.CreateIndex(
@@ -602,7 +602,7 @@ namespace PO_project.Migrations
                 name: "MiejscaPracy");
 
             migrationBuilder.DropTable(
-                name: "Odzpowiedz");
+                name: "Odpowiedzi");
 
             migrationBuilder.DropTable(
                 name: "Perspektywy");

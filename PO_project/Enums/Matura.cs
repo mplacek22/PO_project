@@ -1,9 +1,16 @@
-﻿namespace PO_project.Enums
+﻿using System.ComponentModel;
+
+namespace PO_project.Enums
 {
 	public enum Matura
 	{
+        [Description("Matematyka podstawowa")]
 		MatematykaP = 0,
+
+		[Description("Matematyka rozszerzona")]
 		MatematykaR = 1,
+
+		[Description("Język polski podstawowy")]
 		JezykPolskiP = 2,
 		JezykPolskiR = 3,
 		BiologiaP = 4,

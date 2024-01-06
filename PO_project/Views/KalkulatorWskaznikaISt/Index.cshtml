@@ -1,0 +1,17 @@
+﻿@using PO_project.Enums;
+@model PO_project.KalkulatorWskaznika.FormularzRekrutacyjnyISt
+
+@using (Html.BeginForm("Index", "KalkulatorWskaznikaIStController", FormMethod.Post))
+{
+    for (int i = 0; i < Model.WynikiMatur.Count; i++)
+    {
+        var matura = (Matura)i;
+                <div>
+            @Html.HiddenFor(m => Model.WynikiMatur[i].Key, new { @Value = matura })
+            @Html.LabelFor(m => Model.WynikiMatur[i].Value, Model.WynikiMatur[i].Key.GetEnumLabel())
+            @Html.TextBoxFor(m => Model.WynikiMatur[i].Value)
+                </div>
+    }
+
+        <input type="submit" value="Submit" />
+}

@@ -376,6 +376,13 @@ namespace PO_project.Data
                     Name = "Budownictwo Lądowe",
                     Description = "Opis budownictwa lądowego",
                     KierunekId = 4
+                },
+                new Specjalizacja()
+                {
+                    SpecjalizacjaId = 2,
+                    Name = "Budownictwo Wodne",
+                    Description = "Opis budownictwa wodnego",
+                    KierunekId = 4
                 }
                 );
             #endregion
@@ -530,15 +537,15 @@ namespace PO_project.Data
             );
             #endregion
 
-            #region Pytanie
-            modelBuilder.Entity<Pytania>().HasData(
-                new Pytania()
-                {
-                    PytaniaId = 1,
-                    Tresc = "Czy jesteś zadowolony ze swojego wyboru kierunku studiów?"
-                }
-                );
-            #endregion
+            //#region Pytanie
+            //modelBuilder.Entity<Pytania>().HasData(
+            //    new Pytania()
+            //    {
+            //        PytaniaId = 1,
+            //        Tresc = "Czy jesteś zadowolony ze swojego wyboru kierunku studiów?"
+            //    }
+            //    );
+            //#endregion
 
         }
     }

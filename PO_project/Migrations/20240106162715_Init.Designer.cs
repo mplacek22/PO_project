@@ -12,8 +12,8 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240105235918_init")]
-    partial class init
+    [Migration("20240106162715_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

@@ -5,9 +5,10 @@
 }
 
 <link rel="stylesheet" href="~/css/details.css"/>
-
-
-<h1>@Html.DisplayFor(model => model.Name)</h1>
+<script src="https://kit.fontawesome.com/27d4c0b12f.js" crossorigin="anonymous"></script>
+<div class="course-header">
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
+</div>
 
 <div class="main-content-container">
     <div class="metrics-container">
@@ -64,7 +65,15 @@
         <h2>Specjalizacje</h2>
         @foreach (var specjalizacja in Model.Specjalizacje)
         {
-            <p>@specjalizacja.Name</p>
+            <div class="speciality">
+                <label class="speciality-button">
+                    <input type="checkbox" name="speciality" class="speciality-input"/>
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+                </label>
+                <h3>@specjalizacja.Name</h3>
+                <p>@specjalizacja.Description</p>
+            </div>
         }
     </div>
 
@@ -79,26 +88,39 @@
     <a asp-action="Index" >Znajdź inne kierunki</a>
 </div>
 
-<h2>Więcej informacji</h2>
 
+<div class="additional-info">
+<h1>Więcej informacji</h1>
+
+<div class="additional-info-separator">
+    <p>Praktyki, staże, kariera</p>
+</div>
 
 <h3>Perspektywy</h3>
-@foreach (var perspektywa in Model.Perpektywy)
-{
-    <p>@perspektywa.Pracodawca.CompanyName</p>
-}
+<ul>
+    @foreach (var perspektywa in Model.Perpektywy)
+    {
+        <li>@perspektywa.Pracodawca.CompanyName</li>
+    }
+</ul>
 
 <h3>Praktyki i staże</h3>
-@foreach (var perspektywa in Model.Perpektywy)
-{
-    <p>@perspektywa.Pracodawca.CompanyName</p>
-}
+<ul>
+    @foreach (var praktyka in Model.Praktyki)
+    {
+        <li>@praktyka.Pracodawca.CompanyName</li>
+    }
+</ul>
 
 <h3>Miejsca pracy absolwentów</h3>
-@foreach (var perspektywa in Model.Perpektywy)
-{
-    <p>@perspektywa.Pracodawca.CompanyName</p>
-}
+<ul>
+    @foreach (var miejscePracy in Model.MiejscaPracy)
+    {
+         <li>@miejscePracy.Pracodawca.CompanyName</li>
+    }
+</ul>
+</div>
+
 
 @section Scripts {
     <script>
@@ -149,3 +171,4 @@
         }
     </script>
 }
+

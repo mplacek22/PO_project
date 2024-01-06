@@ -376,6 +376,13 @@ namespace PO_project.Data
                     Name = "Budownictwo Lądowe",
                     Description = "Opis budownictwa lądowego",
                     KierunekId = 4
+                },
+                new Specjalizacja()
+                {
+                    SpecjalizacjaId = 2,
+                    Name = "Budownictwo Wodne",
+                    Description = "Opis budownictwa wodnego",
+                    KierunekId = 4
                 }
                 );
             #endregion

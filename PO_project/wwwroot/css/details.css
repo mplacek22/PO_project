@@ -1,4 +1,15 @@
-﻿
+﻿body {
+    --hover-color: rgb(160, 180, 230)
+}
+
+
+
+/*#region Course header*/
+.course-header h1 {
+    color: black;
+}
+
+/*#endregion*/
 
 /*#region Main content*/
 
@@ -9,15 +20,11 @@
     position: relative;
 }
 
-.main-content-container * {
-    box-sizing: border-box;
-}
-
 /*#region Metrics*/
 .metrics-container {
     position: absolute;
     height: fit-content;
-    min-width: 20vw;
+    min-width: 15vw;
     left: 110%;
     display: flex;
     flex-direction: column;
@@ -82,7 +89,6 @@
     height: 100%;
     border-width: 0px;
     border-style: solid;
-    border-color: rgb(70, 70, 70);
     border-radius: 20px;
     cursor: pointer;
     font-size: 12px;
@@ -95,12 +101,16 @@
     height: 0;
 }
 
+.description-holder:hover span {
+    background-color: var(--hover-color);
+}
+
 .description-holder input:checked + span {
     border-width: 2px;
+    border-color: rgb(70, 70, 70);
 }
 
 /*#endregion*/
-
 
 /*#region Chosen content commons*/
 
@@ -118,11 +128,63 @@
 /*#endregion*/
 
 /*#region Specialities */
-/*#endregion*/
+.speciality {
+    position: relative;
+    padding: 0 10px 0 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 5px 0 0 0;
+}
+.speciality h3{
+    margin: 10px;
+}
 
+.speciality p {
+    display: none;
+}
+
+.speciality-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 100%;
+    transform: translate(-150%, 10px);
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.speciality-button input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.speciality:has(input:checked) p {
+    display: block;
+}
+
+.speciality-button fa-plus {
+    display: block;
+}
+
+.speciality-button input:checked + .fa-plus {
+    display: none;
+}
+
+.speciality-button:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.speciality-button i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*#endregion*/
 /*#region Cryteria */
 /*#endregion*/
-
 /*#endregion*/
 
 /*#region Additional links */
@@ -130,14 +192,63 @@
     margin: 5% 0 5% 0;
     display: flex;
     flex-direction: row;
-    
 }
 
-.additional-links {
-    margin: 5% 0 5% 0;
+.additional-links a {
+    margin: 3%;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 40px;
+    font-size: 1.5rem;
+    border: 2px solid black;
+    border-radius: 20px;
 }
 
+.additional-links a:hover {
+    background-color: rgb(160, 180, 230);
+}
 
 /*#endregion*/
 
+/*#region Additional info */
+.additional-info h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 500;
+    color: black;
+}
 
+.additional-info h3 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+    margin-top: 5%;
+}
+
+.additional-info-separator {
+    height: 10vh;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 2px solid grey;
+    border-radius: 30px;
+}
+
+.additional-info-separator > p {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    color: black;
+    font-weight: 800;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+/*#endregion*/

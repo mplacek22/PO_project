@@ -7,17 +7,17 @@ namespace PO_project.KalkulatorWskaznika
     {
         public const int MAX_WSKAZNIK_REKRUTACYJNY = 535;
 
-		public static double CalculateWskaznikRekrutacyjny(Dictionary<Matura, int> wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, Olimpiada[] wynikiOlimpiad, Kierunek kierunek)
+		public static double CalculateWskaznikRekrutacyjny(WynikMatury[] wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, List<Olimpiada> wynikiOlimpiad, Kierunek kierunek)
 		{
 			if (IsOlimpijczyk(wynikiOlimpiad, kierunek.Olimpiady))
 			{
 				return MAX_WSKAZNIK_REKRUTACYJNY;
 			}
 
-			double M = CalculateSubjectScore(wynikiZMatur[Matura.MatematykaP], wynikiZMatur[Matura.MatematykaR]);
-			double JP = CalculateSubjectScore(wynikiZMatur[Matura.JezykPolskiP], wynikiZMatur[Matura.JezykPolskiR]);
-			double JO = CalculateSubjectScore(wynikiZMatur[Matura.JezykObcyP], wynikiZMatur[Matura.JezykObcyR]);
-			double PD = kierunek.PrzedmiotyDodatkowe.Max(przedmiot => CalculateSubjectScore(wynikiZMatur[przedmiot.Item1], wynikiZMatur[przedmiot.Item2]));
+			double M = CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == Matura.Matematyka));
+			double JP = CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == Matura.JezykPolski));
+            double JO = CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == Matura.JezykObcy));
+            double PD = kierunek.PrzedmiotyDodatkowe.Max(przedmiot => CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == przedmiot)));
 
 			if (M == 0 && PD == 0)
 			{
@@ -29,17 +29,12 @@ namespace PO_project.KalkulatorWskaznika
 			return Math.Min(M + PD + 0.1 * JO + 0.1 * JP + 10 * studiumTalent, MAX_WSKAZNIK_REKRUTACYJNY);
 		}
 
-		private static double CalculateSubjectScore(int P, int R)
-        {
-            return Math.Max(Math.Max(P, P + 1.5 * R), 2.5 * R);
+		private static double CalculateSubjectScore(WynikMatury wynik)
+		{
+            return Math.Max(Math.Max(wynik.Podstawa, wynik.Podstawa + 1.5 * wynik.Rozszerzenie), 2.5 * wynik.Rozszerzenie);
         }
 
-        public static bool IsOlimpijczyk(bool[] wynikiOlimpiad, Olimpiada[] olimpiady)
-        {
-			return wynikiOlimpiad.Select((wynik, index) => wynik && olimpiady.Contains((Olimpiada)index)).Any();
-		}
-
-		public static bool IsOlimpijczyk(Olimpiada[] wynikiOlimpiad, Olimpiada[] olimpiadyZaliczane)
+		private static bool IsOlimpijczyk(List<Olimpiada> wynikiOlimpiad, Olimpiada[] olimpiadyZaliczane)
 		{
 			return wynikiOlimpiad.Intersect(olimpiadyZaliczane).Any();
 		}

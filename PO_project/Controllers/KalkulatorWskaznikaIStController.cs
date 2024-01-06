@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PO_project.Data;
+using PO_project.Enums;
 using PO_project.KalkulatorWskaznika;
 
 namespace PO_project.Controllers
@@ -15,10 +16,26 @@ namespace PO_project.Controllers
 			_formularz = new FormularzRekrutacyjnyISt();
 		}
 
-		// GET: /YourController/Index
-		public ActionResult Index()
+        // GET: /KalkulatorWskaznikaIStController/Index
+        public ActionResult Index()
 		{
 			return View(_formularz);
 		}
+
+        // POST: /KalkulatorWskaznikaIStController/Index
+        [HttpPost]
+		public ActionResult Index(FormularzRekrutacyjnyISt formularz, List<Olimpiada> SelectedOlimpiadas)
+		{
+            if (ModelState.IsValid)
+			{
+				_formularz.WynikiZMatur = formularz.WynikiZMatur;
+				_formularz.WynikEgzaminuZRysunku = formularz.WynikEgzaminuZRysunku;
+				_formularz.WynikiStudiumTalent = formularz.WynikiStudiumTalent;
+				_formularz.Olimpiady = SelectedOlimpiadas;
+				_formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
+                return View("Wynik", _formularz);
+            }
+            return View(formularz);
+        }
 	}
 }

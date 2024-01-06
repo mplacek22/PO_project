@@ -1,17 +1,54 @@
-﻿@using PO_project.Enums;
+﻿@using PO_project.Enums
 @model PO_project.KalkulatorWskaznika.FormularzRekrutacyjnyISt
 
-@using (Html.BeginForm("Index", "KalkulatorWskaznikaIStController", FormMethod.Post))
+@using (Html.BeginForm("Index", "KalkulatorWskaznikaISt", FormMethod.Post))
 {
-    for (int i = 0; i < Model.WynikiMatur.Count; i++)
-    {
-        var matura = (Matura)i;
-                <div>
-            @Html.HiddenFor(m => Model.WynikiMatur[i].Key, new { @Value = matura })
-            @Html.LabelFor(m => Model.WynikiMatur[i].Value, Model.WynikiMatur[i].Key.GetEnumLabel())
-            @Html.TextBoxFor(m => Model.WynikiMatur[i].Value)
-                </div>
-    }
+<h2>Formularz rekrutacyjny I st.</h2>
+<h3>Wyniki z matury</h3>
+<table>
+    <tr>
+        <th>Przedmiot</th>
+        <th>Poziom podstawowy</th>
+        <th>Poziom rozszerzony</th>
+    </tr>
 
-        <input type="submit" value="Submit" />
+        @for (int i = 0; i < Model.WynikiZMatur.Length; i++)
+        {
+            <tr>
+                <td>@Model.WynikiZMatur[i].Subject.GetEnumLabel()</td>
+                <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Podstawa)</td>
+                <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Rozszerzenie)</td>
+            </tr>
+        }
+
+</table>
+<h3>Studium Talent</h3>
+<table>
+        @foreach (var subject in Model.WynikiStudiumTalent.Keys)
+        {
+            <tr>
+                <td>@subject</td>
+                <td>@Html.TextBoxFor(m => Model.WynikiStudiumTalent[subject])</td>
+            </tr>
+        }
+</table>
+
+<h3>Egzamin z rysunku</h3>
+<table>
+    <tr>
+        <td>Rysunek</td>
+            <td>@Html.TextBoxFor(m => m.WynikEgzaminuZRysunku)</td>
+    </tr>
+</table>
+
+<h3>Olimpiady</h3>
+foreach (Olimpiada olimpiada in Enum.GetValues(typeof(Olimpiada)))
+{
+<div>
+    <input type="checkbox" id="@olimpiada" name="SelectedOlimpiadas" value="@olimpiada" />
+    <label for="@olimpiada">@olimpiada.ToString()</label>
+</div>
+}
+
+<input type="submit" value="Oblicz wskaźnik rekrutacynjy"/>
 }

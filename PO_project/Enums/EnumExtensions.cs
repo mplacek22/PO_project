@@ -10,5 +10,13 @@ namespace PO_project.Enums
             var attribute = (DescriptionAttribute)Attribute.GetCustomAttribute(field, typeof(DescriptionAttribute));
             return attribute?.Description ?? value.ToString();
         }
+
+        //public static bool IsPodstawowy(this Matura subject)
+        //{
+        //    var fieldInfo = typeof(Matura).GetField(subject.ToString());
+        //    var attribute = (SubjectTypeAttribute)Attribute.GetCustomAttribute(fieldInfo, typeof(SubjectTypeAttribute));
+
+        //    return attribute?.Type == SubjectTypeEnum.Podstawowy;
+        //}
     }
 }

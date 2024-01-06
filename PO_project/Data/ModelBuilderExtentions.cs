@@ -246,7 +246,7 @@ namespace PO_project.Data
                     TrybId = 1,
                     WydzialId = 4,                    
 					Olimpiady = new Olimpiada[] { Olimpiada.Matematyczna, Olimpiada.Informatyczna },
-                    PrzedmiotyDodatkowe = new (Matura, Matura)[] { (Matura.FizykaP, Matura.FizykaR), (Matura.InformatykaP, Matura.InformatykaR) }
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 },
                 new Kierunek()
                 {

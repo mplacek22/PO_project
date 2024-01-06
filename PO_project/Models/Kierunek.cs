@@ -51,6 +51,6 @@ namespace PO_project.Models
 		public Olimpiada[] Olimpiady { get; set; }
 
 		[NotMapped]
-		public (Matura, Matura)[] PrzedmiotyDodatkowe { get; set; }
+		public Matura[] PrzedmiotyDodatkowe { get; set; }
 	}
 }

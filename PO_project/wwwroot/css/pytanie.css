@@ -59,22 +59,21 @@ hr.solid {
     font-size: 16px;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.finishButton {
+    text-align: center;
 }
 
-.finishButton {
-    margin-top: 20px;
-    height: 40px;
-    width: 90px;
-    font-size: 16px;
-    background-color: #3d76ff;
-    color: white;
-    border: none;
+.finishButton a {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 10px;
+    text-decoration: none;
+    color: #fff; /* Text color */
+    background-color: #3498db; /* Blue color for the button */
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
     transition: background-color 0.3s ease;
+}
+
+.finishButton a:hover {
+    background-color: #2980b9; /* Darker blue color on hover */
 }

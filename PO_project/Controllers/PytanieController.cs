@@ -171,5 +171,10 @@ namespace PO_project.Controllers
         {
           return (_context.Pytania?.Any(e => e.PytanieId == id)).GetValueOrDefault();
         }
+
+        public IActionResult Recomendations()
+        {
+            return View();
+        }
     }
 }

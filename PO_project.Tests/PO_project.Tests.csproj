@@ -22,4 +22,8 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\PO_project\PO_project.csproj" />
+  </ItemGroup>
+
 </Project>

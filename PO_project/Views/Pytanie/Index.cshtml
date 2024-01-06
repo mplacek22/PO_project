@@ -22,21 +22,25 @@
 
 <hr class="solid">
 
-<div>
-    <button id="prevButton"">Kolejne pytanie</button>
-    <button id="nextButton">poprzednie pytanie</button>
+<div class="surveyButtons">
+    <button id="prevButton">Cofnij</button>
+    <button id="nextButton">Dalej</button>
 </div>
 
+<p class="questionNumber">Pytanie @Model.First().PytanieId / 5</p>
 
-<div class="radioGroup">
-    <h5>@Model.First().Tresc</h5>
-    <form>
-    @foreach (var odpowiedz in @Model.First().Odpowiedzi)
-    {
-            <div>
-                <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
-                <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
-            </div>
-    }
-    </form>
+<h5>@Model.First().Tresc</h5>
+<form>
+@foreach (var odpowiedz in @Model.First().Odpowiedzi)
+{
+        <div class="radioGroup">
+            <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
+            <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+        </div>
+}
+</form>
+
+
+<div class="container">
+    <button class="finishButton">Zakończ</button>
 </div>

@@ -530,6 +530,16 @@ namespace PO_project.Data
             );
             #endregion
 
+            #region Pytanie
+            modelBuilder.Entity<Pytania>().HasData(
+                new Pytania()
+                {
+                    PytaniaId = 1,
+                    Tresc = "Czy jesteś zadowolony ze swojego wyboru kierunku studiów?"
+                }
+                );
+            #endregion
+
         }
     }
 }

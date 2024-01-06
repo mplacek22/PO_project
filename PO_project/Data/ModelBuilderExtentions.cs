@@ -206,6 +206,27 @@ namespace PO_project.Data
                     Name = "Wydział Informatyki i Telekomunikacji",
                     Abbreviation = "W4",
                     LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 5,
+                    Name = "Elektryczny",
+                    Abbreviation = "W5",
+                    LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 6,
+                    Name = "Inżynierii środowiska",
+                    Abbreviation = "W7",
+                    LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 7,
+                    Name = "Matematyki",
+                    Abbreviation = "W13",
+                    LokalizacjaId = 1
                 }
             );
             #endregion
@@ -263,14 +284,86 @@ namespace PO_project.Data
                 new Kierunek()
                 {
                     KierunekId = 5,
-                    Name = "Budownictwo",
-                    Abbreviation = "BUD-2N",
+                    Name = "Cyberbezpieczeństwo",
+                    Abbreviation = "CBE",
                     Description = "",
-                    CzasTrwaniaId = 5,
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                    WydzialId = 4
+                },
+                new Kierunek()
+                {
+                    KierunekId = 6,
+                    Name = "Energetyka",
+                    Abbreviation = "ENG",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 2,
+                    WydzialId = 2
+                },
+                new Kierunek()
+                {
+                    KierunekId = 7,
+                    Name = "Matematyka",
+                    Abbreviation = "MAT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 2,
+                    WydzialId = 7
+                },
+                new Kierunek()
+                {
+                    KierunekId = 8,
+                    Name = "Informatyczne systemy automatyki",
+                    Abbreviation = "OPT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 1,
-                    WydzialId = 2
+                    WydzialId = 4
+                },
+                new Kierunek()
+                {
+                    KierunekId = 9,
+                    Name = "Informatyka algorytmiczna",
+                    Abbreviation = "OPT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                    WydzialId = 4
+                },
+                new Kierunek()
+                {
+                    KierunekId = 10,
+                    Name = "Inżynieria systemów",
+                    Abbreviation = "OPT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                    WydzialId = 4
+                },
+                new Kierunek()
+                {
+                    KierunekId = 11,
+                    Name = "Telekomunikacja",
+                    Abbreviation = "OPT",
+                    Description = "",
+                    CzasTrwaniaId = 4,
+                    JezykId = 1,
+                    StopienId = 2,
+                    TrybId = 1,
+                    WydzialId = 4
                 }
             );
             #endregion

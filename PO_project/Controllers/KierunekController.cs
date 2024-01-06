@@ -20,11 +20,32 @@ namespace PO_project.Controllers
         }
 
         // GET: Kierunek
-        public async Task<IActionResult> Index()
+        //public async Task<IActionResult> Index()
+        //{
+        //    var pwrDbContext = _context.Kierunki.Include(k => k.CzasTrwania).Include(k => k.Jezyk).Include(k => k.Stopien).Include(k => k.Tryb).Include(k => k.Wydzial);
+        //    return View(await pwrDbContext.ToListAsync());
+        //}
+
+        public IActionResult Index(int? stopienId, int? wydzialId, int? trybId, int? jezykId)
         {
-            var pwrDbContext = _context.Kierunki.Include(k => k.CzasTrwania).Include(k => k.Jezyk).Include(k => k.Stopien).Include(k => k.Tryb);
-            return View(await pwrDbContext.ToListAsync());
+            ViewBag.Stopnie = new SelectList(_context.Stopnie, "StopienId", "Name", stopienId);
+            ViewBag.Wydzialy = new SelectList(_context.Wydzialy, "WydzialId", "Name", wydzialId);
+            ViewBag.Tryby = new SelectList(_context.Tryby, "TrybId", "Name", trybId);
+            ViewBag.Jezyki = new SelectList(_context.Jezyki, "JezykId", "Name", jezykId);
+
+            if (stopienId == null)
+            {
+                return View();
+            }
+
+            var kierunki = _context.Kierunki.Where(k => (stopienId == null) || k.StopienId == stopienId)
+                .Where(k => (wydzialId == null) || k.WydzialId == wydzialId)
+                .Where(k => (trybId == null) || k.TrybId == trybId)
+                .Where(k => (jezykId == null) || k.JezykId == jezykId);
+
+            return View(kierunki);
         }
+
 
         // GET: Kierunek/Details/5
         public async Task<IActionResult> Details(int? id)

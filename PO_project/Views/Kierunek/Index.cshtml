@@ -1,71 +1,84 @@
 ﻿@model IEnumerable<PO_project.Models.Kierunek>
 
+<link rel="stylesheet" href="~/css/Kierunek.css" />
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Abbreviation)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Jezyk)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Stopien)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Tryb)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CzasTrwania)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Abbreviation)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Jezyk.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Stopien.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tryb.Name)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CzasTrwania.CzasTrwaniaId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.KierunekId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.KierunekId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.KierunekId">Delete</a>
-            </td>
-        </tr>
+<div>
+    <h1>Przegląd listy kierunków</h1>
+</div>
+
+
+@using (Html.BeginForm("Index", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+{
+    <div class="form-group">
+        <div class="select-container">
+            <h4> Wybierz stopień </h4>
+            <label class="control-label" title="Wybierz Stopień"></label>
+            <select name="stopienId" asp-items="ViewBag.Stopnie" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
+
+        <br>
+
+        <div class="select-group">
+            <h4> Wybierz wydział </h4>
+            <label class="control-label" title="Wybierz wydział"></label>
+            <select name="wydzialId" asp-items="ViewBag.Wydzialy" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <h4> Wybierz tryb </h4>
+            <label class="control-label" title="Wybierz tryb"></label>
+            <select name="trybId" asp-items="ViewBag.Tryby" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <h4> Wybierz język </h4>
+            <label class="control-label" title="Wybierz język"></label>
+            <select name="jezykId" asp-items="ViewBag.Jezyki" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
+    </div>
+
 }
-    </tbody>
-</table>
+
+<script>
+    // JavaScript function to submit the form
+    function submitForm() {
+        document.getElementById('filterForm').submit();
+    }
+</script>
+
+
+
+
+<hr class="solid">
+
+
+@if (Model != null)
+{
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 card">
+                    <a asp-action="Details" asp-route-id="@item.KierunekId"> 
+                        @item.Name
+                        <p> @item.Tryb.Name </p>
+
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}

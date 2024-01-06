@@ -23,9 +23,10 @@
 <hr class="solid">
 
 <div class="surveyButtons">
-    <a href="@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId - 2 })" id="prevButton">Cofnij</a>
-    <a href="@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId  })" id="nextButton">Dalej</a>
+    <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId - 2 })'">Cofnij</button>
+    <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId })'">Dalej</button>
 </div>
+
 
 <p class="questionNumber">Pytanie @Model.First().PytanieId / 5</p>
 

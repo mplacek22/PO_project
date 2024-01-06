@@ -23,9 +23,13 @@ namespace PO_project.Controllers
         //// GET: Pytanie
         public IActionResult Index(int? id)
         {
-            if (id.HasValue)
+            if (id.HasValue && id.Value < 5 && id.Value >= 0)
             {
                 currentQuestionIndex = id.Value;
+            }
+            else
+            {
+                currentQuestionIndex = 0;
             }
 
             ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdzpowiedzId", "Tresc").ToList();

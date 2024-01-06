@@ -531,11 +531,126 @@ namespace PO_project.Data
             #endregion
 
             #region Pytanie
-            modelBuilder.Entity<Pytania>().HasData(
-                new Pytania()
+            modelBuilder.Entity<Pytanie>().HasData(
+                new Pytanie()
                 {
-                    PytaniaId = 1,
-                    Tresc = "Czy jesteś zadowolony ze swojego wyboru kierunku studiów?"
+                    PytanieId = 1,
+                    Tresc = "Czy czujesz się bardziej komfortowo w abstrakcyjnym świecie liczb i teorii, czy też bardziej w realnym, konkretnym środowisku projektowym?"
+                },
+                new Pytanie()
+                {
+                    PytanieId = 2,
+                    Tresc = "Czy preferujesz rozwiązywanie problemów, zastanawianie się nad ich przyczynami i skutkami, czy bardziej cenisz sobie konkretne prace projektowe?"
+                },
+                new Pytanie()
+                {
+                    PytanieId = 3,
+                    Tresc = "Czy fascynuje Cię proces projektowania algorytmów i ich optymalizacja, czy bardziej kieruje tobą praktyczne zastosowanie rozwiązań?"
+                },
+                new Pytanie()
+                {
+                    PytanieId = 4,
+                    Tresc = "Czy zainspirowałbyś/łabyś się projektowaniem i tworzeniem nowoczesnych przestrzeni architektonicznych, czy też bardziej przyciągają cię aspekty techniczne budowy?"
+                },
+                new Pytanie()
+                {
+                    PytanieId = 5,
+                    Tresc = "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną?"
+                }
+                );
+            #endregion
+
+            #region Odpowiedz
+            modelBuilder.Entity<Odzpowiedz>().HasData(
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 1,
+                    Tresc = "Abstrakcyjny świat liczb i teorii to coś, co przyciąga moją uwagę.",
+                    PytanieId = 1
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 2,
+                    Tresc = "Bardziej czuję się komfortowo w realnym środowisku projektowym.",
+                    PytanieId = 1
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 3,
+                    Tresc = "Zależy od sytuacji, lubię łączyć oba światy.",
+                    PytanieId = 1
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 4,
+                    Tresc = "Lubię analizować i rozwiązywać problemy, zastanawiać się nad ich korzeniami.",
+                    PytanieId = 2
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 5,
+                    Tresc = "Cenię sobie konkretną pracę projektową nad analizą problemów.",
+                    PytanieId = 2
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 6,
+                    Tresc = "Zarówno analiza problemów, jak i prace projektowe są dla mnie równie interesujące.",
+                    PytanieId = 2
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 7,
+                    Tresc = "Proces projektowania algorytmów to coś, co mnie naprawdę fascynuje.",
+                    PytanieId = 3
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 8,
+                    Tresc = "Bardziej kieruje mnie praktyczne zastosowanie rozwiązań niż projektowanie algorytmów.",
+                    PytanieId = 3
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 9,
+                    Tresc = "Nie mam jednoznacznej preferencji, obie strony są dla mnie atrakcyjne.",
+                    PytanieId = 3
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 10,
+                    Tresc = "Inspiruje mnie projektowanie nowoczesnych przestrzeni architektonicznych.",
+                    PytanieId = 4
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 11,
+                    Tresc = "Interesują mnie bardziej aspekty techniczne i konstrukcyjne budowy.",
+                    PytanieId = 4
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 12,
+                    Tresc = "Trudno mi się zdecydować, obie dziedziny wydają się interesujące.",
+                    PytanieId = 4
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 13,
+                    Tresc = "Praca nad systemami informatycznymi przyciąga moją uwagę.",
+                    PytanieId = 5
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 14,
+                    Tresc = "Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną.",
+                    PytanieId = 5
+                },
+                new Odzpowiedz()
+                {
+                    OdzpowiedzId = 15,
+                    Tresc = "Oba obszary są dla mnie równie interesujące, chętnie eksploruję różne dziedziny.",
+                    PytanieId = 5
                 }
                 );
             #endregion

@@ -30,5 +30,7 @@ namespace PO_project.Data
             //    .OnDelete(DeleteBehavior.Cascade);
         }
 
+        public DbSet<PO_project.Models.Pytanie> Pytanie { get; set; } = default!;
+
     }
 }

@@ -772,7 +772,7 @@ namespace PO_project.Migrations
 
                     b.HasKey("PytanieId");
 
-                    b.ToTable("Pytanie");
+                    b.ToTable("Pytania");
 
                     b.HasData(
                         new

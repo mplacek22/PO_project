@@ -12,7 +12,7 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240106152539_init")]
+    [Migration("20240106163927_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -775,7 +775,7 @@ namespace PO_project.Migrations
 
                     b.HasKey("PytanieId");
 
-                    b.ToTable("Pytanie");
+                    b.ToTable("Pytania");
 
                     b.HasData(
                         new

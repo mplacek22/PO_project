@@ -1,13 +1,19 @@
 ﻿body {
 }
 
-h1 {
+.ankieta h1 {
     text-align: center;
     font-size: 50px;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: #2c3e50;
     margin-bottom: 50px;
     margin-top: 50px;
+}
+
+.ankieta p {
+    margin-left: 150px;
+    width: 75%;
+    font-size: 16px;
 }
 
 hr.solid {
@@ -18,8 +24,10 @@ hr.solid {
     margin-right: auto;
 }
 
-p {
-    margin-left: 150px;
-    width: 75%;
-    font-size: 16px;
+.radioGroup label {
+    margin-top: 10px;
+}
+
+.radioGroup input {
+    margin-left: 50px;
 }

@@ -6,9 +6,9 @@
     ViewData["Title"] = "Index";
 }
 
-<div>
+<div class="ankieta">
     <h1>Ankieta zainteresowań</h1>
-</div>
+
 
 <p>
     Chcesz wybrać studia, które liczą się na rynku pracy i będą zgodne z Tobą? A konkretniej: z Twoimi zainteresowaniami, uzdolnieniami...
@@ -17,6 +17,26 @@
     i któryś kierunek okaże się strzałem w dziesiątkę!
 </p>
 
+</div>
+
 
 <hr class="solid">
 
+<div>
+    <button id="prevButton"">Kolejne pytanie</button>
+    <button id="nextButton">poprzednie pytanie</button>
+</div>
+
+
+<div class="radioGroup">
+    <h5>@Model.First().Tresc</h5>
+    <form>
+    @foreach (var odpowiedz in @Model.First().Odpowiedzi)
+    {
+            <div>
+                <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
+                <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+            </div>
+    }
+    </form>
+</div>

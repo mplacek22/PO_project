@@ -20,11 +20,12 @@ namespace PO_project.Controllers
         }
 
         // GET: Pytanie
-        public async Task<IActionResult> Index()
+        public IActionResult Index()
         {
-              return _context.Pytania != null ? 
-                          View(await _context.Pytania.ToListAsync()) :
-                          Problem("Entity set 'PwrDbContext.Pytania'  is null.");
+            ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdzpowiedzId", "Tresc").ToList();
+
+            var pytania = _context.Pytania.Include(p => p.Odpowiedzi);
+            return View(pytania);
         }
 
         // GET: Pytanie/Details/5

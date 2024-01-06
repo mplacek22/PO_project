@@ -1,35 +1,22 @@
 ﻿@model IEnumerable<PO_project.Models.Pytanie>
 
+<link rel="stylesheet" href="~/css/pytanie.css" />
+
 @{
     ViewData["Title"] = "Index";
 }
 
-<h1>Index</h1>
+<div>
+    <h1>Ankieta zainteresowań</h1>
+</div>
 
 <p>
-    <a asp-action="Create">Create New</a>
+    Chcesz wybrać studia, które liczą się na rynku pracy i będą zgodne z Tobą? A konkretniej: z Twoimi zainteresowaniami, uzdolnieniami...
+    Rozwiąż krótki test preferencji. Ten test to rodzaj zabawy/quizu, w której będziesz udzielać odpowiedzi na kolejne pytania. Na tej
+    podstawie otrzymasz wynik, czyli podpowiedź w postaci kilku proponowanych kierunków studiów na PWr. Może uda nam się trafić w Twój gust
+    i któryś kierunek okaże się strzałem w dziesiątkę!
 </p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Tresc)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Tresc)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.PytanieId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.PytanieId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.PytanieId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+<hr class="solid">
+

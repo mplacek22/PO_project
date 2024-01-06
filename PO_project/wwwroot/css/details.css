@@ -17,7 +17,7 @@ body {
     position: absolute;
     height: fit-content;
     width: 20%;
-    left: 65%;
+    left: 65vw;
     display: flex;
     flex-direction: column;
     border: 2px solid black;

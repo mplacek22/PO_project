@@ -331,7 +331,8 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Cyberbezpieczeństwo",
                             StopienId = 1,
-                            TrybId = 1
+                            TrybId = 1,
+                            WydzialId = 4
                         },
                         new
                         {
@@ -342,7 +343,8 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Energetyka",
                             StopienId = 2,
-                            TrybId = 2
+                            TrybId = 2,
+                            WydzialId = 2
                         },
                         new
                         {
@@ -353,7 +355,8 @@ namespace PO_project.Migrations
                             JezykId = 1,
                             Name = "Matematyka",
                             StopienId = 2,
-                            TrybId = 2
+                            TrybId = 2,
+                            WydzialId = 7
                         },
                         new
                         {
@@ -362,10 +365,46 @@ namespace PO_project.Migrations
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
-                            Name = "Optyka",
+                            Name = "Informatyczne systemy automatyki",
                             StopienId = 2,
                             TrybId = 1,
-                            WydzialId = 2
+                            WydzialId = 4
+                        },
+                        new
+                        {
+                            KierunekId = 9,
+                            Abbreviation = "OPT",
+                            CzasTrwaniaId = 4,
+                            Description = "",
+                            JezykId = 1,
+                            Name = "Informatyka algorytmiczna",
+                            StopienId = 1,
+                            TrybId = 1,
+                            WydzialId = 4
+                        },
+                        new
+                        {
+                            KierunekId = 10,
+                            Abbreviation = "OPT",
+                            CzasTrwaniaId = 4,
+                            Description = "",
+                            JezykId = 1,
+                            Name = "Inżynieria systemów",
+                            StopienId = 1,
+                            TrybId = 1,
+                            WydzialId = 4
+                        },
+                        new
+                        {
+                            KierunekId = 11,
+                            Abbreviation = "OPT",
+                            CzasTrwaniaId = 4,
+                            Description = "",
+                            JezykId = 1,
+                            Name = "Telekomunikacja",
+                            StopienId = 2,
+                            TrybId = 1,
+                            WydzialId = 4
                         });
                 });
 
@@ -754,6 +793,27 @@ namespace PO_project.Migrations
                             Abbreviation = "W4",
                             LokalizacjaId = 1,
                             Name = "Wydział Informatyki i Telekomunikacji"
+                        },
+                        new
+                        {
+                            WydzialId = 5,
+                            Abbreviation = "W5",
+                            LokalizacjaId = 1,
+                            Name = "Elektryczny"
+                        },
+                        new
+                        {
+                            WydzialId = 6,
+                            Abbreviation = "W7",
+                            LokalizacjaId = 1,
+                            Name = "Inżynierii środowiska"
+                        },
+                        new
+                        {
+                            WydzialId = 7,
+                            Abbreviation = "W13",
+                            LokalizacjaId = 1,
+                            Name = "Matematyki"
                         });
                 });
 

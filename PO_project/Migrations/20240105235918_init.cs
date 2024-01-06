@@ -7,7 +7,7 @@
 namespace PO_project.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -380,7 +380,10 @@ namespace PO_project.Migrations
                     { 1, "W1", 1, "Wydział Architektury" },
                     { 2, "W2", 1, "Wydział Budownictwa" },
                     { 3, "W3", 1, "Wydział Chemiczny" },
-                    { 4, "W4", 1, "Wydział Informatyki i Telekomunikacji" }
+                    { 4, "W4", 1, "Wydział Informatyki i Telekomunikacji" },
+                    { 5, "W5", 1, "Elektryczny" },
+                    { 6, "W7", 1, "Inżynierii środowiska" },
+                    { 7, "W13", 1, "Matematyki" }
                 });
 
             migrationBuilder.InsertData(
@@ -392,7 +395,13 @@ namespace PO_project.Migrations
                     { 2, "ARC", 6, "Opis architektury.", 1, "Architektura", 1, 1, 1 },
                     { 3, "ISTA", 5, "Second best one.", 2, "Applied Computer Science", 1, 1, 4 },
                     { 4, "BUD-2", 4, "", 1, "Budownictwo", 2, 2, 2 },
-                    { 5, "BUD-2N", 5, "", 1, "Budownictwo", 2, 1, 2 }
+                    { 5, "CBE", 4, "", 1, "Cyberbezpieczeństwo", 1, 1, 4 },
+                    { 6, "ENG", 4, "", 1, "Energetyka", 2, 2, 2 },
+                    { 7, "MAT", 4, "", 1, "Matematyka", 2, 2, 7 },
+                    { 8, "OPT", 4, "", 1, "Informatyczne systemy automatyki", 2, 1, 4 },
+                    { 9, "OPT", 4, "", 1, "Informatyka algorytmiczna", 1, 1, 4 },
+                    { 10, "OPT", 4, "", 1, "Inżynieria systemów", 1, 1, 4 },
+                    { 11, "OPT", 4, "", 1, "Telekomunikacja", 2, 1, 4 }
                 });
 
             migrationBuilder.InsertData(

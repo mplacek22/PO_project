@@ -11,39 +11,74 @@
     <h1>Przegląd listy kierunków</h1>
 </div>
 
-@* <div>
-    <h4>Wydział</h4>
-    <select id="wydzial" name="wydzial">
-        <option value="0">Wszystkie</option>
-        @foreach (var item in Model.Select(x => x.Wydzial).Distinct())
-        {
-            <option value="@item.WydzialId">@item.Name</option>
-        }
-    </select>
-</div> *@
 
-<div>
-    <h4>Tryb</h4>
-    <select id="tryb" name="tryb">
-        <option value="0">Wszystkie</option>
-        @foreach (var item in Model.Select(x => x.Tryb).Distinct())
-        {
-            <option value="@item.TrybId">@item.Name</option>
-        }
-    </select>
-</div>
+@using (Html.BeginForm("Index", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+{
+    <div class="form-group">
+        <div class="select-container">
+            <h4> Wybierz stopień </h4>
+            <label class="control-label" title="Wybierz Stopień"></label>
+            <select name="stopienId" asp-items="ViewBag.Stopnie" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
 
-<div class="container-fluid">
-    <div class="row justify-content-center">
-        @foreach (var item in Model)
-        {
-            <div class="col-md-3 card">
-                <a asp-action="Details" asp-route-id="@item.KierunekId"> 
-                    @item.Name
-                    <p> @item.Tryb.Name </p>
-                    
-                </a>
-            </div>
-        }
+        <br>
+
+        <div class="select-group">
+            <h4> Wybierz wydział </h4>
+            <label class="control-label" title="Wybierz wydział"></label>
+            <select name="wydzialId" asp-items="ViewBag.Wydzialy" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <h4> Wybierz tryb </h4>
+            <label class="control-label" title="Wybierz tryb"></label>
+            <select name="trybId" asp-items="ViewBag.Tryby" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
+
+        <div class="select-group">
+            <h4> Wybierz język </h4>
+            <label class="control-label" title="Wybierz język"></label>
+            <select name="jezykId" asp-items="ViewBag.Jezyki" onchange="submitForm()">
+                <option value="">Wybierz</option>
+            </select>
+        </div>
     </div>
-</div>
+
+}
+
+<script>
+    // JavaScript function to submit the form
+    function submitForm() {
+        document.getElementById('filterForm').submit();
+    }
+</script>
+
+
+
+
+<hr class="solid">
+
+
+@if (Model != null)
+{
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            @foreach (var item in Model)
+            {
+                <div class="col-md-3 card">
+                    <a asp-action="Details" asp-route-id="@item.KierunekId"> 
+                        @item.Name
+                        <p> @item.Tryb.Name </p>
+
+                    </a>
+                </div>
+            }
+        </div>
+    </div>
+}

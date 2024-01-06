@@ -7,59 +7,146 @@
 <link rel="stylesheet" href="~/css/details.css"/>
 
 
+<h1>@Html.DisplayFor(model => model.Name)</h1>
+
 <div class="main-content-container">
-    <h1>@Html.DisplayFor(model => model.Name)</h1>
+    <div class="metrics-container">
+        <h2>Metryczka kierunku</h2>
+        <div class="metrics-info">
+            <h4>Tryb studiowania</h4>
+            <p> @Html.DisplayFor(model => model.Tryb.Name) </p>
+        </div>
+        <div class="metrics-info">
+            <h4>Czas trwania</h4>
+            <p> @Html.DisplayFor(model => model.CzasTrwania.Value) <em>(ilość semestrów)</em></p>
+        </div>
+
+        <div class="metrics-info">
+            <h4>Język</h4>
+            <p> @Html.DisplayFor(model => model.Jezyk.Name) </p>
+        </div>
+
+        <div class="metrics-info">
+            <h4>Stopień</h4>
+            <p> @Html.DisplayFor(model => model.Stopien.Name) </p>
+        </div>
+
+        <div class="metrics-info">
+            <h4>Miasto</h4>
+            <p> @Html.DisplayFor(model => model.Wydzial.Lokalizacja.Name)</p>
+        </div>
+    </div>
+    
 
     <div class="top-choice-box">
-        <div class="description-holder">
-        <p>Opis kierunku</p>
-        </div>
+        <label class="description-holder">
+            <input type="radio" name="content-switch" checked="checked" class="input" onchange="onInputChecked()"/>
+            <span>Opis kierunku</span>
+        </label>
         @if (Model.Specjalizacje.ToList().Count > 0)
         {
-            <div class="description-holder">
-            <p class="specialities">Specjalności</p>
-            </div>
+            <label class="description-holder">
+                <input type="radio" name="content-switch" class="input" onchange="onInputChecked()" />
+                <span>Specjalności</span>
+            </label>
         }
-        <div class="description-holder">
-        <p>Kryteria</p>
-        </div>
+        <label class="description-holder">
+            <input type="radio" name="content-switch" class="input" onchange="onInputChecked()" />
+            <span>Kryteria</span>
+        </label>
     </div>
 
-    @foreach (var specjalizacja in Model.Specjalizacje)
-    {
-        <p>@specjalizacja.Name</p>
-    }
-
-
-
-    <div class="kierunek-details">
-        <h4>Kierunek</h4>
-    
-        <dl class="row">
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Abbreviation)
-            </dd>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Description)
-            </dd>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Jezyk.Name)
-            </dd>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Stopien.Name)
-            </dd>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.Tryb.Name)
-            </dd>
-            <dd class = "col-sm-10">
-                @Html.DisplayFor(model => model.CzasTrwania.Value)
-            </dd>
-        </dl>
+    <div class="chosen-content" id="description-container" style="display: block;">
+        <h2>Opis</h2>
+        <p> @Html.DisplayFor(model => model.Description) </p>
     </div>
 
-    @foreach (var perspektywa in Model.Perpektywy)
-    {
-        <p>@perspektywa.Pracodawca.CompanyName</p>
-    }
+    <div class="chosen-content" id="specializations-container" style="display: none;">
+        <h2>Specjalizacje</h2>
+        @foreach (var specjalizacja in Model.Specjalizacje)
+        {
+            <p>@specjalizacja.Name</p>
+        }
+    </div>
+
+    <div class="chosen-content" id="criteria-container" style="display: none;">
+        <h2>Kryteria</h2>
+    </div>
 
 </div>
+
+<div class="additional-links">
+    <a asp-action="Edit" asp-route-id="@Model.KierunekId">Policz swój wskaźnik</a>
+    <a asp-action="Index" >Znajdź inne kierunki</a>
+</div>
+
+<h2>Więcej informacji</h2>
+
+
+<h3>Perspektywy</h3>
+@foreach (var perspektywa in Model.Perpektywy)
+{
+    <p>@perspektywa.Pracodawca.CompanyName</p>
+}
+
+<h3>Praktyki i staże</h3>
+@foreach (var perspektywa in Model.Perpektywy)
+{
+    <p>@perspektywa.Pracodawca.CompanyName</p>
+}
+
+<h3>Miejsca pracy absolwentów</h3>
+@foreach (var perspektywa in Model.Perpektywy)
+{
+    <p>@perspektywa.Pracodawca.CompanyName</p>
+}
+
+@section Scripts {
+    <script>
+        var inputs = document.getElementsByClassName('input');
+        var descContainer = document.getElementById('description-container')
+        var criteriaContainer = document.getElementById('criteria-container')
+        var checkedInput = 0;
+
+        var onInputChecked = function () { 
+            for (let i = 0; i < inputs.length; i++) {
+
+                if (inputs.item(i).checked && i != checkedInput) {
+                    switchDisplay(checkedInput, 'none')
+                    checkedInput = i;
+                    switchDisplay(checkedInput, 'block')
+                }
+            }
+        }
+
+        var switchDisplay = function (index, displayType) {
+            if (inputs.length == 2) {
+                switch (index) {
+                    case 0:
+                        descContainer.style.display = displayType;
+                        break;
+                    case 1:
+                        criteriaContainer.style.display = displayType;
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                var specializationsContainer = document.getElementById('specializations-container')
+                switch (index) {
+                    case 0:
+                        descContainer.style.display = displayType;
+                        break;
+                    case 1:
+                        specializationsContainer.style.display = displayType;
+                        break;
+                    case 2:
+                        criteriaContainer.style.display = displayType;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    </script>
+}

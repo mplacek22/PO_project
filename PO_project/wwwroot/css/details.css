@@ -1,22 +1,48 @@
 ﻿body {
 }
 
-p {
-    color: blue;
+.main-content-container {
+    position: relative;
+    width: 50vh;
 }
 
 .top-choice-box {
-    height: 15%;
-    width: 50%;
-    left: 20%;
-    top: 20%;
-    margin-bottom: 5%;
+    height: 10vh;
+    width: 100%;
+    margin: 5vh 0 5vh 0;
     border: 2px solid black;
-}
-
-.top-choice-box p {
-    color: blue;
+    border-radius: 30px;
     display: flex;
     flex-direction: row;
-    flex-grow: 0.1;
+    align-items: center;
+    justify-content: left;
+}
+
+.description-holder {
+    position: relative;
+    flex-grow: 1;
+    height: 80%;
+    width: 20%;
+    margin-left: 5%;
+    border: 3px solid rgb(60, 60, 60);
+    border-radius: 20px;
+}
+
+.description-holder:hover {
+    cursor: grab;
+}
+
+.description-holder:hover {
+    font-size: 105%;
+}
+
+.description-holder:last-child {
+    margin-right: 5%;
+}
+.top-choice-box p {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: font-size ease 0.2s;
 }

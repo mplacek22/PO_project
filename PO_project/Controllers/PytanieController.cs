@@ -13,20 +13,27 @@ namespace PO_project.Controllers
     public class PytanieController : Controller
     {
         private readonly PwrDbContext _context;
+        private int currentQuestionIndex = 0;
 
         public PytanieController(PwrDbContext context)
         {
             _context = context;
         }
 
-        // GET: Pytanie
-        public IActionResult Index()
+        //// GET: Pytanie
+        public IActionResult Index(int? id)
         {
+            if (id.HasValue)
+            {
+                currentQuestionIndex = id.Value;
+            }
+
             ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdzpowiedzId", "Tresc").ToList();
 
-            var pytania = _context.Pytania.Include(p => p.Odpowiedzi);
+            var pytania = _context.Pytania.Include(p => p.Odpowiedzi).Skip(currentQuestionIndex).Take(1);
             return View(pytania);
         }
+
 
         // GET: Pytanie/Details/5
         public async Task<IActionResult> Details(int? id)

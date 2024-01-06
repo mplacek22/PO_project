@@ -23,23 +23,22 @@
 <hr class="solid">
 
 <div class="surveyButtons">
-    <button id="prevButton">Cofnij</button>
-    <button id="nextButton">Dalej</button>
+    <a href="@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId - 2 })" id="prevButton">Cofnij</a>
+    <a href="@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId  })" id="nextButton">Dalej</a>
 </div>
 
 <p class="questionNumber">Pytanie @Model.First().PytanieId / 5</p>
 
 <h5>@Model.First().Tresc</h5>
 <form>
-@foreach (var odpowiedz in @Model.First().Odpowiedzi)
-{
+    @foreach (var odpowiedz in @Model.First().Odpowiedzi)
+    {
         <div class="radioGroup">
             <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
             <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
         </div>
-}
+    }
 </form>
-
 
 <div class="container">
     <button class="finishButton">Zakończ</button>

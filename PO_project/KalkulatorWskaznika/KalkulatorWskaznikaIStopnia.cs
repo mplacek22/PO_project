@@ -7,17 +7,17 @@ namespace PO_project.KalkulatorWskaznika
     {
         public const int MAX_WSKAZNIK_REKRUTACYJNY = 535;
 
-		public static double CalculateWskaznikRekrutacyjny(WynikMatury[] wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, List<Olimpiada> wynikiOlimpiad, Kierunek kierunek)
+		public static double CalculateWskaznikRekrutacyjny(Dictionary<Matura, WynikMatury> wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, List<Olimpiada> wynikiOlimpiad, Kierunek kierunek)
 		{
 			if (IsOlimpijczyk(wynikiOlimpiad, kierunek.Olimpiady))
 			{
 				return MAX_WSKAZNIK_REKRUTACYJNY;
 			}
 
-			double M = CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == Matura.Matematyka));
-			double JP = CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == Matura.JezykPolski));
-            double JO = CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == Matura.JezykObcy));
-            double PD = kierunek.PrzedmiotyDodatkowe.Max(przedmiot => CalculateSubjectScore(wynikiZMatur.First(w => w.Subject == przedmiot)));
+			double M = CalculateSubjectScore(wynikiZMatur[Matura.Matematyka]);
+			double JP = CalculateSubjectScore(wynikiZMatur[Matura.JezykPolski]);
+			double JO = CalculateSubjectScore(wynikiZMatur[Matura.JezykObcy]);
+			double PD = kierunek.PrzedmiotyDodatkowe.Max(przedmiot => CalculateSubjectScore(wynikiZMatur[przedmiot]));
 
 			if (M == 0 && PD == 0)
 			{

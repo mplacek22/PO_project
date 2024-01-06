@@ -258,7 +258,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 1
+                    WydzialId = 1,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka }
                 },
                 new Kierunek()
                 {
@@ -270,7 +271,8 @@ namespace PO_project.Data
                     JezykId = 2,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4, 
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 },
                 new Kierunek()
                 {
@@ -282,7 +284,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 2,
-                    WydzialId = 2
+                    WydzialId = 2,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka }
                 },
                 new Kierunek()
                 {
@@ -294,7 +297,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 },
                 new Kierunek()
                 {
@@ -306,7 +310,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 2,
-                    WydzialId = 2
+                    WydzialId = 2,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka }
                 },
                 new Kierunek()
                 {
@@ -318,7 +323,9 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 2,
-                    WydzialId = 7
+                    WydzialId = 7,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+
                 },
                 new Kierunek()
                 {
@@ -330,7 +337,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 },
                 new Kierunek()
                 {
@@ -342,7 +350,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 },
                 new Kierunek()
                 {
@@ -354,7 +363,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 },
                 new Kierunek()
                 {
@@ -366,7 +376,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
                 }
             );
             #endregion

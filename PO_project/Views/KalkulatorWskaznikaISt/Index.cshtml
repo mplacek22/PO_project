@@ -11,15 +11,23 @@
         <th>Poziom podstawowy</th>
         <th>Poziom rozszerzony</th>
     </tr>
-
-        @for (int i = 0; i < Model.WynikiZMatur.Length; i++)
-        {
-            <tr>
-                <td>@Model.WynikiZMatur[i].Subject.GetEnumLabel()</td>
-                <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Podstawa)</td>
-                <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Rozszerzenie)</td>
-            </tr>
-        }
+    @*@for (int i = 0; i < Model.WynikiZMatur.Count; i++)
+    {
+        <tr>
+            <td>@Model.WynikiZMatur[i].Subject.GetEnumLabel()</td>
+            @Model.WynikiZMatur[i].Subject = (Subject)i;
+            <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Podstawa)</td>
+            <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Rozszerzenie)</td>
+        </tr>
+    }*@
+    @foreach (var subject in Model.WynikiZMatur.Keys)
+	{
+		<tr>
+            <td>@subject.GetEnumLabel()</td>
+			<td>@Html.TextBoxFor(m => Model.WynikiZMatur[subject].Podstawa)</td>
+			<td>@Html.TextBoxFor(m => Model.WynikiZMatur[subject].Rozszerzenie)</td>
+		</tr>
+	}
 
 </table>
 <h3>Studium Talent</h3>
@@ -46,7 +54,7 @@ foreach (Olimpiada olimpiada in Enum.GetValues(typeof(Olimpiada)))
 {
 <div>
     <input type="checkbox" id="@olimpiada" name="SelectedOlimpiadas" value="@olimpiada" />
-    <label for="@olimpiada">@olimpiada.ToString()</label>
+    <label for="@olimpiada">@olimpiada.GetEnumLabel()</label>
 </div>
 }
 

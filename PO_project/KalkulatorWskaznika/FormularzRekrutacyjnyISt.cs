@@ -7,10 +7,9 @@ namespace PO_project.KalkulatorWskaznika
 {
 	public class FormularzRekrutacyjnyISt
 	{
-        public (string, double)[] WskaznikiRekrutacyjne { get; set; } = Array.Empty<(string, double)>();
+        public (Kierunek, double)[] WskaznikiRekrutacyjne { get; set; } = Array.Empty<(Kierunek, double)>();
 
-        public WynikMatury[] WynikiZMatur{ get; set; } = Enum.GetValues(typeof(Matura)).Cast<Matura>().Select(m => new WynikMatury() { Subject = m }).ToArray();
-
+        public Dictionary<Matura, WynikMatury> WynikiZMatur{ get; set; } = Enum.GetValues(typeof(Matura)).Cast<Matura>().ToDictionary(m => m, m => new WynikMatury());
 
         [Range(0, 660, ErrorMessage = "Wynik z egzaminu z rysunku musi mieścić się w zakresie od 0 do 660")]
 		public int WynikEgzaminuZRysunku { get; set; } = 0;
@@ -23,7 +22,7 @@ namespace PO_project.KalkulatorWskaznika
 
 		public void ObliczWskaznikiRekrutacyjne(Kierunek[] kierunki)
 		{
-			WskaznikiRekrutacyjne = kierunki.Select(kierunek => (kierunek.Name, KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(WynikiZMatur, WynikiStudiumTalent, Olimpiady, kierunek))).ToArray();
+			WskaznikiRekrutacyjne = kierunki.Select(kierunek => (kierunek, KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(WynikiZMatur, WynikiStudiumTalent, Olimpiady, kierunek))).ToArray();
 		}
 	}
 }

@@ -35,7 +35,13 @@ namespace PO_project.Controllers
 				_formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
                 return View("Wynik", _formularz);
             }
-            return View(formularz);
+            return RedirectToAction("Results");
+        }
+
+        // GET: /KalkulatorWskaznikaIStController/Results
+        public ActionResult Results()
+		{
+            return View(_formularz);
         }
 	}
 }

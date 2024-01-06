@@ -48,9 +48,9 @@ namespace PO_project.Models
         public List<KierunekMiejscaPracy> MiejscaPracy { get; } = new();
 
 		[NotMapped]
-		public Olimpiada[] Olimpiady { get; set; }
+		public Olimpiada[] Olimpiady { get; set; } = Array.Empty<Olimpiada>();
 
 		[NotMapped]
-		public Matura[] PrzedmiotyDodatkowe { get; set; }
+		public Matura[] PrzedmiotyDodatkowe { get; set; } =  Array.Empty<Matura>();
 	}
 }

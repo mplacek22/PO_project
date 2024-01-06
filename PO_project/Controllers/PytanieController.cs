@@ -19,23 +19,23 @@ namespace PO_project.Controllers
             _context = context;
         }
 
-        // GET: Pytanies
+        // GET: Pytanie
         public async Task<IActionResult> Index()
         {
-              return _context.Pytanie != null ? 
-                          View(await _context.Pytanie.ToListAsync()) :
-                          Problem("Entity set 'PwrDbContext.Pytanie'  is null.");
+              return _context.Pytania != null ? 
+                          View(await _context.Pytania.ToListAsync()) :
+                          Problem("Entity set 'PwrDbContext.Pytania'  is null.");
         }
 
-        // GET: Pytanies/Details/5
+        // GET: Pytanie/Details/5
         public async Task<IActionResult> Details(int? id)
         {
-            if (id == null || _context.Pytanie == null)
+            if (id == null || _context.Pytania == null)
             {
                 return NotFound();
             }
 
-            var pytanie = await _context.Pytanie
+            var pytanie = await _context.Pytania
                 .FirstOrDefaultAsync(m => m.PytanieId == id);
             if (pytanie == null)
             {
@@ -45,13 +45,13 @@ namespace PO_project.Controllers
             return View(pytanie);
         }
 
-        // GET: Pytanies/Create
+        // GET: Pytanie/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: Pytanies/Create
+        // POST: Pytanie/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,15 +67,15 @@ namespace PO_project.Controllers
             return View(pytanie);
         }
 
-        // GET: Pytanies/Edit/5
+        // GET: Pytanie/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
-            if (id == null || _context.Pytanie == null)
+            if (id == null || _context.Pytania == null)
             {
                 return NotFound();
             }
 
-            var pytanie = await _context.Pytanie.FindAsync(id);
+            var pytanie = await _context.Pytania.FindAsync(id);
             if (pytanie == null)
             {
                 return NotFound();
@@ -83,7 +83,7 @@ namespace PO_project.Controllers
             return View(pytanie);
         }
 
-        // POST: Pytanies/Edit/5
+        // POST: Pytanie/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -118,15 +118,15 @@ namespace PO_project.Controllers
             return View(pytanie);
         }
 
-        // GET: Pytanies/Delete/5
+        // GET: Pytanie/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
-            if (id == null || _context.Pytanie == null)
+            if (id == null || _context.Pytania == null)
             {
                 return NotFound();
             }
 
-            var pytanie = await _context.Pytanie
+            var pytanie = await _context.Pytania
                 .FirstOrDefaultAsync(m => m.PytanieId == id);
             if (pytanie == null)
             {
@@ -136,19 +136,19 @@ namespace PO_project.Controllers
             return View(pytanie);
         }
 
-        // POST: Pytanies/Delete/5
+        // POST: Pytanie/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            if (_context.Pytanie == null)
+            if (_context.Pytania == null)
             {
-                return Problem("Entity set 'PwrDbContext.Pytanie'  is null.");
+                return Problem("Entity set 'PwrDbContext.Pytania'  is null.");
             }
-            var pytanie = await _context.Pytanie.FindAsync(id);
+            var pytanie = await _context.Pytania.FindAsync(id);
             if (pytanie != null)
             {
-                _context.Pytanie.Remove(pytanie);
+                _context.Pytania.Remove(pytanie);
             }
             
             await _context.SaveChangesAsync();
@@ -157,7 +157,7 @@ namespace PO_project.Controllers
 
         private bool PytanieExists(int id)
         {
-          return (_context.Pytanie?.Any(e => e.PytanieId == id)).GetValueOrDefault();
+          return (_context.Pytania?.Any(e => e.PytanieId == id)).GetValueOrDefault();
         }
     }
 }

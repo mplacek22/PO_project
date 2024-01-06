@@ -1,0 +1,25 @@
+﻿body {
+}
+
+h1 {
+    text-align: center;
+    font-size: 50px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #2c3e50;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+
+hr.solid {
+    margin-top: 50px;
+    border-top: 4px solid #717171;
+    margin-bottom: 50px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+p {
+    margin-left: 150px;
+    width: 75%;
+    font-size: 16px;
+}

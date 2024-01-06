@@ -1,4 +1,4 @@
-﻿using PO_project.Models;
+using PO_project.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace PO_project.Data
@@ -31,8 +31,5 @@ namespace PO_project.Data
             //    .WithMany()
             //    .OnDelete(DeleteBehavior.Cascade);
         }
-
-        public DbSet<PO_project.Models.Pytanie> Pytanie { get; set; } = default!;
-
     }
 }

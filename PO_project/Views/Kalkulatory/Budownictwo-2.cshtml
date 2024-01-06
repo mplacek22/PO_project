@@ -1,0 +1,59 @@
+﻿@model ValueTuple<PO_project.Models.Kierunek, double?, double?>
+
+@{
+    ViewData["Title"] = "Kalkulator";
+}
+
+<link rel="stylesheet" href="~/css/Calculator2.css" />
+
+<div class="calculator-header">
+    <h1>Kierunek: @Model.Item1.Name</h1>
+</div>
+
+@using (Html.BeginForm("Calculate", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+{
+    <div class="calculator-form">
+        <h2> Kalkulator </h2>
+        <input name="id" type="hidden" value="@Model.Item1.KierunekId" />
+        <div class="form-input">
+            <label for="d">Ocena na dyplomie</label>
+            <input name="d" id="d" type="number" step="any" value="0"/>
+        </div>
+
+        <div class="form-input">
+            <label for="sr">Średnia ważona z przebiegu studiów</label>
+            <input name="sr" id="sr" type="number" step="any" value="0"/>
+        </div>
+
+        <div class="form-input">
+            <label for="e">Ocena z egzaminu przeprowadzonego na PWR</label>
+            <input name="e" id="e" type="number" step="any" value="0" />
+        </div>
+
+        <div class="form-radio-group">
+            <div class="form-radio-option">
+                <input name="od" id="group1" type="radio" value="15">
+                <label for="group1">Grupa1 - 15pkt</label>
+            </div>
+            <div class="form-radio-option">
+                <input name="od" id="group2" type="radio" value="10">
+                <label for="group2">Grupa2 - 10pkt</label>
+            </div>
+            <div class="form-radio-option">
+                <input name="od" id="group3" type="radio" value="0" checked="checked">
+                <label for="group3">Grupa3 - 0pkt</label>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Oblicz wskaźnik</button>
+    </div>
+}
+
+
+@if(Model.Item2 != null)
+{
+    <p>@Model.Item2</p>
+}
+@if (Model.Item3 != null)
+{
+    <p>@Model.Item3</p>
+}

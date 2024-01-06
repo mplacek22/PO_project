@@ -1,0 +1,30 @@
+﻿body {
+}
+
+/*#region input*/
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    max-width: 100px;
+}
+
+/*#endregion*/
+
+/*#region header*/
+.calculator-header {
+    width: 50%;
+    height: 20%;
+    background-color: rgb(160, 160, 160);
+    border: 2px solid black;
+
+}
+/*endregion*/

@@ -83,10 +83,10 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            String path = ("~/Views/Kierunki/" + getFileName(kierunek));
+            String path = ("Views/Kierunki/" + getFileName(kierunek));
 
             if (System.IO.File.Exists(path))
-                return View(path, kierunek);
+                return View("~/" + path, kierunek);
 
             return View(kierunek);
         }
@@ -111,7 +111,10 @@ namespace PO_project.Controllers
 
             if (kierunek.StopienId == 2)
             {
-                return View("~/Views/Kalkulatory/" + getFileName(kierunek), (kierunek, pointsKierunek, points));
+                String path = ("Views/Kalkulatory/" + getFileName(kierunek));
+                if (!System.IO.File.Exists(path))
+                    return NotFound();
+                return View("~/" + path, (kierunek, pointsKierunek, points));
             }
 
             return View("~/Views/KalkulatorWskaznikaISt/Index.cshtml", new FormularzRekrutacyjnyISt());

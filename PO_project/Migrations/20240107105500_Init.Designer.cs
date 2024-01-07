@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using PO_project.Data;
 
@@ -11,9 +12,11 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    partial class PwrDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240107105500_Init")]
+    partial class Init
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -623,120 +626,6 @@ namespace PO_project.Migrations
                         });
                 });
 
-            modelBuilder.Entity("PO_project.Models.Odzpowiedz", b =>
-                {
-                    b.Property<int>("OdzpowiedzId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OdzpowiedzId"));
-
-                    b.Property<int>("PytanieId")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Tresc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("OdzpowiedzId");
-
-                    b.HasIndex("PytanieId");
-
-                    b.ToTable("Odpowiedzi");
-
-                    b.HasData(
-                        new
-                        {
-                            OdzpowiedzId = 1,
-                            PytanieId = 1,
-                            Tresc = "Abstrakcyjny świat liczb i teorii to coś, co przyciąga moją uwagę."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 2,
-                            PytanieId = 1,
-                            Tresc = "Bardziej czuję się komfortowo w realnym środowisku projektowym."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 3,
-                            PytanieId = 1,
-                            Tresc = "Zależy od sytuacji, lubię łączyć oba światy."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 4,
-                            PytanieId = 2,
-                            Tresc = "Lubię analizować i rozwiązywać problemy, zastanawiać się nad ich korzeniami."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 5,
-                            PytanieId = 2,
-                            Tresc = "Cenię sobie konkretną pracę projektową nad analizą problemów."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 6,
-                            PytanieId = 2,
-                            Tresc = "Zarówno analiza problemów, jak i prace projektowe są dla mnie równie interesujące."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 7,
-                            PytanieId = 3,
-                            Tresc = "Proces projektowania algorytmów to coś, co mnie naprawdę fascynuje."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 8,
-                            PytanieId = 3,
-                            Tresc = "Bardziej kieruje mnie praktyczne zastosowanie rozwiązań niż projektowanie algorytmów."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 9,
-                            PytanieId = 3,
-                            Tresc = "Nie mam jednoznacznej preferencji, obie strony są dla mnie atrakcyjne."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 10,
-                            PytanieId = 4,
-                            Tresc = "Inspiruje mnie projektowanie nowoczesnych przestrzeni architektonicznych."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 11,
-                            PytanieId = 4,
-                            Tresc = "Interesują mnie bardziej aspekty techniczne i konstrukcyjne budowy."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 12,
-                            PytanieId = 4,
-                            Tresc = "Trudno mi się zdecydować, obie dziedziny wydają się interesujące."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 13,
-                            PytanieId = 5,
-                            Tresc = "Praca nad systemami informatycznymi przyciąga moją uwagę."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 14,
-                            PytanieId = 5,
-                            Tresc = "Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną."
-                        },
-                        new
-                        {
-                            OdzpowiedzId = 15,
-                            PytanieId = 5,
-                            Tresc = "Oba obszary są dla mnie równie interesujące, chętnie eksploruję różne dziedziny."
-                        });
-                });
-
             modelBuilder.Entity("PO_project.Models.Pracodawca", b =>
                 {
                     b.Property<int>("PracodawcaId")
@@ -788,50 +677,6 @@ namespace PO_project.Migrations
                         });
                 });
 
-            modelBuilder.Entity("PO_project.Models.Pytanie", b =>
-                {
-                    b.Property<int>("PytanieId")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("PytanieId"));
-
-                    b.Property<string>("Tresc")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
-                    b.HasKey("PytanieId");
-
-                    b.ToTable("Pytania");
-
-                    b.HasData(
-                        new
-                        {
-                            PytanieId = 1,
-                            Tresc = "Czy czujesz się bardziej komfortowo w abstrakcyjnym świecie liczb i teorii, czy też bardziej w realnym, konkretnym środowisku projektowym?"
-                        },
-                        new
-                        {
-                            PytanieId = 2,
-                            Tresc = "Czy preferujesz rozwiązywanie problemów, zastanawianie się nad ich przyczynami i skutkami, czy bardziej cenisz sobie konkretne prace projektowe?"
-                        },
-                        new
-                        {
-                            PytanieId = 3,
-                            Tresc = "Czy fascynuje Cię proces projektowania algorytmów i ich optymalizacja, czy bardziej kieruje tobą praktyczne zastosowanie rozwiązań?"
-                        },
-                        new
-                        {
-                            PytanieId = 4,
-                            Tresc = "Czy zainspirowałbyś/łabyś się projektowaniem i tworzeniem nowoczesnych przestrzeni architektonicznych, czy też bardziej przyciągają cię aspekty techniczne budowy?"
-                        },
-                        new
-                        {
-                            PytanieId = 5,
-                            Tresc = "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną?"
-                        });
-                });
-
             modelBuilder.Entity("PO_project.Models.Specjalizacja", b =>
                 {
                     b.Property<int>("SpecjalizacjaId")
@@ -864,13 +709,6 @@ namespace PO_project.Migrations
                             Description = "Opis budownictwa lądowego",
                             KierunekId = 4,
                             Name = "Budownictwo Lądowe"
-                        },
-                        new
-                        {
-                            SpecjalizacjaId = 2,
-                            Description = "Opis budownictwa wodnego",
-                            KierunekId = 4,
-                            Name = "Budownictwo Wodne"
                         });
                 });
 
@@ -1123,17 +961,6 @@ namespace PO_project.Migrations
                     b.Navigation("Pracodawca");
                 });
 
-            modelBuilder.Entity("PO_project.Models.Odzpowiedz", b =>
-                {
-                    b.HasOne("PO_project.Models.Pytanie", "Pytanie")
-                        .WithMany("Odpowiedzi")
-                        .HasForeignKey("PytanieId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.Navigation("Pytanie");
-                });
-
             modelBuilder.Entity("PO_project.Models.Pracodawca", b =>
                 {
                     b.HasOne("PO_project.Models.Adres", "adres")
@@ -1192,11 +1019,6 @@ namespace PO_project.Migrations
                     b.Navigation("Perpektywy");
 
                     b.Navigation("Praktyki");
-                });
-
-            modelBuilder.Entity("PO_project.Models.Pytanie", b =>
-                {
-                    b.Navigation("Odpowiedzi");
                 });
 
             modelBuilder.Entity("PO_project.Models.Wydzial", b =>

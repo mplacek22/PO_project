@@ -1,5 +1,8 @@
 ﻿body {
-    --hover-color: rgb(160, 180, 230)
+    --hover-color: rgb(160, 180, 230);
+    --checked-color: rgb(120, 140, 180);
+    --background-color: rgb(180, 180, 180);
+    --background-color-light: rgb(220, 220, 220);
 }
 
 
@@ -185,6 +188,131 @@
 /*#endregion*/
 
 /*#region Cryteria */
+
+#criteria-container {
+    margin-top: 50px;
+}
+
+.criteria-header {
+    position: absolute;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.criteria-header span {
+    color: black;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+
+/*#region body*/
+
+.criteria-body {
+    position: relative;
+    width: 100%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+}
+
+.labeled-definitions {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
+}
+
+.labeled-categories {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
+}
+
+.labeled-definition {
+    position: relative;
+    margin-top: 20px;
+}
+
+.labeled-definition span {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.labeled-definition p{
+    position: relative;
+    left: 20px;
+}
+
+.subject span {
+    background-color: var(--background-color-light);
+}
+
+.definition span {
+    background-color: var(--background-color);
+}
+
+.subject-category {
+    position: relative;
+    flex-grow: 1;
+    margin: 40px 20px 0 0;
+    border: 2px solid grey;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.subject-category > div {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.subject-category span {
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+    background-color: var(--background-color-light)
+}
+
+.subject-category p {
+    color: black;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+/*#endregion*/
 /*#endregion*/
 
 /*#endregion*/

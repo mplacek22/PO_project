@@ -1,0 +1,55 @@
+﻿@using PO_project.Enums
+@model PO_project.KalkulatorWskaznika.FormularzRekrutacyjnyISt
+
+<link rel="stylesheet" href="~/css/kalkulator_i_st.css"/>
+
+@using (Html.BeginForm("Index", "KalkulatorWskaznikaISt", FormMethod.Post))
+{
+        <h1 class="text-center">Kalkulator wskaźnika rekrutacyjnego na studia I stopnia</h1>
+        <h3>Wyniki z matury</h3>
+        <table>
+            <tr>
+                <th>Przedmiot</th>
+                <th>Poziom podstawowy</th>
+                <th>Poziom rozszerzony</th>
+            </tr>
+        @foreach (var subject in Model.WynikiZMatur.Keys)
+        {
+            <tr>
+                <td>@subject.GetEnumLabel()</td>
+                <td>@Html.TextBoxFor(m => Model.WynikiZMatur[subject].Podstawa, new { type = "number", min = "0", step = "1", max = "100" })</td>
+                        <td>@Html.TextBoxFor(m => Model.WynikiZMatur[subject].Rozszerzenie, new { type = "number", min = "0", step = "1", max = "100" })</td>
+            </tr>
+        }
+        </table>
+        <hr />
+        <h3>Studium Talent</h3>
+        <table>
+        @foreach (var subject in Model.WynikiStudiumTalent.Keys)
+        {
+                    <tr>
+                        <td>@subject</td>
+                                <td>@Html.TextBoxFor(m => Model.WynikiStudiumTalent[subject], new { type = "number", min = "0", step = "0.5", max = "5.5" })</td>
+                    </tr>
+        }
+        </table>
+        <hr/>
+        <h3>Egzamin z rysunku</h3>
+        <table>
+            <tr>
+                <td>Rysunek</td>
+                    <td>@Html.TextBoxFor(m => m.WynikEgzaminuZRysunku, new { type = "number", min = "0", step = "1", max = "660" })</td>
+            </tr>
+        </table>
+        <hr/>
+        <h3>Olimpiady</h3>
+    foreach (Olimpiada olimpiada in Enum.GetValues(typeof(Olimpiada)))
+    {
+                <div>
+                    <input type="checkbox" id="@olimpiada" name="SelectedOlimpiadas" value="@olimpiada" />
+                    <label for="@olimpiada">@olimpiada.GetEnumLabel()</label>
+                </div>
+    }
+
+        <input type="submit" value="Oblicz wskaźnik rekrutacyjny"/>
+}

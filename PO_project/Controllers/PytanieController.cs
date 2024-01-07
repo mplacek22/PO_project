@@ -47,13 +47,31 @@ namespace PO_project.Controllers
             return currentQuestionIndex;
         }
 
-        public IActionResult Recomendations()
+        public IActionResult Recomendations(int? answer5)
         {
-            var kierunki = _context.Kierunki.Where(k =>k.StopienId == 1)
-                .Where(k => k.WydzialId == 4)
-                .Where(k => k.TrybId == 1)
-                .Where(k => k.JezykId == 1);
-            return View(kierunki);
+
+            if (answer5 == 13)
+            {
+                return View(_context.Kierunki.Where(k => k.StopienId == 1)
+                                   .Where(k => k.WydzialId == 4)
+                                   .Where(k => k.TrybId == 1)
+                                   .Where(k => k.JezykId == 1).ToList());
+            }
+            else if (answer5 == 14)
+            {
+                return View(_context.Kierunki.Where(k => k.StopienId == 2)
+                                   .Where(k => k.WydzialId == 2)
+                                   .Where(k => k.TrybId == 2)
+                                   .Where(k => k.JezykId == 1).ToList());
+            }
+            else if (answer5 == 15)
+            {
+                return View(_context.Kierunki.Where(k => k.StopienId == 1)
+                                   .Where(k => k.WydzialId == 1)
+                                   .Where(k => k.TrybId == 1)
+                                   .Where(k => k.JezykId == 1).ToList());
+            }
+            return View(_context.Kierunki.ToList());
         }
 
 

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PO_project.Enums;
 using PO_project.Models;
 
 namespace PO_project.Data
@@ -232,7 +233,7 @@ namespace PO_project.Data
             #endregion
 
             #region Kierunek
-            modelBuilder.Entity<Kierunek>().HasData(
+            _ = modelBuilder.Entity<Kierunek>().HasData(
                 new Kierunek()
                 {
                     KierunekId = 1,
@@ -243,7 +244,9 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    OlimpiadyString = $"{Olimpiada.Matematyczna},{Olimpiada.Fizyczna}",
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -255,7 +258,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 1
+                    WydzialId = 1,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
                 },
                 new Kierunek()
                 {
@@ -267,7 +271,8 @@ namespace PO_project.Data
                     JezykId = 2,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -279,7 +284,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 2,
-                    WydzialId = 2
+                    WydzialId = 2,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
                 },
                 new Kierunek()
                 {
@@ -291,7 +297,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -303,7 +310,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 2,
-                    WydzialId = 2
+                    WydzialId = 2,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
                 },
                 new Kierunek()
                 {
@@ -315,7 +323,9 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 2,
-                    WydzialId = 7
+                    WydzialId = 7,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
+
                 },
                 new Kierunek()
                 {
@@ -327,7 +337,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -339,7 +350,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -351,7 +363,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -363,7 +376,8 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 2,
                     TrybId = 1,
-                    WydzialId = 4
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 }
             );
             #endregion

@@ -1,27 +1,37 @@
-﻿namespace PO_project.Enums
-{
-	public enum Matura
-	{
-		MatematykaP = 0,
-		MatematykaR = 1,
-		JezykPolskiP = 2,
-		JezykPolskiR = 3,
-		BiologiaP = 4,
-		BiologiaR = 5,
-		ChemiaP = 6,
-		ChemiaR = 7,
-		HistoriaP = 8,
-		HistoriaR = 9,
-		WiedzaOSpoleczenstwieP = 10,
-		WiedzaOSpoleczenstwieR = 11,
-		FizykaP = 12,
-		FizykaR = 13,
-		InformatykaP = 14,
-		InformatykaR = 15,
-		GeografiaP = 16,
-		GeografiaR = 17,
-		JezykObcyP = 18,
-		JezykObcyR = 19
-	}
+﻿using System.ComponentModel;
 
+namespace PO_project.Enums
+{
+    public enum Matura
+	{
+        [Description("Matematyka")]
+		Matematyka = 0,
+
+        [Description("Język polski")]
+		JezykPolski = 1,
+
+        [Description("Biologia")]
+        Biologia = 2,
+
+        [Description("Chemia")]
+        Chemia = 3,
+
+        [Description("Historia")]
+        Historia = 4,
+
+        [Description("Wiedza o społeczeństwie")]
+        WiedzaOSpoleczenstwie = 5,
+
+        [Description("Fizyka")]
+        Fizyka = 6,
+
+        [Description("Informatyka")]
+        Informatyka = 7,
+
+        [Description("Geografia")]
+        Geografia = 8,
+
+        [Description("Język obcy")]
+        JezykObcy = 9
+	}
 }

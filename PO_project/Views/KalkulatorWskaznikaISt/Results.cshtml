@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewData["Title"] = "Results";
+}
+
+<h1 class="text-center">Twoje wskaźniki rekrutacyjne</h1>
+<table>
+    <th>Kierunek</th>
+    <th>Wskaźnik rekrutacyjny</th>
+    @foreach (var wynik in Model.WskaznikiRekrutacyjne)
+    {
+        <tr>
+		    <td>@wynik.Item1.Name</td>
+			<td>@wynik.Item2</td
+        </tr>
+    }
+</table>
+

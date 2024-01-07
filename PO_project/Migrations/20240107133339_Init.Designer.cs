@@ -12,7 +12,7 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240107132240_Init")]
+    [Migration("20240107133339_Init")]
     partial class Init
     {
         /// <inheritdoc />

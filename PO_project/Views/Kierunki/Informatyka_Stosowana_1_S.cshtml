@@ -1,0 +1,224 @@
+﻿@model PO_project.Models.Kierunek
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+<link rel="stylesheet" href="~/css/details.css"/>
+<script src="https://kit.fontawesome.com/27d4c0b12f.js" crossorigin="anonymous"></script>
+<div class="course-header">
+    <h1>@Html.DisplayFor(model => model.Name)</h1>
+</div>
+
+<div class="main-content-container">
+    <div class="metrics-container">
+        <h2>Metryczka kierunku</h2>
+        <div class="metrics-info">
+            <h4>Tryb studiowania</h4>
+            <p> @Html.DisplayFor(model => model.Tryb.Name) </p>
+        </div>
+        <div class="metrics-info">
+            <h4>Czas trwania</h4>
+            <p> @Html.DisplayFor(model => model.CzasTrwania.Value) <em>(ilość semestrów)</em></p>
+        </div>
+
+        <div class="metrics-info">
+            <h4>Język</h4>
+            <p> @Html.DisplayFor(model => model.Jezyk.Name) </p>
+        </div>
+
+        <div class="metrics-info">
+            <h4>Stopień</h4>
+            <p> @Html.DisplayFor(model => model.Stopien.Name) </p>
+        </div>
+
+        <div class="metrics-info">
+            <h4>Miasto</h4>
+            <p> @Html.DisplayFor(model => model.Wydzial.Lokalizacja.Name)</p>
+        </div>
+    </div>
+    
+    <div class="top-choice-box">
+        <label class="description-holder">
+            <input type="radio" name="content-switch" checked="checked" class="input" onchange="onInputChecked()"/>
+            <span>Opis kierunku</span>
+        </label>
+        @if (Model.Specjalizacje.ToList().Count > 0)
+        {
+            <label class="description-holder">
+                <input type="radio" name="content-switch" class="input" onchange="onInputChecked()" />
+                <span>Specjalności</span>
+            </label>
+        }
+        <label class="description-holder">
+            <input type="radio" name="content-switch" class="input" onchange="onInputChecked()" />
+            <span>Kryteria</span>
+        </label>
+    </div>
+
+    <div class="chosen-content" id="description-container" style="display: block;">
+        <h2>Opis</h2>
+        <p> @Html.DisplayFor(model => model.Description) </p>
+    </div>
+
+    <div class="chosen-content" id="specializations-container" style="display: none;">
+        <h2>Specjalizacje</h2>
+        @foreach (var specjalizacja in Model.Specjalizacje)
+        {
+            <div class="speciality">
+                <label class="speciality-button">
+                    <input type="checkbox" name="speciality" class="speciality-input"/>
+                    <i class="fa-solid fa-plus"></i>
+                    <i class="fa-solid fa-minus"></i>
+                </label>
+                <h3>@specjalizacja.Name</h3>
+                <p>@specjalizacja.Description</p>
+            </div>
+        }
+    </div>
+
+    <div class="chosen-content" id="criteria-container" style="display: none;">
+        <div class="criteria-header">
+            <span>M + PD + 0,1JO + 0,1JP</span>
+        </div>
+        <div class="criteria-body">
+            <div class="labeled-definitions">
+                <div class="labeled-definition subject">
+                    <span>M</span>
+                    <p>Matematyka</p>
+                </div>
+
+                <div class="labeled-definition subject">
+                    <span>PD</span>
+                    <p>Przedmiot dodatkowy (fizyka)</p>
+                </div>
+
+                <div class="labeled-definition subject">
+                    <span>JO</span>
+                    <p>Język obcy</p>
+                </div>
+
+                <div class="labeled-definition subject">
+                    <span>JP</span>
+                    <p>Język polski</p>
+                </div>
+
+                <div class="labeled-definition definition">
+                    <span>P</span>
+                    <p>Wynik procentowy z matury podstawowej</p>
+                </div>
+
+                <div class="labeled-definition definition">
+                    <span>R</span>
+                    <p>Wynik procentowy z matury rozszerzonej</p>
+                </div>
+            </div>
+            <div class="subject-categories">
+                <div class="subject-category">
+                    <div>
+                        <span>M</span>
+                        <span>PD</span>
+                        <span>JO</span>
+                    </div>
+                    <p>Jest równa większej z liczb: P albo P + 1,5 R albo 2,5 R</p>
+                </div>
+                <div class="subject-category">
+                    <div>
+                        <span>JP</span>
+                    </div>
+                    <p>Jest równa większej z liczb P albo R</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="additional-links">
+    <a asp-action="Calculator" asp-route-id="@Model.KierunekId">Policz swój wskaźnik</a>
+    <a asp-action="Index" >Znajdź inne kierunki</a>
+</div>
+
+
+<div class="additional-info">
+<h1>Więcej informacji</h1>
+
+<div class="additional-info-separator">
+    <p>Praktyki, staże, kariera</p>
+</div>
+
+<h3>Perspektywy</h3>
+<ul>
+    @foreach (var perspektywa in Model.Perpektywy)
+    {
+        <li>@perspektywa.Pracodawca.CompanyName</li>
+    }
+</ul>
+
+<h3>Praktyki i staże</h3>
+<ul>
+    @foreach (var praktyka in Model.Praktyki)
+    {
+        <li>@praktyka.Pracodawca.CompanyName</li>
+    }
+</ul>
+
+<h3>Miejsca pracy absolwentów</h3>
+<ul>
+    @foreach (var miejscePracy in Model.MiejscaPracy)
+    {
+         <li>@miejscePracy.Pracodawca.CompanyName</li>
+    }
+</ul>
+</div>
+
+
+@section Scripts {
+    <script>
+        var inputs = document.getElementsByClassName('input');
+        var descContainer = document.getElementById('description-container')
+        var criteriaContainer = document.getElementById('criteria-container')
+        var checkedInput = 0;
+
+        var onInputChecked = function () { 
+            for (let i = 0; i < inputs.length; i++) {
+
+                if (inputs.item(i).checked && i != checkedInput) {
+                    switchDisplay(checkedInput, 'none')
+                    checkedInput = i;
+                    switchDisplay(checkedInput, 'block')
+                }
+            }
+        }
+
+        var switchDisplay = function (index, displayType) {
+            if (inputs.length == 2) {
+                switch (index) {
+                    case 0:
+                        descContainer.style.display = displayType;
+                        break;
+                    case 1:
+                        criteriaContainer.style.display = displayType;
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                var specializationsContainer = document.getElementById('specializations-container')
+                switch (index) {
+                    case 0:
+                        descContainer.style.display = displayType;
+                        break;
+                    case 1:
+                        specializationsContainer.style.display = displayType;
+                        break;
+                    case 2:
+                        criteriaContainer.style.display = displayType;
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+    </script>
+}
+

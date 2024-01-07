@@ -56,14 +56,18 @@
 {
     <div class="points points-current">
         <h3>Twój wskaźnik rekrutacyjny wynosi:</h3>
-        <h4>@Model.Item2</h4>
+        <div>
+            <span>@Model.Item2</span>
+        </div>
     </div>
 }
 @if (Model.Item3 != null)
 {
     <div class="points points-base">
         <h3>Twój wskaźnik rekrutacyjny dla innych kierunków wynosi (co najmniej)</h3>
-        <h4>@Model.Item3</h4>
+        <div>
+            <span>@Model.Item3</span>
+        </div>
         <p>Aby obliczyć dokładny wskaźnik dla innych kierunków, wejdź w ich kalkulator.</p>
     </div>
 }

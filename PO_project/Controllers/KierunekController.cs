@@ -28,6 +28,11 @@ namespace PO_project.Controllers
         //    return View(await pwrDbContext.ToListAsync());
         //}
 
+        private String getFileName(Kierunek kierunek)
+        {
+            return kierunek.Name.Replace(' ', '_') + '_' + kierunek.StopienId + '_' + kierunek.Tryb.Name.Substring(0, 1).ToUpper() + ".cshtml";
+        }
+
         public IActionResult Index(int? stopienId, int? wydzialId, int? trybId, int? jezykId)
         {
             ViewBag.Stopnie = new SelectList(_context.Stopnie, "StopienId", "Name", stopienId);
@@ -77,7 +82,9 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            return View(kierunek);
+            String path = ("~/Views/Kierunki/" + getFileName(kierunek));
+
+            return System.IO.File.Exists(path) ? View(kierunek) : View(path, kierunek);
         }
 
         public async Task<IActionResult> Calculator(int? id, double? pointsKierunek, double? points)
@@ -87,7 +94,11 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            var kierunek = await _context.Kierunki.FindAsync(id);
+            var kierunek = await _context.Kierunki
+                .Include(k => k.Stopien)
+                .Include(k => k.Tryb)
+                .FirstOrDefaultAsync(m => m.KierunekId == id);
+;
 
             if (kierunek == null)
             {
@@ -96,7 +107,7 @@ namespace PO_project.Controllers
 
             if (kierunek.StopienId == 2)
             {
-                return View("~/Views/Kalkulatory/" + kierunek.Name + "-" + kierunek.StopienId + ".cshtml", (kierunek, pointsKierunek, points));
+                return View("~/Views/Kalkulatory/" + getFileName(kierunek), (kierunek, pointsKierunek, points));
             }
 
             return View("Details", kierunek);

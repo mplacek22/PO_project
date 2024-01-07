@@ -1,0 +1,46 @@
+﻿@model IEnumerable<PO_project.Models.Pytanie>
+
+<link rel="stylesheet" href="~/css/pytanie.css" />
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="ankieta">
+    <h1>Ankieta zainteresowań</h1>
+
+
+<p>
+    Chcesz wybrać studia, które liczą się na rynku pracy i będą zgodne z Tobą? A konkretniej: z Twoimi zainteresowaniami, uzdolnieniami...
+    Rozwiąż krótki test preferencji. Ten test to rodzaj zabawy/quizu, w której będziesz udzielać odpowiedzi na kolejne pytania. Na tej
+    podstawie otrzymasz wynik, czyli podpowiedź w postaci kilku proponowanych kierunków studiów na PWr. Może uda nam się trafić w Twój gust
+    i któryś kierunek okaże się strzałem w dziesiątkę!
+</p>
+
+</div>
+
+
+<hr class="solid">
+
+<div class="surveyButtons">
+    <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId - 2 })'">Cofnij</button>
+    <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId })'">Dalej</button>
+</div>
+
+
+<p class="questionNumber">Pytanie @Model.First().PytanieId / 5</p>
+
+<h5>@Model.First().Tresc</h5>
+<form>
+    @foreach (var odpowiedz in @Model.First().Odpowiedzi)
+    {
+        <div class="radioGroup">
+            <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
+            <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+        </div>
+    }
+</form>
+
+<div class="finishButton">
+    <a asp-controller="Pytanie" asp-action="Recomendations">Zakończ</a>
+</div>

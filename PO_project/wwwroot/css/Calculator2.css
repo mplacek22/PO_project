@@ -1,0 +1,172 @@
+﻿body {
+    --hover-color: rgb(160, 180, 230);
+    --checked-color: rgb(120, 140, 180);
+    --background-color: rgb(180, 180, 180);
+}
+
+/*#region input*/
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/*#endregion*/
+
+/*#region header*/
+.calculator-header {
+    position: relative;
+    width: 50%;
+    height: fit-content;
+    left: 25%;
+    background-color: var(--background-color);
+    border: 2px solid black;
+    border-radius: 10px;
+    margin-bottom: 10%;
+}
+.calculator-header h1{
+    color: black;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0;
+    padding: 20px;
+    text-align: center
+}
+/*#endregion*/
+
+/*#region form*/
+
+.calculator-form {
+    position: relative;
+    width: 100%;
+}
+
+/*#region input*/
+.form-input {
+    height: fit-content;
+    width: 500px;
+    position: relative;
+    margin: 20px 0 20px 0;
+    border: 2px solid black;
+    border-radius: 20px
+}
+.form-input input {
+    position: absolute;
+    width: 60px;
+    text-align: center;
+    border: 2px solid rgb(60, 60, 60);
+    border-radius: 10px;
+    left: 100%;
+    top: 50%;
+    transform: translate(-150%, -50%);
+}
+.form-input p {
+    padding: 10px;
+    color: black;
+}
+
+/*#endregion*/
+
+/*#region radio group*/
+.form-radio-group {
+    margin: 5% 0 5% 0;
+}
+
+.form-radio-option {
+    margin: 20px 0 20px 0;
+    border: 2px solid black;
+    border-radius: 20px;
+    padding: 20px;
+}
+
+.form-radio-option label {
+    font-weight: 600;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+}
+
+.form-radio-option:has(input:checked) p{
+    color: black;
+}
+
+.form-radio-option:has(input:checked) label {
+    background-color: var(--checked-color);
+    color: black;
+}
+
+.form-radio-option p {
+    color: grey;
+    margin: 10px;
+}
+
+.form-radio-option input {
+    height: 0px;
+    width: 0px;
+}
+
+.form-radio-option label:hover {
+    background-color: var(--hover-color);
+    color: black;
+    cursor: pointer;
+}
+/*#endregion*/
+
+/*#region button*/
+
+.calculator-form button {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    font-weight: 600;
+    background-color: var(--background-color);
+}
+
+.calculator-form button:hover {
+    background-color: var(--hover-color);
+}
+
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region points*/
+.points {
+    margin-top: 30px;
+    border: 2px solid black;
+    text-align: center;
+    border-radius: 10px;
+    padding: 20px;
+    background-color: var(--background-color);
+}
+.points h3{
+    font-weight: 600;
+}
+
+.points > div {
+    margin: 20px 0 20px 0;
+}
+
+.points span {
+    font-weight: 600;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: white;
+    
+}
+
+.points-base p {
+    font-size: 0.8rem;
+    margin-top: 20px;
+}
+/*#endregion*/

@@ -1,0 +1,44 @@
+﻿@model PO_project.Models.Pytanie
+
+<link rel="stylesheet" href="~/css/recomendations.css" />
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="ankieta">
+    <h1>Lista porponowanych kierunków powiązanych z Twoim zainteresowaniami</h1>
+</div>
+
+
+<div class="List">
+    <div class="card">
+        <a asp-controller="Kierunek" asp-action="Details" asp-route-id="1">
+            Informatyka Stosowana
+        </a>
+    </div>
+
+    <div class="card">
+        <a asp-controller="Kierunek" asp-action="Details" asp-route-id="3">
+            Applied Computer Science
+        </a>
+    </div>
+
+    <div class="card">
+        <a asp-controller="Kierunek" asp-action="Details" asp-route-id="5">
+            Cyberbezpieczeństwo
+        </a>
+    </div>
+
+    <div class="card">
+        <a asp-controller="Kierunek" asp-action="Details" asp-route-id="8">
+            Informatyczne systemy automatyki
+        </a>
+    </div>
+
+    <div class="card">
+        <a asp-controller="Kierunek" asp-action="Details" asp-route-id="9">
+            Informatyka algorytmiczna
+        </a>
+    </div>
+</div>

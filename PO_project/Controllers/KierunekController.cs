@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
 using PO_project.Models;
+using PO_project.RecrutationCalc;
 
 namespace PO_project.Controllers
 {
@@ -25,6 +27,11 @@ namespace PO_project.Controllers
         //    var pwrDbContext = _context.Kierunki.Include(k => k.CzasTrwania).Include(k => k.Jezyk).Include(k => k.Stopien).Include(k => k.Tryb).Include(k => k.Wydzial);
         //    return View(await pwrDbContext.ToListAsync());
         //}
+
+        private String getFileName(Kierunek kierunek)
+        {
+            return kierunek.Name.Replace(' ', '_') + '_' + kierunek.StopienId + '_' + kierunek.Tryb.Name.Substring(0, 1).ToUpper() + ".cshtml";
+        }
 
         public IActionResult Index(int? stopienId, int? wydzialId, int? trybId, int? jezykId)
         {
@@ -46,7 +53,6 @@ namespace PO_project.Controllers
             return View(kierunki);
         }
 
-
         // GET: Kierunek/Details/5
         public async Task<IActionResult> Details(int? id)
         {
@@ -61,8 +67,13 @@ namespace PO_project.Controllers
                 .Include(k => k.Stopien)
                 .Include(k => k.Tryb)
                 .Include(k => k.Wydzial)
+                    .ThenInclude(kw => kw.Lokalizacja)
                 .Include(k => k.Specjalizacje)
                 .Include(k => k.Perpektywy)
+                    .ThenInclude(kp => kp.Pracodawca)
+                .Include(k => k.Praktyki)
+                    .ThenInclude(kp => kp.Pracodawca)
+                .Include(k => k.MiejscaPracy)
                     .ThenInclude(kp => kp.Pracodawca)
                 .FirstOrDefaultAsync(m => m.KierunekId == id);
 
@@ -71,7 +82,69 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            return View(kierunek);
+            String path = ("~/Views/Kierunki/" + getFileName(kierunek));
+
+            return System.IO.File.Exists(path) ? View(kierunek) : View(path, kierunek);
+        }
+
+        public async Task<IActionResult> Calculator(int? id, double? pointsKierunek, double? points)
+        {
+            if (id == null || _context.Kierunki == null)
+            {
+                return NotFound();
+            }
+
+            var kierunek = await _context.Kierunki
+                .Include(k => k.Stopien)
+                .Include(k => k.Tryb)
+                .FirstOrDefaultAsync(m => m.KierunekId == id);
+;
+
+            if (kierunek == null)
+            {
+                return NotFound();
+            }
+
+            if (kierunek.StopienId == 2)
+            {
+                return View("~/Views/Kalkulatory/" + getFileName(kierunek), (kierunek, pointsKierunek, points));
+            }
+
+            return View("Details", kierunek);
+        }
+
+        public IActionResult Calculate(int? id, double? d, double? sr, double? e, int? od)
+        {
+            Bachelore batchelore = new Bachelore();
+            var kierunek = _context.Kierunki.Find(id);
+
+            if (kierunek == null)
+            {
+                return NotFound();
+            }
+
+            if(d == null || sr == null)
+            {
+                return RedirectToAction("Calculator", id);
+            }
+
+            MethodInfo? calculatorMethodInfo;
+            double points = batchelore.Base((double)d, (double)sr);
+            double pointsKierunek = points;
+
+            e ??= 0;
+            od ??= 0;  
+
+            if((calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double) })) != null)
+                pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d!, sr! })!;
+            else if ((calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double), typeof(int) })) != null)
+                pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d!, sr!, od! })!;
+            else if ((calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double), typeof(int) })) != null)
+                pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d!, sr!, e! })!;
+            else if ((calculatorMethodInfo = batchelore.GetType().GetMethod(kierunek.Name, new Type[] { typeof(double), typeof(double), typeof(double), typeof(int) })) != null)
+                pointsKierunek = (double)calculatorMethodInfo!.Invoke(batchelore, new object[] { d!, sr!, e!, od! })!;
+
+            return RedirectToAction("Calculator", new {id, pointsKierunek, points});
         }
 
         // GET: Kierunek/Create

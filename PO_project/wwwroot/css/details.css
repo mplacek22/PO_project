@@ -1,22 +1,384 @@
 ﻿body {
+    --hover-color: rgb(160, 180, 230);
+    --checked-color: rgb(120, 140, 180);
+    --background-color: rgb(180, 180, 180);
+    --background-color-light: rgb(220, 220, 220);
 }
 
-p {
-    color: blue;
+
+
+/*#region Course header*/
+.course-header h1 {
+    color: black;
 }
 
-.top-choice-box {
-    height: 15%;
-    width: 50%;
-    left: 20%;
-    top: 20%;
-    margin-bottom: 5%;
+/*#endregion*/
+
+/*#region Main content*/
+
+.main-content-container {
+    margin-top: 20px;
+    width: 50vw;
+    min-height: 50vh;
+    position: relative;
+}
+
+/*#region Metrics*/
+.metrics-container {
+    position: absolute;
+    height: fit-content;
+    min-width: 15vw;
+    left: 110%;
+    display: flex;
+    flex-direction: column;
     border: 2px solid black;
+    border-radius: 2px;
 }
 
-.top-choice-box p {
-    color: blue;
+.metrics-container h2 {
+    margin: 10px 0 10px 0;
+    font-size: 1rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.metrics-container h4,p {
+    padding: 0 15px 0 15px;
+    margin-bottom: 0px;
+}
+
+.metrics-container p {
+    margin-top: 0;
+}
+
+.metrics-container h4 {
+    font-weight: 300;
+    font-size: 0.8rem;
+    margin-bottom: 0;
+}
+/*#endregion*/
+
+/*#region top choice box*/
+.top-choice-box {
+    height: 10vh;
+    width: 100%;
+    margin-bottom: 30px ;
+    border: 2px solid black;
+    border-radius: 30px;
     display: flex;
     flex-direction: row;
-    flex-grow: 0.1;
+    align-items: center;
+    justify-content: left;
 }
+
+.description-holder {
+    position: relative;
+    flex-grow: 1;
+    height: 80%;
+    width: 20%;
+    margin-left: 5%;
+}
+
+.description-holder:last-child {
+    margin-right: 5%;
+}
+
+.description-holder span {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    border-width: 0px;
+    border-style: solid;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 12px;
+}
+
+.description-holder input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.description-holder:hover span {
+    background-color: var(--hover-color);
+}
+
+.description-holder input:checked + span {
+    border-width: 2px;
+    border-color: rgb(70, 70, 70);
+}
+
+/*#endregion*/
+
+/*#region Chosen content commons*/
+
+.chosen-content h2 {
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+/*#endregion*/
+
+/*#region Description */
+
+/*#endregion*/
+
+/*#region Specialities */
+.speciality {
+    position: relative;
+    padding: 0 10px 0 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+    margin: 5px 0 0 0;
+}
+.speciality h3{
+    margin: 10px;
+}
+
+.speciality p {
+    display: none;
+}
+
+.speciality-button {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: 100%;
+    transform: translate(-150%, 10px);
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.speciality-button input {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+.speciality:has(input:checked) p {
+    display: block;
+}
+
+.speciality-button fa-plus {
+    display: block;
+}
+
+.speciality-button input:checked + .fa-plus {
+    display: none;
+}
+
+.speciality-button:hover {
+    background-color: var(--hover-color);
+    cursor: pointer;
+}
+
+.speciality-button i{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+/*#endregion*/
+
+/*#region Cryteria */
+
+#criteria-container {
+    margin-top: 50px;
+}
+
+.criteria-header {
+    position: absolute;
+    width: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+}
+
+.criteria-header span {
+    color: black;
+    font-size: 1.3rem;
+    text-align: center;
+    font-weight: 600;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 10px;
+    background-color: var(--background-color);
+}
+
+/*#region body*/
+
+.criteria-body {
+    position: relative;
+    width: 100%;
+    border: 2px solid grey;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: row;
+    padding-top: 30px;
+}
+
+.labeled-definitions {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
+}
+
+.labeled-categories {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    margin: 20px 20px 20px 20px;
+}
+
+.labeled-definition {
+    position: relative;
+    margin-top: 20px;
+}
+
+.labeled-definition span {
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 50%;
+}
+
+.labeled-definition p{
+    position: relative;
+    left: 20px;
+}
+
+.subject span {
+    background-color: var(--background-color-light);
+}
+
+.definition span {
+    background-color: var(--background-color);
+}
+
+.subject-category {
+    position: relative;
+    flex-grow: 1;
+    margin: 40px 20px 0 0;
+    border: 2px solid grey;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.subject-category > div {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.subject-category span {
+    width: 30px;
+    height: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 600;
+    border: 2px solid black;
+    border-radius: 50%;
+    margin: 0 10px 0 10px;
+    background-color: var(--background-color-light)
+}
+
+.subject-category p {
+    color: black;
+    margin-top: 10px;
+    padding: 10px;
+    font-size: 1.2rem;
+}
+
+/*#endregion*/
+/*#endregion*/
+
+/*#endregion*/
+
+/*#region Additional links */
+.additional-links {
+    margin: 5% 0 5% 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.additional-links a {
+    margin: 3%;
+    text-decoration: none;
+    text-align: center;
+    color: black;
+    padding: 40px;
+    font-size: 1.5rem;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+.additional-links a:hover {
+    background-color: rgb(160, 180, 230);
+}
+
+/*#endregion*/
+
+/*#region Additional info */
+.additional-info h1 {
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 3rem;
+    font-weight: 500;
+    color: black;
+}
+
+.additional-info h3 {
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 500;
+    color: black;
+    margin-top: 5%;
+}
+
+.additional-info-separator {
+    height: 10vh;
+    width: 100%;
+    margin-bottom: 30px;
+    border: 2px solid grey;
+    border-radius: 30px;
+}
+
+.additional-info-separator > p {
+    position: relative;
+    height: fit-content;
+    width: fit-content;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -55%);
+    color: black;
+    font-weight: 800;
+    text-align: center;
+    padding: 10px;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+
+/*#endregion*/

@@ -1,0 +1,18 @@
+﻿@model ValueTuple<PO_project.Models.Kierunek, double?, double?>
+
+@{
+    ViewData["Title"] = "Kalkulator";
+}
+
+<h1>Matma 2</h1>
+
+<a asp-action="Calculate" asp-route-id="@Model.Item1.KierunekId" asp-route-d="5.0" asp-route-sr="4.54" asp-route-e="3.5">Oblicz wskaźnik</a>
+
+@if (Model.Item2 != null)
+{
+    <p>@Model.Item2</p>
+}
+@if (Model.Item3 != null)
+{
+    <p>@Model.Item3</p>
+}

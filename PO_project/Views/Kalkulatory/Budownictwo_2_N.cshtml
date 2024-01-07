@@ -1,0 +1,73 @@
+﻿@model ValueTuple<PO_project.Models.Kierunek, double?, double?>
+
+@{
+    ViewData["Title"] = "Kalkulator";
+}
+
+<link rel="stylesheet" href="~/css/Calculator2.css" />
+
+<div class="calculator-header">
+    <h1>Kierunek: @Model.Item1.Name</h1>
+</div>
+
+@using (Html.BeginForm("Calculate", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+{
+    <div class="calculator-form">
+        <input name="id" type="hidden" value="@Model.Item1.KierunekId" />
+
+        <div class="form-input">
+            <p>Ocena na dyplomie</p>
+            <input name="d" id="d" type="number" step="0.5" min="3.0" max="5.0" value="0.0"/>
+        </div>
+
+        <div class="form-input">
+            <p>Średnia ważona z przebiegu studiów</p>
+            <input name="sr" id="sr" type="number" step="0.01" min="3" max="5.5" value="0.0"/>
+        </div>
+
+        <div class="form-input">
+            <p>Ocena z egzaminu przeprowadzonego na PWR</p>
+            <input name="3" id="3" type="number" step="0.5" min="0" max="5.0" value="0.0" />
+        </div>
+
+        <div class="form-radio-group">
+            <div class="form-radio-option">
+                <input name="od" id="group1" type="radio" value="15">
+                <label for="group1">Grupa1 - 15pkt</label>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet dolor sed felis mattis, sit amet iaculis tortor laoreet. Pellentesque semper est in lectus ornare, imperdiet dictum elit fringilla. Praesent malesuada lacus mattis ligula rhoncus luctus. Vestibulum venenatis porttitor mi nec blandit. Mauris sodales id sem sed facilisis. Curabitur fringilla purus ac convallis ornare. Nunc nec pellentesque nisl. Duis a iaculis nunc, eu congue dolor. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla porttitor lectus in bibendum elementum. Vivamus ornare purus sed tempor porttitor. Donec ut magna neque. Aenean efficitur, ante quis mattis volutpat.</p>
+
+            </div>
+            <div class="form-radio-option">
+                <input name="od" id="group2" type="radio" value="10">
+                <label for="group2">Grupa2 - 10pkt</label>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet dolor sed felis mattis, sit amet iaculis tortor laoreet. Pellentesque semper est in lectus ornare, imperdiet dictum elit fringilla. Praesent malesuada lacus mattis ligula rhoncus luctus. Vestibulum venenatis porttitor mi nec blandit. Mauris sodales id sem sed facilisis. </p>
+            </div>
+            <div class="form-radio-option">
+                <input name="od" id="group3" type="radio" value="0" checked="checked">
+                <label for="group3">Grupa3 - 0pkt</label>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet dolor </p>            </div>
+        </div>
+        <button type="submit" >Oblicz wskaźnik</button>
+    </div>
+}
+
+
+@if(Model.Item2 != null)
+{
+    <div class="points points-current">
+        <h3>Twój wskaźnik rekrutacyjny wynosi:</h3>
+        <div>
+            <span>@Model.Item2</span>
+        </div>
+    </div>
+}
+@if (Model.Item3 != null)
+{
+    <div class="points points-base">
+        <h3>Twój wskaźnik rekrutacyjny dla innych kierunków wynosi (co najmniej)</h3>
+        <div>
+            <span>@Model.Item3</span>
+        </div>
+        <p>Aby obliczyć dokładny wskaźnik dla innych kierunków, wejdź w ich kalkulator.</p>
+    </div>
+}

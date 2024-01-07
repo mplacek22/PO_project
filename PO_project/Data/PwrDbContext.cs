@@ -1,4 +1,4 @@
-﻿using PO_project.Models;
+using PO_project.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace PO_project.Data
@@ -20,6 +20,8 @@ namespace PO_project.Data
         public DbSet<KierunekPerspektywy> Perspektywy { get; set; }
         public DbSet<HistoryczneDane> HistoryczneDane { get; set; }
         public DbSet<KierunekMiejscaPracy> MiejscaPracy { get; set; }
+        public DbSet<Pytanie> Pytania { get; set; }
+        public DbSet<Odzpowiedz> Odpowiedzi { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -29,6 +31,5 @@ namespace PO_project.Data
             //    .WithMany()
             //    .OnDelete(DeleteBehavior.Cascade);
         }
-
     }
 }

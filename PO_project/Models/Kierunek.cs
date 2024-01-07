@@ -16,7 +16,7 @@ namespace PO_project.Models
         [Required, NotNull]
         [MinLength(1)]
         [MaxLength(10)]
-        public string Abbreviation {  get; set; } = string.Empty;
+        public string Abbreviation { get; set; } = string.Empty;
 
         [AllowNull]
         public string? Description { get; set; } = null;
@@ -42,15 +42,48 @@ namespace PO_project.Models
         public Wydzial Wydzial { get; set; } = null!;
 
         public List<HistoryczneDane> HistoryczneDane { get; } = new();
+
         public List<Specjalizacja> Specjalizacje { get; } = new();
+
         public List<KierunekPerspektywy> Perpektywy { get; } = new();
-        public List<KierunekPraktyki> Praktyki { get;} = new();
+
+        public List<KierunekPraktyki> Praktyki { get; } = new();
+
         public List<KierunekMiejscaPracy> MiejscaPracy { get; } = new();
 
-		[NotMapped]
-		public Olimpiada[] Olimpiady { get; set; } = Array.Empty<Olimpiada>();
+        public string OlimpiadyString { get; set; } = string.Empty;
 
-		[NotMapped]
-		public Matura[] PrzedmiotyDodatkowe { get; set; } =  Array.Empty<Matura>();
+        [NotMapped]
+        public Olimpiada[] Olimpiady
+        {
+            get
+            {
+                if (OlimpiadyString == string.Empty || OlimpiadyString == null)
+                {
+                    return Array.Empty<Olimpiada>();
+                }
+                return OlimpiadyString.Split(',').Select(olimpiada => (Olimpiada)Enum.Parse(typeof(Olimpiada), olimpiada)).ToArray();
+            }
+        }
+
+        public string PrzedmiotyDodatkoweString { get; set; } = string.Empty;
+
+        [NotMapped]
+        public Matura[] PrzedmiotyDodatkowe
+        {
+            get
+            {
+                if (PrzedmiotyDodatkoweString == null || PrzedmiotyDodatkoweString == string.Empty)
+                {
+                    return Array.Empty<Matura>();
+                }
+                return PrzedmiotyDodatkoweString.Split(',').Select(przedmiot => (Matura)Enum.Parse(typeof(Matura), przedmiot)).ToArray();
+            }
+        }
+
+        public bool IsRysunekRequired()
+        {
+            return Name.Contains("Architektura");
+        }
 	}
 }

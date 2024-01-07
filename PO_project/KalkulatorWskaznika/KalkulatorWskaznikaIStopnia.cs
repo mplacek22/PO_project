@@ -6,8 +6,9 @@ namespace PO_project.KalkulatorWskaznika
     public class KalkulatorWskaznikaIStopnia
     {
         public const int MAX_WSKAZNIK_REKRUTACYJNY = 535;
+        public const int MAX_WSKAZNIK_REKRUTACYJNY_ARCHIEKTURA = 1195;
 
-		public static double CalculateWskaznikRekrutacyjny(Dictionary<Matura, WynikMatury> wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, List<Olimpiada> wynikiOlimpiad, Kierunek kierunek)
+        public static double CalculateWskaznikRekrutacyjny(Dictionary<Matura, WynikMatury> wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, List<Olimpiada> wynikiOlimpiad, Kierunek kierunek, int egzaminZRysunku)
 		{
 			if (IsOlimpijczyk(wynikiOlimpiad, kierunek.Olimpiady))
 			{
@@ -25,6 +26,11 @@ namespace PO_project.KalkulatorWskaznika
 			}
 
 			var studiumTalent = wynikiStudiumTalent.Values.Max() < 3.0 ? 0 : wynikiStudiumTalent.Values.Max();
+
+			if (kierunek.IsRysunekRequired())
+			{
+				  return Math.Min(M + PD + 0.1 * JO + 0.1 * JP + 10 * studiumTalent + egzaminZRysunku, MAX_WSKAZNIK_REKRUTACYJNY_ARCHIEKTURA);
+			}
 
 			return Math.Min(M + PD + 0.1 * JO + 0.1 * JP + 10 * studiumTalent, MAX_WSKAZNIK_REKRUTACYJNY);
 		}

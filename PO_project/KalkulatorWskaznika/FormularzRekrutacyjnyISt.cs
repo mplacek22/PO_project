@@ -22,7 +22,7 @@ namespace PO_project.KalkulatorWskaznika
 
 		public void ObliczWskaznikiRekrutacyjne(Kierunek[] kierunki)
 		{
-			WskaznikiRekrutacyjne = kierunki.Select(kierunek => (kierunek, KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(WynikiZMatur, WynikiStudiumTalent, Olimpiady, kierunek))).ToArray();
+			WskaznikiRekrutacyjne = kierunki.Select(kierunek => (kierunek, KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(WynikiZMatur, WynikiStudiumTalent, Olimpiady, kierunek, WynikEgzaminuZRysunku))).ToArray();
 		}
 	}
 }

@@ -10,8 +10,8 @@
     @foreach (var wynik in Model.WskaznikiRekrutacyjne)
     {
         <tr>
-		    <td>@wynik.Key.Name</td>
-			<td>@wynik.Value</td
+		    <td>@wynik.Item1.Name</td>
+			<td>@wynik.Item2</td
         </tr>
     }
 </table>

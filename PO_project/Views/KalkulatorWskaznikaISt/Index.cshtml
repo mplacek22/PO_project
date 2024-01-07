@@ -11,15 +11,6 @@
         <th>Poziom podstawowy</th>
         <th>Poziom rozszerzony</th>
     </tr>
-    @*@for (int i = 0; i < Model.WynikiZMatur.Count; i++)
-    {
-        <tr>
-            <td>@Model.WynikiZMatur[i].Subject.GetEnumLabel()</td>
-            @Model.WynikiZMatur[i].Subject = (Subject)i;
-            <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Podstawa)</td>
-            <td>@Html.TextBoxFor(m => Model.WynikiZMatur[i].Rozszerzenie)</td>
-        </tr>
-    }*@
     @foreach (var subject in Model.WynikiZMatur.Keys)
 	{
 		<tr>
@@ -58,5 +49,5 @@ foreach (Olimpiada olimpiada in Enum.GetValues(typeof(Olimpiada)))
 </div>
 }
 
-<input type="submit" value="Oblicz wskaźnik rekrutacynjy"/>
+<input type="submit" value="Oblicz wskaźnik rekrutacyjny"/>
 }

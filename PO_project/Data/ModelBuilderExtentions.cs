@@ -233,7 +233,7 @@ namespace PO_project.Data
             #endregion
 
             #region Kierunek
-            modelBuilder.Entity<Kierunek>().HasData(
+            _ = modelBuilder.Entity<Kierunek>().HasData(
                 new Kierunek()
                 {
                     KierunekId = 1,
@@ -244,9 +244,9 @@ namespace PO_project.Data
                     JezykId = 1,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4,                    
-					Olimpiady = new Olimpiada[] { Olimpiada.Matematyczna, Olimpiada.Informatyczna },
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    WydzialId = 4,
+                    OlimpiadyString = $"{Olimpiada.Matematyczna},{Olimpiada.Fizyczna}",
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -259,7 +259,7 @@ namespace PO_project.Data
                     StopienId = 1,
                     TrybId = 1,
                     WydzialId = 1,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
                 },
                 new Kierunek()
                 {
@@ -271,8 +271,8 @@ namespace PO_project.Data
                     JezykId = 2,
                     StopienId = 1,
                     TrybId = 1,
-                    WydzialId = 4, 
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    WydzialId = 4,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -285,7 +285,7 @@ namespace PO_project.Data
                     StopienId = 2,
                     TrybId = 2,
                     WydzialId = 2,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
                 },
                 new Kierunek()
                 {
@@ -298,7 +298,7 @@ namespace PO_project.Data
                     StopienId = 1,
                     TrybId = 1,
                     WydzialId = 4,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -311,7 +311,7 @@ namespace PO_project.Data
                     StopienId = 2,
                     TrybId = 2,
                     WydzialId = 2,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
                 },
                 new Kierunek()
                 {
@@ -324,7 +324,7 @@ namespace PO_project.Data
                     StopienId = 2,
                     TrybId = 2,
                     WydzialId = 7,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
 
                 },
                 new Kierunek()
@@ -338,7 +338,7 @@ namespace PO_project.Data
                     StopienId = 2,
                     TrybId = 1,
                     WydzialId = 4,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -351,7 +351,7 @@ namespace PO_project.Data
                     StopienId = 1,
                     TrybId = 1,
                     WydzialId = 4,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -364,7 +364,7 @@ namespace PO_project.Data
                     StopienId = 1,
                     TrybId = 1,
                     WydzialId = 4,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 },
                 new Kierunek()
                 {
@@ -377,7 +377,7 @@ namespace PO_project.Data
                     StopienId = 2,
                     TrybId = 1,
                     WydzialId = 4,
-                    PrzedmiotyDodatkowe = new Matura[] { Matura.Fizyka, Matura.Informatyka }
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
                 }
             );
             #endregion

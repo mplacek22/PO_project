@@ -33,15 +33,31 @@ namespace PO_project.Controllers
 				_formularz.WynikiStudiumTalent = formularz.WynikiStudiumTalent;
 				_formularz.Olimpiady = SelectedOlimpiadas;
 				_formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
-                return View("Wynik", _formularz);
+               TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(_formularz);
+                return RedirectToAction(nameof(Results));
             }
-            return RedirectToAction("Results");
+            return View(_formularz);
         }
 
         // GET: /KalkulatorWskaznikaIStController/Results
+        // GET: /KalkulatorWskaznikaIStController/Results
         public ActionResult Results()
-		{
-            return View(_formularz);
+        {
+            // Retrieve _formularz from TempData and deserialize it
+            var formularzJson = TempData["Formularz"] as string;
+
+            if (formularzJson != null)
+            {
+                var formularz = Newtonsoft.Json.JsonConvert.DeserializeObject<FormularzRekrutacyjnyISt>(formularzJson);
+                return View(formularz);
+            }
+            else
+            {
+                // Handle the case where TempData does not contain the JSON string
+                // (e.g., redirect to the Index action)
+                return RedirectToAction(nameof(Index));
+            }
         }
-	}
+
+    }
 }

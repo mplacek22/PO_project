@@ -37,31 +37,26 @@ namespace PO_project.Controllers
         // GET: /KalkulatorWskaznikaIStController/Results
         public ActionResult Results()
         {
-            // Retrieve _formularz from TempData and deserialize it
-            var formularzJson = TempData["Formularz"] as string;
-
-            if (formularzJson != null)
-            {
-                var formularz = Newtonsoft.Json.JsonConvert.DeserializeObject<FormularzRekrutacyjnyISt>(formularzJson);
+			if (TempData["Formularz"] is string formularzJson)
+			{
+				var formularz = Newtonsoft.Json.JsonConvert.DeserializeObject<FormularzRekrutacyjnyISt>(formularzJson);
 				var model = formularz.WskaznikiRekrutacyjne
-                    .GroupBy(wynik => wynik.Item1.WydzialId)
-	                .Select(group => new
-	                {
-		                Wydzial = _context.Wydzialy.FirstOrDefault(w => w.WydzialId == group.Key),
-		                Wskazniki = group.ToArray()
-	                })
+					.GroupBy(wynik => wynik.Item1.WydzialId)
+					.Select(group => new
+					{
+						Wydzial = _context.Wydzialy.FirstOrDefault(w => w.WydzialId == group.Key),
+						Wskazniki = group.ToArray()
+					})
 					.OrderBy(item => item.Wydzial.WydzialId)
 					.ToArray();
 
 				return View(model);
-            }
-            else
-            {
-                // Handle the case where TempData does not contain the JSON string
-                // (e.g., redirect to the Index action)
-                return RedirectToAction(nameof(Index));
-            }
-        }
+			}
+			else
+			{
+				return RedirectToAction(nameof(Index));
+			}
+		}
 
     }
 }

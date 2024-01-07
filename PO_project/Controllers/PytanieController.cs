@@ -47,6 +47,15 @@ namespace PO_project.Controllers
             return currentQuestionIndex;
         }
 
+        public IActionResult Recomendations()
+        {
+            var kierunki = _context.Kierunki.Where(k =>k.StopienId == 1)
+                .Where(k => k.WydzialId == 4)
+                .Where(k => k.TrybId == 1)
+                .Where(k => k.JezykId == 1);
+            return View(kierunki);
+        }
+
 
         // GET: Pytanie/Details/5
         public async Task<IActionResult> Details(int? id)
@@ -181,9 +190,5 @@ namespace PO_project.Controllers
           return (_context.Pytania?.Any(e => e.PytanieId == id)).GetValueOrDefault();
         }
 
-        public IActionResult Recomendations()
-        {
-            return View();
-        }
     }
 }

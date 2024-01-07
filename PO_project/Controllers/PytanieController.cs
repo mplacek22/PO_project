@@ -27,15 +27,24 @@ namespace PO_project.Controllers
             {
                 currentQuestionIndex = id.Value;
             }
-            else
+            else if (id.HasValue && id.Value <= -1)
             {
                 currentQuestionIndex = 0;
+            }
+            else if (id.HasValue && id.Value > 4)
+            {
+                currentQuestionIndex = 4;
             }
 
             ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdzpowiedzId", "Tresc").ToList();
 
             var pytania = _context.Pytania.Include(p => p.Odpowiedzi).Skip(currentQuestionIndex).Take(1);
             return View(pytania);
+        }
+
+        public int getCurrentQuestionIndex()
+        {
+            return currentQuestionIndex;
         }
 
 

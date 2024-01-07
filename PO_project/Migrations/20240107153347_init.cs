@@ -388,7 +388,7 @@ namespace PO_project.Migrations
                     { 2, "Czy preferujesz rozwiązywanie problemów, zastanawianie się nad ich przyczynami i skutkami, czy bardziej cenisz sobie konkretne prace projektowe?" },
                     { 3, "Czy fascynuje Cię proces projektowania algorytmów i ich optymalizacja, czy bardziej kieruje tobą praktyczne zastosowanie rozwiązań?" },
                     { 4, "Czy zainspirowałbyś/łabyś się projektowaniem i tworzeniem nowoczesnych przestrzeni architektonicznych, czy też bardziej przyciągają cię aspekty techniczne budowy?" },
-                    { 5, "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną?" }
+                    { 5, "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną, a może projektowaniem infrastrutur?" }
                 });
 
             migrationBuilder.InsertData(
@@ -428,7 +428,7 @@ namespace PO_project.Migrations
                     { 12, 4, "Trudno mi się zdecydować, obie dziedziny wydają się interesujące." },
                     { 13, 5, "Praca nad systemami informatycznymi przyciąga moją uwagę." },
                     { 14, 5, "Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną." },
-                    { 15, 5, "Oba obszary są dla mnie równie interesujące, chętnie eksploruję różne dziedziny." }
+                    { 15, 5, "preferuję projektowanie infrastruktur" }
                 });
 
             migrationBuilder.InsertData(

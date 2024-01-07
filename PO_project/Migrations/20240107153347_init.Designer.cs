@@ -12,7 +12,7 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240107143819_init")]
+    [Migration("20240107153347_init")]
     partial class init
     {
         /// <inheritdoc />
@@ -736,7 +736,7 @@ namespace PO_project.Migrations
                         {
                             OdzpowiedzId = 15,
                             PytanieId = 5,
-                            Tresc = "Oba obszary są dla mnie równie interesujące, chętnie eksploruję różne dziedziny."
+                            Tresc = "preferuję projektowanie infrastruktur"
                         });
                 });
 
@@ -831,7 +831,7 @@ namespace PO_project.Migrations
                         new
                         {
                             PytanieId = 5,
-                            Tresc = "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną?"
+                            Tresc = "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną, a może projektowaniem infrastrutur?"
                         });
                 });
 

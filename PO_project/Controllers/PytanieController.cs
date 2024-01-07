@@ -73,9 +73,6 @@ namespace PO_project.Controllers
             return View(_context.Kierunki.ToList());
         }
 
-
-    
-
         private bool PytanieExists(int id)
         {
           return (_context.Pytania?.Any(e => e.PytanieId == id)).GetValueOrDefault();

@@ -54,9 +54,16 @@
 
 @if(Model.Item2 != null)
 {
-    <p>@Model.Item2</p>
+    <div class="points points-current">
+        <h3>Twój wskaźnik rekrutacyjny wynosi:</h3>
+        <h4>@Model.Item2</h4>
+    </div>
 }
 @if (Model.Item3 != null)
 {
-    <p>@Model.Item3</p>
+    <div class="points points-base">
+        <h3>Twój wskaźnik rekrutacyjny dla innych kierunków wynosi (co najmniej)</h3>
+        <h4>@Model.Item3</h4>
+        <p>Aby obliczyć dokładny wskaźnik dla innych kierunków, wejdź w ich kalkulator.</p>
+    </div>
 }

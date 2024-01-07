@@ -12,7 +12,7 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240106183949_Init")]
+    [Migration("20240107121951_Init")]
     partial class Init
     {
         /// <inheritdoc />
@@ -253,6 +253,14 @@ namespace PO_project.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("nvarchar(255)");
 
+                    b.Property<string>("OlimpiadyString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PrzedmiotyDodatkoweString")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<int>("StopienId")
                         .HasColumnType("int");
 
@@ -285,6 +293,8 @@ namespace PO_project.Migrations
                             Description = "Najlepszy kierunek",
                             JezykId = 1,
                             Name = "Informatyka Stosowana",
+                            OlimpiadyString = "Matematyczna,Fizyczna",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -297,6 +307,8 @@ namespace PO_project.Migrations
                             Description = "Opis architektury.",
                             JezykId = 1,
                             Name = "Architektura",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka",
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 1
@@ -309,6 +321,8 @@ namespace PO_project.Migrations
                             Description = "Second best one.",
                             JezykId = 2,
                             Name = "Applied Computer Science",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -321,6 +335,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Budownictwo",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka",
                             StopienId = 2,
                             TrybId = 2,
                             WydzialId = 2
@@ -333,6 +349,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Cyberbezpieczeństwo",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -345,6 +363,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Energetyka",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka",
                             StopienId = 2,
                             TrybId = 2,
                             WydzialId = 2
@@ -357,6 +377,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Matematyka",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 2,
                             TrybId = 2,
                             WydzialId = 7
@@ -369,6 +391,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Informatyczne systemy automatyki",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 2,
                             TrybId = 1,
                             WydzialId = 4
@@ -381,6 +405,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Informatyka algorytmiczna",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -393,6 +419,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Inżynieria systemów",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -405,6 +433,8 @@ namespace PO_project.Migrations
                             Description = "",
                             JezykId = 1,
                             Name = "Telekomunikacja",
+                            OlimpiadyString = "",
+                            PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
                             StopienId = 2,
                             TrybId = 1,
                             WydzialId = 4

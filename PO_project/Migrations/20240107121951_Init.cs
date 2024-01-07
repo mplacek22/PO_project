@@ -68,6 +68,19 @@ namespace PO_project.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "Pytania",
+                columns: table => new
+                {
+                    PytanieId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Tresc = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Pytania", x => x.PytanieId);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Stopnie",
                 columns: table => new
                 {
@@ -133,6 +146,26 @@ namespace PO_project.Migrations
                         column: x => x.LokalizacjaId,
                         principalTable: "Lokalizacje",
                         principalColumn: "LokalizacjaId",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Odpowiedzi",
+                columns: table => new
+                {
+                    OdzpowiedzId = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Tresc = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    PytanieId = table.Column<int>(type: "int", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Odpowiedzi", x => x.OdzpowiedzId);
+                    table.ForeignKey(
+                        name: "FK_Odpowiedzi_Pytania_PytanieId",
+                        column: x => x.PytanieId,
+                        principalTable: "Pytania",
+                        principalColumn: "PytanieId",
                         onDelete: ReferentialAction.Cascade);
                 });
 
@@ -347,6 +380,18 @@ namespace PO_project.Migrations
                 });
 
             migrationBuilder.InsertData(
+                table: "Pytania",
+                columns: new[] { "PytanieId", "Tresc" },
+                values: new object[,]
+                {
+                    { 1, "Czy czujesz się bardziej komfortowo w abstrakcyjnym świecie liczb i teorii, czy też bardziej w realnym, konkretnym środowisku projektowym?" },
+                    { 2, "Czy preferujesz rozwiązywanie problemów, zastanawianie się nad ich przyczynami i skutkami, czy bardziej cenisz sobie konkretne prace projektowe?" },
+                    { 3, "Czy fascynuje Cię proces projektowania algorytmów i ich optymalizacja, czy bardziej kieruje tobą praktyczne zastosowanie rozwiązań?" },
+                    { 4, "Czy zainspirowałbyś/łabyś się projektowaniem i tworzeniem nowoczesnych przestrzeni architektonicznych, czy też bardziej przyciągają cię aspekty techniczne budowy?" },
+                    { 5, "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną?" }
+                });
+
+            migrationBuilder.InsertData(
                 table: "Stopnie",
                 columns: new[] { "StopienId", "Name" },
                 values: new object[,]
@@ -362,6 +407,28 @@ namespace PO_project.Migrations
                 {
                     { 1, "Stacjonarny" },
                     { 2, "Niestacjonarny" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Odpowiedzi",
+                columns: new[] { "OdzpowiedzId", "PytanieId", "Tresc" },
+                values: new object[,]
+                {
+                    { 1, 1, "Abstrakcyjny świat liczb i teorii to coś, co przyciąga moją uwagę." },
+                    { 2, 1, "Bardziej czuję się komfortowo w realnym środowisku projektowym." },
+                    { 3, 1, "Zależy od sytuacji, lubię łączyć oba światy." },
+                    { 4, 2, "Lubię analizować i rozwiązywać problemy, zastanawiać się nad ich korzeniami." },
+                    { 5, 2, "Cenię sobie konkretną pracę projektową nad analizą problemów." },
+                    { 6, 2, "Zarówno analiza problemów, jak i prace projektowe są dla mnie równie interesujące." },
+                    { 7, 3, "Proces projektowania algorytmów to coś, co mnie naprawdę fascynuje." },
+                    { 8, 3, "Bardziej kieruje mnie praktyczne zastosowanie rozwiązań niż projektowanie algorytmów." },
+                    { 9, 3, "Nie mam jednoznacznej preferencji, obie strony są dla mnie atrakcyjne." },
+                    { 10, 4, "Inspiruje mnie projektowanie nowoczesnych przestrzeni architektonicznych." },
+                    { 11, 4, "Interesują mnie bardziej aspekty techniczne i konstrukcyjne budowy." },
+                    { 12, 4, "Trudno mi się zdecydować, obie dziedziny wydają się interesujące." },
+                    { 13, 5, "Praca nad systemami informatycznymi przyciąga moją uwagę." },
+                    { 14, 5, "Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną." },
+                    { 15, 5, "Oba obszary są dla mnie równie interesujące, chętnie eksploruję różne dziedziny." }
                 });
 
             migrationBuilder.InsertData(
@@ -458,7 +525,11 @@ namespace PO_project.Migrations
             migrationBuilder.InsertData(
                 table: "Specjalizacje",
                 columns: new[] { "SpecjalizacjaId", "Description", "KierunekId", "Name" },
-                values: new object[] { 1, "Opis budownictwa lądowego", 4, "Budownictwo Lądowe" });
+                values: new object[,]
+                {
+                    { 1, "Opis budownictwa lądowego", 4, "Budownictwo Lądowe" },
+                    { 2, "Opis budownictwa wodnego", 4, "Budownictwo Wodne" }
+                });
 
             migrationBuilder.CreateIndex(
                 name: "IX_HistoryczneDane_KierunekId",
@@ -494,6 +565,11 @@ namespace PO_project.Migrations
                 name: "IX_MiejscaPracy_PracodawcaId",
                 table: "MiejscaPracy",
                 column: "PracodawcaId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Odpowiedzi_PytanieId",
+                table: "Odpowiedzi",
+                column: "PytanieId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Perspektywy_PracodawcaId",
@@ -532,6 +608,9 @@ namespace PO_project.Migrations
                 name: "MiejscaPracy");
 
             migrationBuilder.DropTable(
+                name: "Odpowiedzi");
+
+            migrationBuilder.DropTable(
                 name: "Perspektywy");
 
             migrationBuilder.DropTable(
@@ -539,6 +618,9 @@ namespace PO_project.Migrations
 
             migrationBuilder.DropTable(
                 name: "Specjalizacje");
+
+            migrationBuilder.DropTable(
+                name: "Pytania");
 
             migrationBuilder.DropTable(
                 name: "Pracodawcy");

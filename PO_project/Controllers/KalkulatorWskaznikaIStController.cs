@@ -43,7 +43,17 @@ namespace PO_project.Controllers
             if (formularzJson != null)
             {
                 var formularz = Newtonsoft.Json.JsonConvert.DeserializeObject<FormularzRekrutacyjnyISt>(formularzJson);
-                return View(formularz);
+				var model = formularz.WskaznikiRekrutacyjne
+                    .GroupBy(wynik => wynik.Item1.WydzialId)
+	                .Select(group => new
+	                {
+		                Wydzial = _context.Wydzialy.FirstOrDefault(w => w.WydzialId == group.Key),
+		                Wskazniki = group.ToArray()
+	                })
+					.OrderBy(item => item.Wydzial.WydzialId)
+					.ToArray();
+
+				return View(model);
             }
             else
             {

@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
+using PO_project.KalkulatorWskaznika;
 using PO_project.Models;
 using PO_project.RecrutationCalc;
 
@@ -82,9 +83,12 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            String path = ("~/Views/Kierunki/" + getFileName(kierunek));
+            String path = ("Views/Kierunki/" + getFileName(kierunek));
 
-            return System.IO.File.Exists(path) ? View(kierunek) : View(path, kierunek);
+            if (System.IO.File.Exists(path))
+                return View("~/" + path, kierunek);
+
+            return View(kierunek);
         }
 
         public async Task<IActionResult> Calculator(int? id, double? pointsKierunek, double? points)
@@ -107,10 +111,13 @@ namespace PO_project.Controllers
 
             if (kierunek.StopienId == 2)
             {
-                return View("~/Views/Kalkulatory/" + getFileName(kierunek), (kierunek, pointsKierunek, points));
+                String path = ("Views/Kalkulatory/" + getFileName(kierunek));
+                if (!System.IO.File.Exists(path))
+                    return NotFound();
+                return View("~/" + path, (kierunek, pointsKierunek, points));
             }
 
-            return View("Details", kierunek);
+            return View("~/Views/KalkulatorWskaznikaISt/Index.cshtml", new FormularzRekrutacyjnyISt());
         }
 
         public IActionResult Calculate(int? id, double? d, double? sr, double? e, int? od)

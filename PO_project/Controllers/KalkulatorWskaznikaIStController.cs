@@ -31,6 +31,11 @@ namespace PO_project.Controllers
                TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz);
                 return RedirectToAction(nameof(Results));
             }
+			else
+			{
+				var errors = ModelState.Select(x => x.Value)
+						   .ToList();
+			}
             return View(formularz);
         }
 

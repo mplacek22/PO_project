@@ -8,18 +8,17 @@ namespace PO_project.Controllers
 	public class KalkulatorWskaznikaIStController : Controller
 	{
 		private readonly PwrDbContext _context;
-		private readonly FormularzRekrutacyjnyISt  _formularz;
 
 		public KalkulatorWskaznikaIStController(PwrDbContext context)
 		{
 			_context = context;
-			_formularz = new FormularzRekrutacyjnyISt();
 		}
 
         // GET: /KalkulatorWskaznikaIStController/Index
         public ActionResult Index()
 		{
-			return View(_formularz);
+            var formularz = new FormularzRekrutacyjnyISt();
+            return View(formularz);
 		}
 
         // POST: /KalkulatorWskaznikaIStController/Index
@@ -28,18 +27,13 @@ namespace PO_project.Controllers
 		{
             if (ModelState.IsValid)
 			{
-				_formularz.WynikiZMatur = formularz.WynikiZMatur;
-				_formularz.WynikEgzaminuZRysunku = formularz.WynikEgzaminuZRysunku;
-				_formularz.WynikiStudiumTalent = formularz.WynikiStudiumTalent;
-				_formularz.Olimpiady = SelectedOlimpiadas;
-				_formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
-               TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(_formularz);
+				formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
+               TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz);
                 return RedirectToAction(nameof(Results));
             }
-            return View(_formularz);
+            return View(formularz);
         }
 
-        // GET: /KalkulatorWskaznikaIStController/Results
         // GET: /KalkulatorWskaznikaIStController/Results
         public ActionResult Results()
         {

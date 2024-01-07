@@ -6,25 +6,33 @@ table {
     margin-bottom: 20px;
 }
 
+th{
+    font-size: 20px;
+}
+
 th, td {
     padding: 8px;
     text-align: left;
 }
 
 hr {
-    border: 0;
+    border: 1px;
     height: 2px;
-    background-color: #ddd;
     margin-bottom: 20px;
 }
 
 input[type="number"], input[type="checkbox"] {
     padding: 8px;
     margin-right: 5px;
+    margin-bottom: 10px;
 }
 
 input[type="submit"] {
-    background-color: #4caf50;
+    position: relative;
+    top: 20px; 
+    left: 80%;
+    font-size: 20px;
+    background-color: cornflowerblue;
     color: white;
     padding: 10px 15px;
     border: none;
@@ -32,7 +40,6 @@ input[type="submit"] {
     cursor: pointer;
 }
 
-    input[type="submit"]:hover {
-        background-color: #45a049;
-    }
+input[type="submit"]:hover {
+    background-color: darkslateblue;
 }

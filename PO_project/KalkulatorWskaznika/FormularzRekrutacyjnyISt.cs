@@ -9,6 +9,7 @@ namespace PO_project.KalkulatorWskaznika
 	{
         public (Kierunek, double)[] WskaznikiRekrutacyjne { get; set; } = Array.Empty<(Kierunek, double)>();
 
+
         public Dictionary<Matura, WynikMatury> WynikiZMatur{ get; set; } = Enum.GetValues(typeof(Matura)).Cast<Matura>().ToDictionary(m => m, m => new WynikMatury());
 
         [Range(0, 660, ErrorMessage = "Wynik z egzaminu z rysunku musi mieścić się w zakresie od 0 do 660")]

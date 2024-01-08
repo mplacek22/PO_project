@@ -91,17 +91,17 @@ namespace PO_project.Controllers
             return View(kierunek);
         }
 
-        public async Task<IActionResult> Calculator(int? id, double? pointsKierunek, double? points)
+        public IActionResult Calculator(int? id, double? pointsKierunek, double? points)
         {
             if (id == null || _context.Kierunki == null)
             {
                 return NotFound();
             }
 
-            var kierunek = await _context.Kierunki
+            var kierunek = _context.Kierunki
                 .Include(k => k.Stopien)
                 .Include(k => k.Tryb)
-                .FirstOrDefaultAsync(m => m.KierunekId == id);
+                .FirstOrDefault(m => m.KierunekId == id);
 ;
 
             if (kierunek == null)

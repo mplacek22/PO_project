@@ -15,6 +15,7 @@ using Xunit;
 
 namespace PO_project.Tests
 {
+
     public class UnitTest1
     {
         private PwrDbContext _context;
@@ -26,11 +27,6 @@ namespace PO_project.Tests
                 .Options;
 
             _context = new PwrDbContext(options);
-
-            // Fill _context with data from your database
-            // This is just an example, replace with your actual data
-            _context.Pytania.Add(new Pytanie { /* set properties here */ });
-            _context.SaveChanges();
         }
 
         [Fact]
@@ -48,9 +44,8 @@ namespace PO_project.Tests
         [Fact]
         public void TestCountPytanieController()
         {
-            var controller = new PytanieController(_context);
-
-            var result = controller.Index(1);
+            _context.Pytania.Add(new Pytanie { PytanieId = 1 });
+            _context.SaveChanges();
 
             Assert.Equal(1, _context.Pytania.Count());
         }

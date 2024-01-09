@@ -1,0 +1,54 @@
+﻿<link rel="stylesheet" href="~/css/recomendations_main.css"/>
+
+<h1 class="text-center">Rekomendowane kierunki studiów</h1>
+<hr />
+<section class="recommendations">
+    <hr />
+    @foreach (var recommendation in Model)
+    {
+    <a asp-action="Details" asp-controller="Kierunek" asp-route-id="@recommendation.CourseId" class="card-link">
+        <article class="card @GetChancesClass(recommendation.ChancesOfGettingIn)">
+            <header>
+                <h3>@recommendation.Course</h3>
+            </header>
+                @if (recommendation.Description == null || recommendation.Description == string.Empty)
+			{
+				<p>-- Brak opisu --</p>
+			}
+			else
+			{
+				<p>@recommendation.Description</p>
+			}
+            @if (recommendation.AvgPointThreshold == -1)
+            {
+                <p>-- Brak danych dot. historycznych progów punktowych --</p>
+            }
+            else
+            {
+                <p>Średni próg punktowy z ubiegłych lat rekrutacji: @recommendation.AvgPointThreshold</p>
+            }
+            <p>Twój wskaźnik rekrutacyjny: @recommendation.CancdidateRecruitmentIndicator</p>
+            <footer>
+                    <p>Szanse dostania się: @recommendation.ChancesOfGettingIn</p>
+            </footer>
+        </article>
+    </a>
+    }
+</section>
+
+@functions {
+    private string GetChancesClass(string chancesOfGettingIn)
+    {
+        switch (chancesOfGettingIn)
+        {
+            case "Niskie prawdopodobieństwo dostania się":
+                return "low";
+            case "Warto spróbować, gdyż jest szansa dostania się":
+                return "mid";
+            case "Wysokie prawdopodobieństwo dostania się":
+                return "high";
+            default:
+                return "default";
+        }
+    }
+}

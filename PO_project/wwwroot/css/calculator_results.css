@@ -21,3 +21,33 @@ th {
 tr:nth-child(even) {
     background-color: lightsteelblue;
 }
+
+tr:nth-child(odd) {
+    background-color: white;
+}
+
+.links-container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.link {
+    text-decoration: none;
+    color: white;
+    background-color: steelblue;
+    padding: 1em 2em;
+    border: none;
+    border-radius: .6rem;
+    position: relative;
+    cursor: pointer;
+    overflow: hidden;
+    width: 40em;
+    text-align: center;
+    margin-top: 20px;
+}
+
+.link:hover {
+    background-color: lightsteelblue;
+    text-decoration: none;
+    color: white;
+}   

@@ -2,6 +2,8 @@
 using PO_project.Data;
 using PO_project.Enums;
 using PO_project.KalkulatorWskaznika;
+using PO_project.Models;
+using PO_project.Recomendations;
 
 namespace PO_project.Controllers
 {
@@ -54,13 +56,20 @@ namespace PO_project.Controllers
 					})
 					.OrderBy(item => item.Wydzial.WydzialId)
 					.ToArray();
-
+				TempData["WskaznikiRekrutacyjne"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz.WskaznikiRekrutacyjne);
 				return View(model);
 			}
 			else
 			{
 				return RedirectToAction(nameof(Index));
 			}
+		}
+
+		// GET: /KalkulatorWskaznikaIStController/Recomendations
+		public ActionResult Recomendations()
+		{
+			return RedirectToAction(nameof(RecomendationsController.Index), "Recomendations");
+			
 		}
 
     }

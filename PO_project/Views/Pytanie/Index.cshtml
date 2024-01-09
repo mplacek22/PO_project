@@ -23,24 +23,57 @@
 <hr class="solid">
 
 <div class="surveyButtons">
-    <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId - 2 })'">Cofnij</button>
-    <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId })'">Dalej</button>
+    @if (Model.First().PytanieId != 1)
+    {
+        <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId - 2 })'">Cofnij</button>
+    }
+    @if (Model.First().PytanieId != 5)
+    {
+        <button class="surveyButton" onclick="window.location.href='@Url.Action("Index", "Pytanie", new { id = Model.First().PytanieId })'">Dalej</button>
+    }
 </div>
 
 
 <p class="questionNumber">Pytanie @Model.First().PytanieId / 5</p>
-
 <h5>@Model.First().Tresc</h5>
-<form>
-    @foreach (var odpowiedz in @Model.First().Odpowiedzi)
-    {
-        <div class="radioGroup">
-            <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
-            <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
-        </div>
-    }
-</form>
 
-<div class="finishButton">
-    <a asp-controller="Pytanie" asp-action="Recomendations">Zakończ</a>
-</div>
+@if (Model.First().PytanieId == 5)
+{
+    <form method="post" id="recomendationsForm">
+        @foreach (var odpowiedz in @Model.First().Odpowiedzi)
+        {
+            <div class="radioGroup">
+                <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer5" value="@odpowiedz.OdzpowiedzId">
+                <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+            </div>
+        }
+
+        <input class="inputSurvey" type="submit" value="Zakończ">
+    </form>
+}
+else
+{
+    <form>
+        @foreach (var odpowiedz in @Model.First().Odpowiedzi)
+        {
+            <div class="radioGroup">
+                <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
+                <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+            </div>
+        }
+    </form>
+}
+
+<script>
+    document.getElementById("recomendationsForm").addEventListener("submit", function () {
+        var selectedRadioButton = document.querySelector('input[name="answer5"]:checked');
+
+        if (selectedRadioButton) {
+            var selectedValue = selectedRadioButton.value;
+            this.action = "@Url.Action("Recomendations", "Pytanie")?answer5=" + selectedValue;
+        }
+    });
+</script>
+
+
+

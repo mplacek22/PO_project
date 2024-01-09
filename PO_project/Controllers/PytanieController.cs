@@ -20,7 +20,6 @@ namespace PO_project.Controllers
             _context = context;
         }
 
-        //// GET: Pytanie
         public IActionResult Index(int? id)
         {
             if (id.HasValue && id.Value < 5 && id.Value >= 0)
@@ -47,133 +46,31 @@ namespace PO_project.Controllers
             return currentQuestionIndex;
         }
 
-
-        // GET: Pytanie/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public IActionResult Recomendations(int? answer5)
         {
-            if (id == null || _context.Pytania == null)
+
+            if (answer5 == 13)
             {
-                return NotFound();
+                return View(_context.Kierunki.Where(k => k.StopienId == 1)
+                                   .Where(k => k.WydzialId == 4)
+                                   .Where(k => k.TrybId == 1)
+                                   .Where(k => k.JezykId == 1).ToList());
             }
-
-            var pytanie = await _context.Pytania
-                .FirstOrDefaultAsync(m => m.PytanieId == id);
-            if (pytanie == null)
+            else if (answer5 == 14)
             {
-                return NotFound();
+                return View(_context.Kierunki.Where(k => k.StopienId == 2)
+                                   .Where(k => k.WydzialId == 2)
+                                   .Where(k => k.TrybId == 2)
+                                   .Where(k => k.JezykId == 1).ToList());
             }
-
-            return View(pytanie);
-        }
-
-        // GET: Pytanie/Create
-        public IActionResult Create()
-        {
-            return View();
-        }
-
-        // POST: Pytanie/Create
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("PytanieId,Tresc")] Pytanie pytanie)
-        {
-            if (ModelState.IsValid)
+            else if (answer5 == 15)
             {
-                _context.Add(pytanie);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+                return View(_context.Kierunki.Where(k => k.StopienId == 1)
+                                   .Where(k => k.WydzialId == 1)
+                                   .Where(k => k.TrybId == 1)
+                                   .Where(k => k.JezykId == 1).ToList());
             }
-            return View(pytanie);
-        }
-
-        // GET: Pytanie/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null || _context.Pytania == null)
-            {
-                return NotFound();
-            }
-
-            var pytanie = await _context.Pytania.FindAsync(id);
-            if (pytanie == null)
-            {
-                return NotFound();
-            }
-            return View(pytanie);
-        }
-
-        // POST: Pytanie/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("PytanieId,Tresc")] Pytanie pytanie)
-        {
-            if (id != pytanie.PytanieId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(pytanie);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!PytanieExists(pytanie.PytanieId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            return View(pytanie);
-        }
-
-        // GET: Pytanie/Delete/5
-        public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null || _context.Pytania == null)
-            {
-                return NotFound();
-            }
-
-            var pytanie = await _context.Pytania
-                .FirstOrDefaultAsync(m => m.PytanieId == id);
-            if (pytanie == null)
-            {
-                return NotFound();
-            }
-
-            return View(pytanie);
-        }
-
-        // POST: Pytanie/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            if (_context.Pytania == null)
-            {
-                return Problem("Entity set 'PwrDbContext.Pytania'  is null.");
-            }
-            var pytanie = await _context.Pytania.FindAsync(id);
-            if (pytanie != null)
-            {
-                _context.Pytania.Remove(pytanie);
-            }
-            
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            return View(_context.Kierunki.ToList());
         }
 
         private bool PytanieExists(int id)
@@ -181,9 +78,5 @@ namespace PO_project.Controllers
           return (_context.Pytania?.Any(e => e.PytanieId == id)).GetValueOrDefault();
         }
 
-        public IActionResult Recomendations()
-        {
-            return View();
-        }
     }
 }

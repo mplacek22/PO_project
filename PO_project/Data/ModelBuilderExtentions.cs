@@ -576,7 +576,7 @@ namespace PO_project.Data
                 new Pytanie()
                 {
                     PytanieId = 5,
-                    Tresc = "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną?"
+                    Tresc = "Czy bardziej cię pociąga praca nad systemami informatycznymi, czy może masz skłonności do zajmowania się infrastrukturą energetyczną, a może projektowaniem infrastrutur?"
                 }
                 );
             #endregion
@@ -670,7 +670,7 @@ namespace PO_project.Data
                 new Odzpowiedz()
                 {
                     OdzpowiedzId = 15,
-                    Tresc = "Oba obszary są dla mnie równie interesujące, chętnie eksploruję różne dziedziny.",
+                    Tresc = "preferuję projektowanie infrastruktur",
                     PytanieId = 5
                 }
                 );

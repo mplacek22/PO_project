@@ -59,21 +59,18 @@ hr.solid {
     font-size: 16px;
 }
 
-.finishButton {
-    text-align: center;
-}
-
-.finishButton a {
-    display: inline-block;
+.inputSurvey {
+    display: block;
+    margin: 0 auto;
     padding: 10px 20px;
-    margin: 10px;
-    text-decoration: none;
-    color: #fff; /* Text color */
-    background-color: #3498db; /* Blue color for the button */
+    background-color: #3498db;
+    color: #fff;
+    border: none;
     border-radius: 5px;
+    cursor: pointer;
     transition: background-color 0.3s ease;
 }
 
-.finishButton a:hover {
-    background-color: #2980b9; /* Darker blue color on hover */
+.inputSurvey:hover {
+    background-color: #2980b9; 
 }

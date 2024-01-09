@@ -7,7 +7,7 @@
 namespace PO_project.Migrations
 {
     /// <inheritdoc />
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -184,7 +184,10 @@ namespace PO_project.Migrations
                     CzasTrwaniaId = table.Column<int>(type: "int", nullable: false),
                     WydzialId = table.Column<int>(type: "int", nullable: false),
                     OlimpiadyString = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    PrzedmiotyDodatkoweString = table.Column<string>(type: "nvarchar(max)", nullable: false)
+                    RysunekRequired = table.Column<bool>(type: "bit", nullable: false),
+                    BiologiaRequired = table.Column<bool>(type: "bit", nullable: false),
+                    PrzedmiotyDodatkoweString = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    MaxWskaznikRekrutacyjny = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -457,20 +460,20 @@ namespace PO_project.Migrations
 
             migrationBuilder.InsertData(
                 table: "Kierunki",
-                columns: new[] { "KierunekId", "Abbreviation", "CzasTrwaniaId", "Description", "JezykId", "Name", "OlimpiadyString", "PrzedmiotyDodatkoweString", "StopienId", "TrybId", "WydzialId" },
+                columns: new[] { "KierunekId", "Abbreviation", "BiologiaRequired", "CzasTrwaniaId", "Description", "JezykId", "MaxWskaznikRekrutacyjny", "Name", "OlimpiadyString", "PrzedmiotyDodatkoweString", "RysunekRequired", "StopienId", "TrybId", "WydzialId" },
                 values: new object[,]
                 {
-                    { 1, "IST", 5, "Najlepszy kierunek", 1, "Informatyka Stosowana", "Matematyczna,Fizyczna", "Fizyka,Informatyka", 1, 1, 4 },
-                    { 2, "ARC", 6, "Opis architektury.", 1, "Architektura", "", "Fizyka", 1, 1, 1 },
-                    { 3, "ISTA", 5, "Second best one.", 2, "Applied Computer Science", "", "Fizyka,Informatyka", 1, 1, 4 },
-                    { 4, "BUD-2", 4, "", 1, "Budownictwo", "", "Fizyka", 2, 2, 2 },
-                    { 5, "CBE", 4, "", 1, "Cyberbezpieczeństwo", "", "Fizyka,Informatyka", 1, 1, 4 },
-                    { 6, "ENG", 4, "", 1, "Energetyka", "", "Fizyka", 2, 2, 2 },
-                    { 7, "MAT", 4, "", 1, "Matematyka", "", "Fizyka,Informatyka", 2, 2, 7 },
-                    { 8, "OPT", 4, "", 1, "Informatyczne systemy automatyki", "", "Fizyka,Informatyka", 2, 1, 4 },
-                    { 9, "OPT", 4, "", 1, "Informatyka algorytmiczna", "", "Fizyka,Informatyka", 1, 1, 4 },
-                    { 10, "OPT", 4, "", 1, "Inżynieria systemów", "", "Fizyka,Informatyka", 1, 1, 4 },
-                    { 11, "OPT", 4, "", 1, "Telekomunikacja", "", "Fizyka,Informatyka", 2, 1, 4 }
+                    { 1, "IST", false, 5, "Najlepszy kierunek", 1, 535, "Informatyka Stosowana", "Matematyczna,Fizyczna", "Fizyka,Informatyka", false, 1, 1, 4 },
+                    { 2, "ARC", false, 6, "Opis architektury.", 1, 1195, "Architektura", "", "Fizyka", true, 1, 1, 1 },
+                    { 3, "ISTA", false, 5, "Second best one.", 2, 535, "Applied Computer Science", "", "Fizyka,Informatyka", false, 1, 1, 4 },
+                    { 4, "BUD-2", false, 4, "", 1, 535, "Budownictwo", "", "Fizyka", false, 2, 2, 2 },
+                    { 5, "CBE", false, 4, "", 1, 535, "Cyberbezpieczeństwo", "", "Fizyka,Informatyka", false, 1, 1, 4 },
+                    { 6, "ENG", false, 4, "", 1, 535, "Energetyka", "", "Fizyka", false, 2, 2, 2 },
+                    { 7, "MAT", false, 4, "", 1, 535, "Matematyka", "", "Fizyka,Informatyka", false, 2, 2, 7 },
+                    { 8, "OPT", false, 4, "", 1, 535, "Informatyczne systemy automatyki", "", "Fizyka,Informatyka", false, 2, 1, 4 },
+                    { 9, "OPT", false, 4, "", 1, 535, "Informatyka algorytmiczna", "", "Fizyka,Informatyka", false, 1, 1, 4 },
+                    { 10, "OPT", false, 4, "", 1, 535, "Inżynieria systemów", "", "Fizyka,Informatyka", false, 1, 1, 4 },
+                    { 11, "OPT", false, 4, "", 1, 535, "Telekomunikacja", "", "Fizyka,Informatyka", false, 2, 1, 4 }
                 });
 
             migrationBuilder.InsertData(

@@ -87,6 +87,5 @@ namespace PO_project.Enums
 
 		[Description("Wiedzy o Prawie")]
 		WiedzyoPrawie = 27
-	}
-
+    }
 }

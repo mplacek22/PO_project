@@ -2,12 +2,10 @@
 using PO_project.Data;
 using PO_project.Enums;
 using PO_project.KalkulatorWskaznika;
-using PO_project.Models;
-using PO_project.Recomendations;
 
 namespace PO_project.Controllers
 {
-	public class KalkulatorWskaznikaIStController : Controller
+    public class KalkulatorWskaznikaIStController : Controller
 	{
 		private readonly PwrDbContext _context;
 
@@ -30,7 +28,7 @@ namespace PO_project.Controllers
             if (ModelState.IsValid)
 			{
 				formularz.Olimpiady = SelectedOlimpiadas;
-				formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
+				formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.Where(k => k.Stopien.Name == "I").ToArray()); //todo: change to enum
                TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz);
                 return RedirectToAction(nameof(Results));
             }

@@ -6,7 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 namespace PO_project.Models
 {
     public class Kierunek
-    {
+    {   
         public int KierunekId { get; set; }
 
         [Required, NotNull]
@@ -53,6 +53,10 @@ namespace PO_project.Models
 
         public string OlimpiadyString { get; set; } = string.Empty;
 
+        public bool RysunekRequired { get; set; } = false;
+
+        public bool BiologiaRequired { get; set; } = false;
+
         [NotMapped]
         public Olimpiada[] Olimpiady
         {
@@ -63,6 +67,10 @@ namespace PO_project.Models
                     return Array.Empty<Olimpiada>();
                 }
                 return OlimpiadyString.Split(',').Select(olimpiada => (Olimpiada)Enum.Parse(typeof(Olimpiada), olimpiada)).ToArray();
+            }
+            set
+            {
+                OlimpiadyString = string.Join(',', value.Select(olimpiada => olimpiada.ToString()));
             }
         }
 
@@ -79,11 +87,12 @@ namespace PO_project.Models
                 }
                 return PrzedmiotyDodatkoweString.Split(',').Select(przedmiot => (Matura)Enum.Parse(typeof(Matura), przedmiot)).ToArray();
             }
+            set
+            {
+                PrzedmiotyDodatkoweString = string.Join(',', value.Select(przedmiot => przedmiot.ToString()));
+            }
         }
 
-        public bool IsRysunekRequired()
-        {
-            return Name.Contains("Architektura");
-        }
+        public int MaxWskaznikRekrutacyjny { get; set; } = 535;
 	}
 }

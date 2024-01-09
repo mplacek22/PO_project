@@ -75,14 +75,6 @@ namespace PO_project.KalkulatorWskaznika
             {
                 throw new ArgumentException("Wyniki ze studium talent muszą zawierać wyniki z każdego przedmiotu");
             }
-            if (wynikiOlimpiad == null)
-            {
-                throw new ArgumentNullException("Wyniki z olimpiad nie mogą być null");
-            }
-            if (kierunek == null)
-            {
-                throw new ArgumentNullException("Kierunek nie może być null");
-            }
             if (egzaminZRysunku < 0 || egzaminZRysunku > 660)
             {
                 throw new ArgumentException("Wynik z egzaminu z rysunku musi mieścić się w zakresie od 0 do 660");
@@ -91,11 +83,13 @@ namespace PO_project.KalkulatorWskaznika
             {
                 throw new ArgumentException("Wyniki z matur muszą mieścić się w zakresie od 0 do 100");
             }
-            if (wynikiStudiumTalent.Where(w => w.Wynik != null).Any(wynik => wynik.Wynik != 3.0 || wynik.Wynik != 3.5 || wynik.Wynik != 4.0 || wynik.Wynik != 5.0 || wynik.Wynik != 5.5))
+            var validScores = new HashSet<double> { 3.0, 3.5, 4.0, 5.0, 5.5 };
+
+            if (wynikiStudiumTalent.Any(w => w.Wynik.HasValue && !validScores.Contains(w.Wynik.Value)))
             {
-                throw new ArgumentException("Wynik ze Studium Talent być liczbą ze zbioru {3,0; 3,5;4,0; 5,0; 5,5}");
+                throw new ArgumentException("Wynik ze Studium Talent musi być liczbą ze zbioru {3.0, 3.5, 4.0, 5.0, 5.5}");
             }
         }
-	}
+    }
 }
     

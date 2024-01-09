@@ -11,8 +11,8 @@ namespace PO_project.Tests
         {
             var wynikiMatur = Enum.GetValues(typeof(Matura)).Cast<Matura>().ToDictionary(m => m, m => new WynikMatury());
             var wynikiStudiumTalent = Enum.GetValues(typeof(StudiumTalent)).Cast<StudiumTalent>().Select(st => new WynikStudiumTalent() { Przedmiot = st, Wynik = null }).ToArray();
-            List<Olimpiada> wynikiOlimpiad = new() { Olimpiada.Informatyka };
-            Kierunek kierunek = new() { Olimpiady = new Olimpiada[] { Olimpiada.Informatyka, Olimpiada.Fizyczna } };
+            List<Olimpiada> wynikiOlimpiad = new() { Olimpiada.Informatyczna };
+            Kierunek kierunek = new() { Olimpiady = new Olimpiada[] { Olimpiada.Informatyczna, Olimpiada.Fizyczna } };
             double result = KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(wynikiMatur, wynikiStudiumTalent, wynikiOlimpiad, kierunek, 0);
 
             Assert.Equal(kierunek.MaxWskaznikRekrutacyjny, result);
@@ -38,7 +38,7 @@ namespace PO_project.Tests
             var wynikiStudiumTalent = Enum.GetValues(typeof(StudiumTalent)).Cast<StudiumTalent>().Select(st => new WynikStudiumTalent() { Przedmiot = st, Wynik = null }).ToArray();
             List<Olimpiada> wynikiOlimpiad = new() { Olimpiada.Biologiczna };
             Kierunek kierunek = new() { 
-                Olimpiady = new Olimpiada[] { Olimpiada.Informatyka, Olimpiada.Fizyczna },
+                Olimpiady = new Olimpiada[] { Olimpiada.Informatyczna, Olimpiada.Fizyczna },
                 PrzedmiotyDodatkowe = new Matura[] { Matura.Informatyka, Matura.Fizyka }
             };
             double result = KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(wynikiMatur, wynikiStudiumTalent, wynikiOlimpiad, kierunek, 0);
@@ -53,7 +53,7 @@ namespace PO_project.Tests
             var wynikiStudiumTalent = Enum.GetValues(typeof(StudiumTalent)).Cast<StudiumTalent>().Select(st => new WynikStudiumTalent() { Przedmiot = st, Wynik = null }).ToArray();
             List<Olimpiada> wynikiOlimpiad = new();
             Kierunek kierunek = new() { 
-                Olimpiady = new Olimpiada[] { Olimpiada.Informatyka, Olimpiada.Fizyczna },
+                Olimpiady = new Olimpiada[] { Olimpiada.Informatyczna, Olimpiada.Fizyczna },
                 PrzedmiotyDodatkowe = new Matura[] { Matura.Informatyka, Matura.Fizyka }
             };
             double result = KalkulatorWskaznikaIStopnia.CalculateWskaznikRekrutacyjny(wynikiMatur, wynikiStudiumTalent, wynikiOlimpiad, kierunek, 0);

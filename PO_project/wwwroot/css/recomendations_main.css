@@ -1,0 +1,86 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box; /* Ensures padding does not affect the total width/height of elements */
+}
+
+
+.recommendations {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start; /* This will create equal spacing between the cards */
+    align-items: stretch; /* Stretch the cards vertically */
+    gap: 20px; /* This replaces individual margins and creates a gutter between the cards */
+}
+
+.card {
+    flex-basis: calc(50% - 20px); /* This will create a 3 column layout */
+    min-width
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    background-color: #fff;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Distributes space between flex items inside the card */
+}
+
+
+.card-link {
+    text-decoration: none; /* Removes the underline from links */
+    color: inherit; /* Keeps the text color consistent with the rest of the card */
+}
+
+.card header,
+.card footer {
+    padding: 10px 15px;
+    background-color: #f9f9f9;
+    border-bottom: 1px solid #eee;
+}
+
+.card h3 {
+    margin: 0;
+    font-size: 1.25em;
+}
+
+.card p {
+    margin: 0;
+    padding: 10px;
+    flex-grow: 1; /* This will allow the paragraph to grow and fill the card */
+    display: flex;
+    align-items: center; /* Vertically center the text in the paragraph */
+}
+
+.card footer {
+    margin-top: auto; /* This pushes the footer to the bottom of the card */
+}
+
+/* Styling based on chances of getting in */
+.card.low {
+    border-left: 5px solid #ff6b6b; /* red for low chance */
+}
+
+.card.mid {
+    border-left: 5px solid #ffd56b; /* yellow for medium chance */
+}
+
+.card.high {
+    border-left: 5px solid #51cf66; /* green for high chance */
+}
+
+.card.default {
+    border-left: 5px solid #717572; /* gray for default */
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .recommendations {
+        justify-content: center; /* Center cards on smaller screens */
+    }
+    
+    .card {
+        flex-basis: 100%; /* Full width for a single column layout */
+        max-width: 100%; /* Make sure card doesn't exceed the parent width */
+        margin: 10px 0; /* adjust margin for single column layout */
+    }
+}

@@ -259,7 +259,9 @@ namespace PO_project.Data
                     StopienId = 1,
                     TrybId = 1,
                     WydzialId = 1,
-                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}"
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka}",
+                    MaxWskaznikRekrutacyjny = 1195,
+                    RysunekRequired = true
                 },
                 new Kierunek()
                 {

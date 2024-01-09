@@ -12,8 +12,8 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240107153347_init")]
-    partial class init
+    [Migration("20240109181202_Init")]
+    partial class Init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -239,6 +239,9 @@ namespace PO_project.Migrations
                         .HasMaxLength(10)
                         .HasColumnType("nvarchar(10)");
 
+                    b.Property<bool>("BiologiaRequired")
+                        .HasColumnType("bit");
+
                     b.Property<int>("CzasTrwaniaId")
                         .HasColumnType("int");
 
@@ -246,6 +249,9 @@ namespace PO_project.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("JezykId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("MaxWskaznikRekrutacyjny")
                         .HasColumnType("int");
 
                     b.Property<string>("Name")
@@ -260,6 +266,9 @@ namespace PO_project.Migrations
                     b.Property<string>("PrzedmiotyDodatkoweString")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("RysunekRequired")
+                        .HasColumnType("bit");
 
                     b.Property<int>("StopienId")
                         .HasColumnType("int");
@@ -289,12 +298,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 1,
                             Abbreviation = "IST",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 5,
                             Description = "Najlepszy kierunek",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Informatyka Stosowana",
                             OlimpiadyString = "Matematyczna,Fizyczna",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -303,12 +315,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 2,
                             Abbreviation = "ARC",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 6,
                             Description = "Opis architektury.",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 1195,
                             Name = "Architektura",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka",
+                            RysunekRequired = true,
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 1
@@ -317,12 +332,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 3,
                             Abbreviation = "ISTA",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 5,
                             Description = "Second best one.",
                             JezykId = 2,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Applied Computer Science",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -331,12 +349,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 4,
                             Abbreviation = "BUD-2",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Budownictwo",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka",
+                            RysunekRequired = false,
                             StopienId = 2,
                             TrybId = 2,
                             WydzialId = 2
@@ -345,12 +366,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 5,
                             Abbreviation = "CBE",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Cyberbezpieczeństwo",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -359,12 +383,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 6,
                             Abbreviation = "ENG",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Energetyka",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka",
+                            RysunekRequired = false,
                             StopienId = 2,
                             TrybId = 2,
                             WydzialId = 2
@@ -373,12 +400,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 7,
                             Abbreviation = "MAT",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Matematyka",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 2,
                             TrybId = 2,
                             WydzialId = 7
@@ -387,12 +417,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 8,
                             Abbreviation = "OPT",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Informatyczne systemy automatyki",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 2,
                             TrybId = 1,
                             WydzialId = 4
@@ -401,12 +434,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 9,
                             Abbreviation = "OPT",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Informatyka algorytmiczna",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -415,12 +451,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 10,
                             Abbreviation = "OPT",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Inżynieria systemów",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 1,
                             TrybId = 1,
                             WydzialId = 4
@@ -429,12 +468,15 @@ namespace PO_project.Migrations
                         {
                             KierunekId = 11,
                             Abbreviation = "OPT",
+                            BiologiaRequired = false,
                             CzasTrwaniaId = 4,
                             Description = "",
                             JezykId = 1,
+                            MaxWskaznikRekrutacyjny = 535,
                             Name = "Telekomunikacja",
                             OlimpiadyString = "",
                             PrzedmiotyDodatkoweString = "Fizyka,Informatyka",
+                            RysunekRequired = false,
                             StopienId = 2,
                             TrybId = 1,
                             WydzialId = 4

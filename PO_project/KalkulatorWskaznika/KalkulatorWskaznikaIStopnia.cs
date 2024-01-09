@@ -8,7 +8,7 @@ namespace PO_project.KalkulatorWskaznika
         public const int MAX_WSKAZNIK_REKRUTACYJNY = 535;
         public const int MAX_WSKAZNIK_REKRUTACYJNY_ARCHIEKTURA = 1195;
 
-        public static double CalculateWskaznikRekrutacyjny(Dictionary<Matura, WynikMatury> wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, List<Olimpiada> wynikiOlimpiad, Kierunek kierunek, int egzaminZRysunku)
+        public static double CalculateWskaznikRekrutacyjny(Dictionary<Matura, WynikMatury> wynikiZMatur, Dictionary<StudiumTalent, double> wynikiStudiumTalent, IEnumerable<Olimpiada> wynikiOlimpiad, Kierunek kierunek, int egzaminZRysunku)
 		{
 			if (IsOlimpijczyk(wynikiOlimpiad, kierunek.Olimpiady))
 			{
@@ -40,7 +40,7 @@ namespace PO_project.KalkulatorWskaznika
             return Math.Max(Math.Max(wynik.Podstawa, wynik.Podstawa + 1.5 * wynik.Rozszerzenie), 2.5 * wynik.Rozszerzenie);
         }
 
-		private static bool IsOlimpijczyk(List<Olimpiada> wynikiOlimpiad, Olimpiada[] olimpiadyZaliczane)
+		private static bool IsOlimpijczyk(IEnumerable<Olimpiada> wynikiOlimpiad, IEnumerable<Olimpiada> olimpiadyZaliczane)
 		{
 			return wynikiOlimpiad.Intersect(olimpiadyZaliczane).Any();
 		}

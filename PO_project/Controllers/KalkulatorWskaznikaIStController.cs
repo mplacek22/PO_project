@@ -29,15 +29,11 @@ namespace PO_project.Controllers
 		{
             if (ModelState.IsValid)
 			{
+				formularz.Olimpiady = SelectedOlimpiadas;
 				formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.ToArray());
                TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz);
                 return RedirectToAction(nameof(Results));
             }
-			else
-			{
-				var errors = ModelState.Select(x => x.Value)
-						   .ToList();
-			}
             return View(formularz);
         }
 
@@ -69,7 +65,6 @@ namespace PO_project.Controllers
 		public ActionResult Recomendations()
 		{
 			return RedirectToAction(nameof(RecomendationsController.Index), "Recomendations");
-			
 		}
 
     }

@@ -1,6 +1,6 @@
-﻿namespace PO_project.Recomendations
+﻿namespace PO_project.Recommendations
 {
-	public class RecomendationViewModel
+	public class RecommendationViewModel
     {
         public const double Low = 0.9;
         public const double High = 1.1;

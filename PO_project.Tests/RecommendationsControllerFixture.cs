@@ -10,11 +10,11 @@ using PO_project.Models;
 
 namespace PO_project.Tests
 {
-    public class RecomendationsControllerFixture
+    public class RecommendationsControllerFixture
     {
         public PwrDbContext DbContext { get; private set; }
 
-        public RecomendationsControllerFixture()
+        public RecommendationsControllerFixture()
         {
             var options = new DbContextOptionsBuilder<PwrDbContext>()
                 .UseInMemoryDatabase(databaseName: "TestDb")

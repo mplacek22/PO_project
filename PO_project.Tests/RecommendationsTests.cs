@@ -10,18 +10,18 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using PO_project.Models;
-using PO_project.Recomendations;
+using PO_project.Recommendations;
 
 namespace PO_project.Tests
 {
-    public class RecomendationsTests
+    public class RecommendationsTests
     {
-        private readonly RecomendationsControllerFixture _fixture = new RecomendationsControllerFixture();
+        private readonly RecommendationsControllerFixture _fixture = new RecommendationsControllerFixture();
 
         [Fact]
         public void TestEmptyTempData()
         {
-            var controller = new RecomendationsController(_fixture.DbContext);
+            var controller = new RecommendationsController(_fixture.DbContext);
             controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
 
             var result = controller.Index();
@@ -33,7 +33,7 @@ namespace PO_project.Tests
         public void TestValidTempData()
         {
             // Arrange
-            var controller = new RecomendationsController(_fixture.DbContext);
+            var controller = new RecommendationsController(_fixture.DbContext);
 
             // Setup TempData with valid JSON data
             var random = new Random();
@@ -53,13 +53,13 @@ namespace PO_project.Tests
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<RecomendationViewModel>>(viewResult.Model);
+            var model = Assert.IsAssignableFrom<IEnumerable<RecommendationViewModel>>(viewResult.Model);
         }
 
         [Fact]
         public void TestWithHistoricalData()
         {
-            var controller = new RecomendationsController(_fixture.DbContext);
+            var controller = new RecommendationsController(_fixture.DbContext);
             _fixture.SeedWithHistoricalData();
 
             controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
@@ -70,7 +70,7 @@ namespace PO_project.Tests
 
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<RecomendationViewModel>>(viewResult.Model);
+            var model = Assert.IsAssignableFrom<IEnumerable<RecommendationViewModel>>(viewResult.Model);
             //Assert.All(model, item => Assert.True(item.AvgPointThreshold.HasValue && item.AvgPointThreshold > 0));
         }
     }

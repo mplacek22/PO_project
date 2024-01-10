@@ -60,10 +60,10 @@ namespace PO_project.Controllers
 			return RedirectToAction(nameof(Index));
         }
 
-		// GET: /KalkulatorWskaznikaIStController/Recomendations
-		public ActionResult Recomendations()
+		// GET: /KalkulatorWskaznikaIStController/Recommendations
+		public ActionResult Recommendations()
 		{
-			return RedirectToAction(nameof(RecomendationsController.Index), "Recomendations");
+			return RedirectToAction(nameof(RecommendationsController.Index), "Recommendations");
 		}
 
     }

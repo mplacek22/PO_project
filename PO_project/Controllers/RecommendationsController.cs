@@ -2,15 +2,15 @@
 using Microsoft.IdentityModel.Tokens;
 using PO_project.Data;
 using PO_project.Models;
-using PO_project.Recomendations;
+using PO_project.Recommendations;
 
 namespace PO_project.Controllers
 {
-	public class RecomendationsController : Controller
+	public class RecommendationsController : Controller
 	{
 		private readonly PwrDbContext _context;
 
-		public RecomendationsController(PwrDbContext context)
+		public RecommendationsController(PwrDbContext context)
 		{
 			_context = context;
 		}
@@ -25,7 +25,7 @@ namespace PO_project.Controllers
 				{
                     return NotFound();
                 }
-				var model = wskaznikiRekrutacyjne.Select(wynik => new RecomendationViewModel
+				var model = wskaznikiRekrutacyjne.Select(wynik => new RecommendationViewModel
 				{
 					CourseId = wynik.Item1.KierunekId,
 					Course = wynik.Item1.Name,

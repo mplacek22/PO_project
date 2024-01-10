@@ -1,6 +1,6 @@
-﻿@using PO_project.Recomendations
+﻿@using PO_project.Recommendations
 @using Microsoft.AspNetCore.Mvc.TagHelpers
-@model RecomendationViewModel[]
+@model RecommendationViewModel[]
 <link rel="stylesheet" href="~/css/recomendations_main.css"/>
 
 <h1 class="text-center">Rekomendowane kierunki studiów</h1>
@@ -44,9 +44,9 @@
     {
         return probabilityOfAdmission switch
 	    {
-		    var p when p < RecomendationViewModel.Low => "low",
-            var p when Math.Abs(p - RecomendationViewModel.Low) < 0.0001 => "mid",
-            var p when p > RecomendationViewModel.High => "high",
+		    var p when p < RecommendationViewModel.Low => "low",
+            var p when Math.Abs(p - RecommendationViewModel.Low) < 0.0001 => "mid",
+            var p when p > RecommendationViewModel.High => "high",
 		    _ => "default",
 		    };
     }

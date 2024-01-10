@@ -36,8 +36,15 @@ namespace PO_project.Tests
             var controller = new RecomendationsController(_fixture.DbContext);
 
             // Setup TempData with valid JSON data
-            var testData = new[] { (new Kierunek { /* ... */ }, 0.75) };
-            string testDataJson = Newtonsoft.Json.JsonConvert.SerializeObject(testData);
+            var random = new Random();
+            var testData = new List<(Kierunek, double)>();
+
+            for (var i = 0; i < 10; i++)
+            {
+                var randomNumber = random.NextDouble() * 535;
+                testData.Add((new Kierunek(), randomNumber));
+            }
+            var testDataJson = Newtonsoft.Json.JsonConvert.SerializeObject(testData.ToArray());
             controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             controller.TempData["WskaznikiRekrutacyjne"] = testDataJson;
 
@@ -47,8 +54,24 @@ namespace PO_project.Tests
             // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<RecomendationViewModel>>(viewResult.Model);
+        }
 
-            // Further assertions to verify the data in the model as needed
+        [Fact]
+        public void TestWithHistoricalData()
+        {
+            var controller = new RecomendationsController(_fixture.DbContext);
+            _fixture.SeedWithHistoricalData();
+
+            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
+            //controller.TempData[]
+
+            // Act
+            var result = controller.Index();
+
+            // Assert
+            var viewResult = Assert.IsType<ViewResult>(result);
+            var model = Assert.IsAssignableFrom<IEnumerable<RecomendationViewModel>>(viewResult.Model);
+            //Assert.All(model, item => Assert.True(item.AvgPointThreshold.HasValue && item.AvgPointThreshold > 0));
         }
     }
 }

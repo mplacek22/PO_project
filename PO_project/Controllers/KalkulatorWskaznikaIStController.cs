@@ -38,26 +38,27 @@ namespace PO_project.Controllers
         // GET: /KalkulatorWskaznikaIStController/Results
         public ActionResult Results()
         {
+
 			if (TempData["Formularz"] is string formularzJson)
 			{
 				var formularz = Newtonsoft.Json.JsonConvert.DeserializeObject<FormularzRekrutacyjnyISt>(formularzJson);
-				var model = formularz?.WskaznikiRekrutacyjne
-					.GroupBy(wynik => wynik.Item1.WydzialId)
-					.Select(group => new
-					{
-						Wydzial = _context.Wydzialy.FirstOrDefault(w => w.WydzialId == group.Key),
-						Wskazniki = group.ToArray()
-					})
-					.OrderBy(item => item.Wydzial!.WydzialId)
-					.ToArray();
-				TempData["WskaznikiRekrutacyjne"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz?.WskaznikiRekrutacyjne);
-				return View(model);
-			}
-			else
-			{
-				return RedirectToAction(nameof(Index));
-			}
-		}
+                if (formularz != null)
+                {
+                    var model = formularz?.WskaznikiRekrutacyjne
+                        .GroupBy(wynik => wynik.Item1.WydzialId)
+                        .Select(group => new
+                        {
+                            Wydzial = _context.Wydzialy.FirstOrDefault(w => w.WydzialId == group.Key),
+                            Wskazniki = group.ToArray()
+                        })
+                        .OrderBy(item => item.Wydzial!.WydzialId)
+                        .ToArray();
+                    TempData["WskaznikiRekrutacyjne"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz?.WskaznikiRekrutacyjne);
+                    return View(model);
+                }
+            }
+			return RedirectToAction(nameof(Index));
+        }
 
 		// GET: /KalkulatorWskaznikaIStController/Recomendations
 		public ActionResult Recomendations()

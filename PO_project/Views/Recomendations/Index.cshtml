@@ -1,4 +1,7 @@
-﻿<link rel="stylesheet" href="~/css/recomendations_main.css"/>
+﻿@using PO_project.Recomendations
+@using Microsoft.AspNetCore.Mvc.TagHelpers
+@model RecomendationViewModel[]
+<link rel="stylesheet" href="~/css/recomendations_main.css"/>
 
 <h1 class="text-center">Rekomendowane kierunki studiów</h1>
 <hr />
@@ -7,11 +10,11 @@
     @foreach (var recommendation in Model)
     {
     <a asp-action="Details" asp-controller="Kierunek" asp-route-id="@recommendation.CourseId" class="card-link">
-        <article class="card @GetChancesClass(recommendation.ChancesOfGettingIn)">
+        <article class="card @GetChancesClass(recommendation.ProbabilityOfAdmission)">
             <header>
                 <h3>@recommendation.Course</h3>
             </header>
-                @if (recommendation.Description == null || recommendation.Description == string.Empty)
+                @if (recommendation.Description == string.Empty)
 			{
 				<p>-- Brak opisu --</p>
 			}
@@ -37,18 +40,14 @@
 </section>
 
 @functions {
-    private string GetChancesClass(string chancesOfGettingIn)
+    private string GetChancesClass(double probabilityOfAdmission)
     {
-        switch (chancesOfGettingIn)
-        {
-            case "Niskie prawdopodobieństwo dostania się":
-                return "low";
-            case "Warto spróbować, gdyż jest szansa dostania się":
-                return "mid";
-            case "Wysokie prawdopodobieństwo dostania się":
-                return "high";
-            default:
-                return "default";
-        }
+        return probabilityOfAdmission switch
+	    {
+		    var p when p < RecomendationViewModel.Low => "low",
+            var p when Math.Abs(p - RecomendationViewModel.Low) < 0.0001 => "mid",
+            var p when p > RecomendationViewModel.High => "high",
+		    _ => "default",
+		    };
     }
 }

@@ -1,5 +1,4 @@
-﻿using PO_project.Enums;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace PO_project.KalkulatorWskaznika
 {

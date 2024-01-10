@@ -1,4 +1,6 @@
 ﻿@using PO_project.Enums
+@using System.Globalization
+@using PO_project.KalkulatorWskaznika
 @model PO_project.KalkulatorWskaznika.FormularzRekrutacyjnyISt
 
 <link rel="stylesheet" href="~/css/calculator_index.css"/>
@@ -25,12 +27,16 @@
         <hr />
         <h3>Studium Talent</h3>
         <table>
-        @foreach (var wynik in Model.WynikiStudiumTalent)
+        @foreach (var st in Model.WynikiStudiumTalent.Keys)
         {
             <tr>
-                <td>@wynik.Przedmiot</td>
-                <td>@Html.TextBoxFor(m => wynik.Wynik, new { type = "number", min = "3.0", step = "0.5", max = "5.5" })</td>
-            </tr>
+	            <td>@st</td>
+	            <td>
+		            @Html.DropDownListFor(m => Model.WynikiStudiumTalent[st], 
+			            new SelectList(FormularzRekrutacyjnyISt.ValidScores), Model.WynikiStudiumTalent[st])
+	            </td>
+
+	        </tr>
         }
         </table>
         <hr/>
@@ -38,17 +44,17 @@
         <table>
             <tr>
                 <td>Rysunek</td>
-                    <td>@Html.TextBoxFor(m => m.WynikEgzaminuZRysunku, new { type = "number", min = "0", step = "1", max = "660" })</td>
+                <td>@Html.TextBoxFor(m => m.WynikEgzaminuZRysunku, new { type = "number", min = "0", step = "1", max = "660" })</td>
             </tr>
         </table>
         <hr/>
         <h3>Olimpiady</h3>
     foreach (Olimpiada olimpiada in Enum.GetValues(typeof(Olimpiada)))
     {
-                <div>
-                    <input type="checkbox" id="@olimpiada" name="SelectedOlimpiadas" value="@olimpiada" />
-                    <label for="@olimpiada">@olimpiada.GetEnumLabel()</label>
-                </div>
+        <div>
+            <input type="checkbox" id="@olimpiada" name="selectedOlimpiadas" value="@olimpiada" />
+            <label for="@olimpiada">@olimpiada.GetEnumLabel()</label>
+        </div>
     }
         <input type="submit" value="Oblicz wskaźnik rekrutacyjny"/>
 }

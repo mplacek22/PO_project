@@ -1,4 +1,8 @@
-﻿namespace PO_project.Recommendations
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.IdentityModel.Tokens;
+using PO_project.Models;
+
+namespace PO_project.Recommendations
 {
 	public class RecommendationViewModel
     {
@@ -28,6 +32,33 @@
                     _ => "---",
                 };
             }
+        }
+
+        public static double CalculateAvgPointThreshold(HistoryczneDane[] historicalData)
+        {
+            if (!historicalData.IsNullOrEmpty())
+            {
+                return historicalData.Average(d => d.PointThreshold);
+            }
+            return -1;
+        }
+
+        public static double CalculateProbabilityOfAdmission(HistoryczneDane[] historicalData, double recruitmentIndicator)
+        {
+            //if (historicalData.IsNullOrEmpty())
+            //{
+            //    return -1;
+            //}
+            var thresholds = historicalData.Select(dane => dane.PointThreshold).ToList();
+            var numberOfPeoplePerSpot = historicalData.Select(dane => dane.CandidatesPerSpot).ToList();
+
+            var statisticalIndicator = thresholds.Select((t, i) => t * numberOfPeoplePerSpot[i]).Sum();
+
+            statisticalIndicator /= numberOfPeoplePerSpot.Sum();
+
+            var probability = recruitmentIndicator / statisticalIndicator;
+
+            return probability;
         }
     }
 }

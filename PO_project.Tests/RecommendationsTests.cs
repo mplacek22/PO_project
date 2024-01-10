@@ -32,10 +32,8 @@ namespace PO_project.Tests
         [Fact]
         public void TestValidTempData()
         {
-            // Arrange
             var controller = new RecommendationsController(_fixture.DbContext);
 
-            // Setup TempData with valid JSON data
             var random = new Random();
             var testData = new List<(Kierunek, double)>();
 
@@ -48,30 +46,77 @@ namespace PO_project.Tests
             controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
             controller.TempData["WskaznikiRekrutacyjne"] = testDataJson;
 
-            // Act
             var result = controller.Index();
 
-            // Assert
             var viewResult = Assert.IsType<ViewResult>(result);
             var model = Assert.IsAssignableFrom<IEnumerable<RecommendationViewModel>>(viewResult.Model);
         }
 
-        [Fact]
-        public void TestWithHistoricalData()
+        [InlineData(new double[]{370, 500, 300})]
+        [InlineData(new double[] { 0, 0, 0 })]
+        [InlineData(new double[] { 300, 205.4, 400.5 })]
+        [Theory]
+        public void TestCalculateAvgPointThresholdWithHistoricalData(double[] pointThresholds)
         {
-            var controller = new RecommendationsController(_fixture.DbContext);
-            _fixture.SeedWithHistoricalData();
+            var year = 2020;
+            var historicalData = pointThresholds.Select(pt => new HistoryczneDane()
+            {
+                PointThreshold = pt,
+                KierunekId = 1,
+                Year = ++year
+            }).ToArray();
 
-            controller.TempData = new TempDataDictionary(new DefaultHttpContext(), Mock.Of<ITempDataProvider>());
-            //controller.TempData[]
+            Assert.Equal(pointThresholds.Average(), RecommendationViewModel.CalculateAvgPointThreshold(historicalData));
+        }
 
-            // Act
-            var result = controller.Index();
+        [Fact]
+        public void TestCalculateAvgPointThresholdWithoutHistoricalData()
+        {
+            Assert.Equal(-1, RecommendationViewModel.CalculateAvgPointThreshold(Array.Empty<HistoryczneDane>()));
+        }
 
-            // Assert
-            var viewResult = Assert.IsType<ViewResult>(result);
-            var model = Assert.IsAssignableFrom<IEnumerable<RecommendationViewModel>>(viewResult.Model);
-            //Assert.All(model, item => Assert.True(item.AvgPointThreshold.HasValue && item.AvgPointThreshold > 0));
+        [Fact]
+        public void TestCalculateProbabilityOfAdmissionWithoutHistoricalData()
+        {
+            var result = RecommendationViewModel.CalculateProbabilityOfAdmission(Array.Empty<HistoryczneDane>(), 1.0);
+
+            Assert.Equal(double.NaN, result);
+        }
+
+        [Theory]
+        [InlineData(0, 0)]
+        [InlineData(500, 1.24)]
+        [InlineData(300, 0.74)]
+        public void TestCalculateProbabilityOfAdmissionWithHistoricalData(double recruitmentIndicator, double expectedResult)
+        {
+            var historicalData = new HistoryczneDane[3]
+            {
+                new()
+                {
+                    Year = 2020,
+                    PointThreshold = 370,
+                    CandidatesPerSpot = 2,
+                    KierunekId = 1
+                },
+                new()
+                {
+                    Year = 2021,
+                    PointThreshold = 400,
+                    CandidatesPerSpot = 2,
+                    KierunekId = 1
+                },
+                new()
+                {
+                    Year = 2022,
+                    PointThreshold = 430,
+                    CandidatesPerSpot = 2.6,
+                    KierunekId = 1
+                }
+            };
+
+            var result = RecommendationViewModel.CalculateProbabilityOfAdmission( historicalData, recruitmentIndicator);
+
+            Assert.Equal(expectedResult, result, precision: 2);
         }
     }
 }

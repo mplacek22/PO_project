@@ -30,8 +30,8 @@ namespace PO_project.Controllers
 					CourseId = wynik.Item1.KierunekId,
 					Course = wynik.Item1.Name,
 					Description = wynik.Item1.Description,
-                    ProbabilityOfAdmission = CalculateChancesOfAdmission(wynik.Item1, wynik.Item2),
-					AvgPointThreshold = CalculateAvgPointThreshold(wynik.Item1),
+                    ProbabilityOfAdmission = RecommendationViewModel.CalculateProbabilityOfAdmission(_context.HistoryczneDane.Where(dane => dane.KierunekId == wynik.Item1.KierunekId).ToArray(), wynik.Item2),
+					AvgPointThreshold = RecommendationViewModel.CalculateAvgPointThreshold(_context.HistoryczneDane.Where(dane => dane.KierunekId == wynik.Item1.KierunekId).ToArray()),
 					CancdidateRecruitmentIndicator = wynik.Item2,
 				})
 					.OrderByDescending(model => model.ProbabilityOfAdmission)
@@ -41,38 +41,5 @@ namespace PO_project.Controllers
 			return NotFound();
 			
 		}
-
-		private double CalculateAvgPointThreshold(Kierunek course)
-		{
-			var historicalData = _context.HistoryczneDane.Where(dane => dane.KierunekId == course.KierunekId).ToList();
-			if (!historicalData.IsNullOrEmpty())
-			{
-				return historicalData.Average(d => d.PointThreshold);
-			}
-			return -1;
-		}
-
-        private double CalculateChancesOfAdmission(Kierunek course, double recruitmentIndicator)
-		{
-			// Extract data from the database depending on which course the candidate is applying for
-			var historicalData = _context.HistoryczneDane.Where(dane => dane.KierunekId == course.KierunekId).ToArray();
-			var thresholds = historicalData.Select(dane => dane.PointThreshold).ToList();
-			var numberOfPeoplePerSpot = historicalData.Select(dane => dane.CandidatesPerSpot).ToList();
-
-			// Calculating the statistical threshold that will be in the nearest recruitment
-			var statisticalIndicator = 0.0;
-
-			for (int i = 0; i < thresholds.Count; i++)
-			{
-				statisticalIndicator += thresholds[i] * numberOfPeoplePerSpot[i];
-			}
-
-			statisticalIndicator /= numberOfPeoplePerSpot.Sum();
-
-			// Getting the probability of admission
-			double probability = recruitmentIndicator / statisticalIndicator;
-
-			return probability;
-		}
-	}
+    }
 }

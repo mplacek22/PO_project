@@ -81,11 +81,9 @@ namespace PO_project.Models
         {
             get
             {
-                if (PrzedmiotyDodatkoweString == null || PrzedmiotyDodatkoweString == string.Empty)
-                {
-                    return Array.Empty<Matura>();
-                }
-                return PrzedmiotyDodatkoweString.Split(',').Select(przedmiot => (Matura)Enum.Parse(typeof(Matura), przedmiot)).ToArray();
+                return string.IsNullOrEmpty(PrzedmiotyDodatkoweString) ? Array.Empty<Matura>() : PrzedmiotyDodatkoweString.Split(',')
+                    .Select(przedmiot => (Matura)Enum.Parse(typeof(Matura), przedmiot))
+                    .ToArray();
             }
             set
             {
@@ -94,5 +92,5 @@ namespace PO_project.Models
         }
 
         public int MaxWskaznikRekrutacyjny { get; set; } = 535;
-	}
+    }
 }

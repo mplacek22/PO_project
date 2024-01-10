@@ -15,7 +15,7 @@
 
 .card {
     flex-basis: calc(50% - 20px); /* This will create a 3 column layout */
-    min-width
+    min-width: 400px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     background-color: #fff;

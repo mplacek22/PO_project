@@ -1,10 +1,11 @@
-﻿@model PO_project.Models.Kierunek
+﻿@using PO_project.Enums;
+@model PO_project.Models.Kierunek
 
 @{
     ViewData["Title"] = Model.Name;
 }
 
-<link rel="stylesheet" href="~/css/details.css"/>
+<link rel="stylesheet" href="~/css/details.css" />
 <script src="https://kit.fontawesome.com/27d4c0b12f.js" crossorigin="anonymous"></script>
 <div class="course-header">
     <h1>@Html.DisplayFor(model => model.Name)</h1>
@@ -37,10 +38,10 @@
             <p> @Html.DisplayFor(model => model.Wydzial.Lokalizacja.Name)</p>
         </div>
     </div>
-    
+
     <div class="top-choice-box">
         <label class="description-holder">
-            <input type="radio" name="content-switch" checked="checked" class="input" onchange="onInputChecked()"/>
+            <input type="radio" name="content-switch" checked="checked" class="input" onchange="onInputChecked()" />
             <span>Opis kierunku</span>
         </label>
         @if (Model.Specjalizacje.ToList().Count > 0)
@@ -67,7 +68,7 @@
         {
             <div class="speciality">
                 <label class="speciality-button">
-                    <input type="checkbox" name="speciality" class="speciality-input"/>
+                    <input type="checkbox" name="speciality" class="speciality-input" />
                     <i class="fa-solid fa-plus"></i>
                     <i class="fa-solid fa-minus"></i>
                 </label>
@@ -77,48 +78,170 @@
         }
     </div>
 
-    <div class="chosen-content" id="criteria-container" style="display: none;">
-        <h2>Kryteria</h2>
-    </div>
+    @{
+        bool hasPrzedmiotyDodatkowe = Model.PrzedmiotyDodatkoweString != null && Model.PrzedmiotyDodatkoweString != "";
+        <div class="chosen-content" id="criteria-container" style="display: none;">
+            <div class="criteria-header">
+                <span>
+                    @if (Model.BiologiaRequired)
+                    {
+                        @Html.Raw("B + ")
+                    }
+                    M +
+                    @if (hasPrzedmiotyDodatkowe)
+                    {
+                        @Html.Raw("PD + ")
+                    }
+                    0,1JO + 0,1JP
+                    @if(Model.RysunekRequired)
+                    {
+                        @Html.Raw(" + E")
+                    }
+                </span>
+            </div>
+            <div class="criteria-body">
+                <div class="labeled-definitions">
+                    
+                    @if (Model.BiologiaRequired)
+                    {
+                        <div class="labeled-definition subject">
+                            <span>B</span>
+                            <p>Biologia</p>
+                        </div>
+                    }
 
+                    <div class="labeled-definition subject">
+                        <span>M</span>
+                        <p>Matematyka</p>
+                    </div>
+
+                    @if (hasPrzedmiotyDodatkowe)
+                    {
+                        <div class="labeled-definition subject">
+                            <span>PD</span>
+                            <p>Przedmiot dodatkowy</p>
+                            <p class="subtext">
+                                @{
+                                    String[] przedmiotyDodatkowe = Model.PrzedmiotyDodatkoweString!.Split(",");
+                                    String przedmiotyDodatkoweInfo = "(";
+                                    @for (int i = 0; i < przedmiotyDodatkowe.Length; i++)
+                                    {
+                                        przedmiotyDodatkoweInfo += przedmiotyDodatkowe[i];
+                                        if (i == przedmiotyDodatkowe.Length - 2)
+                                        {
+                                            przedmiotyDodatkoweInfo += " lub ";
+                                        }
+                                        else if (i < przedmiotyDodatkowe.Length - 2)
+                                        {
+                                            przedmiotyDodatkoweInfo += ", ";
+                                        }
+                                    }
+                                    przedmiotyDodatkoweInfo += ")";
+                                    @Html.Raw(przedmiotyDodatkoweInfo)
+                                }
+                            </p>
+                        </div>
+                    }
+
+                    <div class="labeled-definition subject">
+                        <span>JO</span>
+                        <p>Język obcy</p>
+                    </div>
+
+                    <div class="labeled-definition subject">
+                        <span>JP</span>
+                        <p>Język polski</p>
+                    </div>
+
+                    @if(Model.RysunekRequired)
+                    {
+                        <div class="labeled-definition subject">
+                            <span>E</span>
+                            <p>Egzamin</p>
+                            <p class="subtext">(wynik egzaminu z rysunku)</p>
+                        </div>
+                    }
+
+                    <div class="labeled-definition definition">
+                        <span>P</span>
+                        <p>Wynik procentowy z matury podstawowej</p>
+                    </div>
+
+                    <div class="labeled-definition definition">
+                        <span>R</span>
+                        <p>Wynik procentowy z matury rozszerzonej</p>
+                    </div>
+                </div>
+                <div class="subject-categories">
+                    @if (Model.BiologiaRequired)
+                    {
+                        <div class="subject-category">
+                            <div>
+                                <span>B</span>
+                            </div>
+                            <p>Jest równa <strong>2,5 R</strong></p>
+                        </div>
+                    }
+                    <div class="subject-category">
+                        <div>
+                            <span>M</span>
+                            @if (hasPrzedmiotyDodatkowe)
+                            {
+                                <span>PD</span>
+                            }
+                            <span>JO</span>
+                        </div>
+                        <p>Jest równa większej z liczb:<br /><strong>P</strong> albo <strong>P + 1,5 R</strong> albo <strong>2,5 R</strong></p>
+                    </div>
+                    <div class="subject-category">
+                        <div>
+                            <span>JP</span>
+                        </div>
+                        <p>Jest równa większej z liczb <strong>P</strong> albo <strong>R</strong></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
+
 
 <div class="additional-links">
     <a asp-action="Calculator" asp-route-id="@Model.KierunekId">Policz swój wskaźnik</a>
-    <a asp-action="Index" >Znajdź inne kierunki</a>
+    <a asp-action="Index">Znajdź inne kierunki</a>
 </div>
 
 
 <div class="additional-info">
-<h1>Więcej informacji</h1>
+    <h1>Więcej informacji</h1>
 
-<div class="additional-info-separator">
-    <p>Praktyki, staże, kariera</p>
-</div>
+    <div class="additional-info-separator">
+        <p>Praktyki, staże, kariera</p>
+    </div>
 
-<h3>Perspektywy</h3>
-<ul>
-    @foreach (var perspektywa in Model.Perpektywy)
-    {
-        <li>@perspektywa.Pracodawca.CompanyName</li>
-    }
-</ul>
+    <h3>Perspektywy</h3>
+    <ul>
+        @foreach (var perspektywa in Model.Perpektywy)
+        {
+            <li>@perspektywa.Pracodawca.CompanyName</li>
+        }
+    </ul>
 
-<h3>Praktyki i staże</h3>
-<ul>
-    @foreach (var praktyka in Model.Praktyki)
-    {
-        <li>@praktyka.Pracodawca.CompanyName</li>
-    }
-</ul>
+    <h3>Praktyki i staże</h3>
+    <ul>
+        @foreach (var praktyka in Model.Praktyki)
+        {
+            <li>@praktyka.Pracodawca.CompanyName</li>
+        }
+    </ul>
 
-<h3>Miejsca pracy absolwentów</h3>
-<ul>
-    @foreach (var miejscePracy in Model.MiejscaPracy)
-    {
-         <li>@miejscePracy.Pracodawca.CompanyName</li>
-    }
-</ul>
+    <h3>Miejsca pracy absolwentów</h3>
+    <ul>
+        @foreach (var miejscePracy in Model.MiejscaPracy)
+        {
+            <li>@miejscePracy.Pracodawca.CompanyName</li>
+        }
+    </ul>
 </div>
 
 
@@ -129,7 +252,7 @@
         var criteriaContainer = document.getElementById('criteria-container')
         var checkedInput = 0;
 
-        var onInputChecked = function () { 
+        var onInputChecked = function () {
             for (let i = 0; i < inputs.length; i++) {
 
                 if (inputs.item(i).checked && i != checkedInput) {

@@ -104,6 +104,16 @@ namespace PO_project.Data
                 {
                     CzasTrwaniaId = 8,
                     Value = 5
+                },
+                new CzasTrwania()
+                {
+                    CzasTrwaniaId = 9,
+                    Value = 5.5
+                },
+                new CzasTrwania()
+                {
+                    CzasTrwaniaId = 10,
+                    Value = 6
                 }
             );
             #endregion
@@ -227,6 +237,13 @@ namespace PO_project.Data
                     WydzialId = 7,
                     Name = "Matematyki",
                     Abbreviation = "W13",
+                    LokalizacjaId = 1
+                },
+                new Wydzial()
+                {
+                    WydzialId = 8,
+                    Name = "Medyczny",
+                    Abbreviation = "W14",
                     LokalizacjaId = 1
                 }
             );
@@ -380,6 +397,20 @@ namespace PO_project.Data
                     TrybId = 1,
                     WydzialId = 4,
                     PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Informatyka}"
+                },
+                new Kierunek()
+                {
+                    KierunekId = 12,
+                    Name = "Lekarski",
+                    Abbreviation = "LEK",
+                    Description = "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris a cursus metus. Sed quis aliquet libero, at condimentum dui. Sed laoreet bibendum ex, non facilisis justo semper at. Vestibulum blandit dolor sit amet diam ultricies, nec consectetur ante hendrerit. Integer rhoncus ipsum tellus. Ut nisl leo, semper eu ex non, scelerisque ornare leo. Suspendisse potenti. Vestibulum porta tortor in ligula pretium, sit amet lobortis ante auctor.\r\n\r\nIn tristique auctor enim, porta porta leo tempor vitae. Aenean sit amet eros imperdiet, scelerisque neque mollis, sagittis mi. Maecenas sit amet euismod nibh. Fusce leo purus, sodales id tellus at, mattis pharetra nunc. Donec egestas mattis varius. Phasellus varius, sapien vel auctor vehicula, augue erat convallis sapien, eget vulputate lorem mi aliquet nulla. Nam volutpat auctor dolor eu dignissim. Donec augue tortor, commodo in porttitor at, tempus et augue. In eu eros ligula.\r\n\r\nPhasellus viverra mauris eget nisi finibus dapibus. Donec ut consectetur sem, eu feugiat purus. Aenean eu fermentum leo. Mauris vulputate blandit ipsum, a ultrices nibh gravida nec. Donec aliquet gravida urna ut lobortis. Nam ut tempus eros, a vestibulum erat. Nulla dictum placerat ligula quis cursus. Maecenas at mi at risus sollicitudin semper. Nulla velit dolor, condimentum ac congue at.",
+                    CzasTrwaniaId = 10,
+                    JezykId = 1,
+                    StopienId = 1,
+                    TrybId = 1,
+                    WydzialId = 8,
+                    BiologiaRequired = true,
+                    PrzedmiotyDodatkoweString = $"{Matura.Fizyka},{Matura.Chemia}"
                 }
             );
             #endregion

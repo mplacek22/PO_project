@@ -4,15 +4,61 @@
     ViewData["Title"] = "Kalkulator";
 }
 
-<h1>Matma 2</h1>
+<link rel="stylesheet" href="~/css/Calculator2.css" />
 
-<a asp-action="Calculate" asp-route-id="@Model.Item1.KierunekId" asp-route-d="5.0" asp-route-sr="4.54" asp-route-e="3.5">Oblicz wskaźnik</a>
+<div class="calculator-header">
+    <h1>Kierunek: @Model.Item1.Name</h1>
+</div>
+
+@using (Html.BeginForm("Calculate", "Kierunek", FormMethod.Get, new { id = "filterForm" }))
+{
+    <div class="calculator-form">
+        <input name="id" type="hidden" value="@Model.Item1.KierunekId" />
+
+        <div class="form-input">
+            <p>Ocena na dyplomie</p>
+            <input name="d" id="d" type="number" step="0.5" min="3.0" max="5.0" value="0.0" />
+        </div>
+
+        <div class="form-input">
+            <p>Średnia ważona z przebiegu studiów</p>
+            <input name="sr" id="sr" type="number" step="0.01" min="3" max="5.5" value="0.0" />
+        </div>
+
+        <div class="form-input">
+            <p>Ocena z egzaminu przeprowadzonego na PWR</p>
+            <input name="e" id="e" type="number" step="0.5" min="0" max="5.0" value="0.0" />
+        </div>
+        <button type="submit">Oblicz wskaźnik</button>
+    </div>
+}
+
 
 @if (Model.Item2 != null)
 {
-    <p>@Model.Item2</p>
+    <div class="points points-current">
+        <h3>Twój wskaźnik rekrutacyjny wynosi:</h3>
+        <div>
+            <span>@Model.Item2</span>
+        </div>
+    </div>
 }
 @if (Model.Item3 != null)
 {
-    <p>@Model.Item3</p>
+    <div class="points points-base">
+        <h3>Twój wskaźnik rekrutacyjny dla innych kierunków wynosi (co najmniej)</h3>
+        <div>
+            <span>@Model.Item3</span>
+        </div>
+        <p>Aby obliczyć dokładny wskaźnik dla innych kierunków, wejdź w ich kalkulator.</p>
+    </div>
+}
+@if (Model.Item2 != null || Model.Item3 != null)
+{
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Scroll to the bottom of the page
+            document.body.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        });
+    </script>
 }

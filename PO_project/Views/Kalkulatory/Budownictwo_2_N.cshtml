@@ -27,7 +27,7 @@
 
         <div class="form-input">
             <p>Ocena z egzaminu przeprowadzonego na PWR</p>
-            <input name="3" id="3" type="number" step="0.5" min="0" max="5.0" value="0.0" />
+            <input name="e" id="e" type="number" step="0.5" min="0" max="5.0" value="0.0" />
         </div>
 
         <div class="form-radio-group">
@@ -45,7 +45,8 @@
             <div class="form-radio-option">
                 <input name="od" id="group3" type="radio" value="0" checked="checked">
                 <label for="group3">Grupa3 - 0pkt</label>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet dolor </p>            </div>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras laoreet dolor </p>            
+            </div>
         </div>
         <button type="submit" >Oblicz wskaźnik</button>
     </div>
@@ -70,4 +71,12 @@
         </div>
         <p>Aby obliczyć dokładny wskaźnik dla innych kierunków, wejdź w ich kalkulator.</p>
     </div>
+}
+@if(Model.Item2 != null || Model.Item3 != null){
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+          // Scroll to the bottom of the page
+          document.body.scrollIntoView({ behavior: 'smooth', block: 'end' });
+        });
+    </script>
 }

@@ -5,6 +5,7 @@ namespace PO_project.Data
 {
     public class PwrDbContext : DbContext
     {
+        public PwrDbContext() { }
         public PwrDbContext(DbContextOptions<PwrDbContext> options) : base(options){}
         public DbSet<Stopien> Stopnie { get; set; }
         public DbSet<Jezyk> Jezyki { get; set; }

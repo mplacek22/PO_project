@@ -102,7 +102,7 @@ namespace PO_project.Controllers
                 .Include(k => k.Stopien)
                 .Include(k => k.Tryb)
                 .FirstOrDefault(m => m.KierunekId == id);
-;
+
 
             if (kierunek == null)
             {
@@ -114,8 +114,9 @@ namespace PO_project.Controllers
                 String path = ("Views/Kalkulatory/" + getFileName(kierunek));
                 if (!System.IO.File.Exists(path))
                     return NotFound();
+                
                 return View("~/" + path, (kierunek, pointsKierunek, points));
-            }
+            } 
 
             return View("~/Views/KalkulatorWskaznikaISt/Index.cshtml", new FormularzRekrutacyjnyISt());
         }

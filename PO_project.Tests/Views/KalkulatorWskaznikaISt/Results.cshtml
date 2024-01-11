@@ -1,0 +1,25 @@
+﻿@{
+    ViewData["Title"] = "Results";
+}
+<link rel="stylesheet" href="~/css/calculator_results.css"/>
+
+<h1 class="text-center">Twoje wskaźniki rekrutacyjne</h1>
+@foreach (var group in Model){
+	var wydzial = group.Wydzial;
+	var wskazniki = group.Wskazniki;
+    <h3>@wydzial.Abbreviation - @wydzial.Name</h3>
+	<table>
+		<tr>
+			<th>Kierunek</th>
+			<th>Wskaźnik rekrutacyjny</th>
+		</tr>
+		@foreach (var wynik in wskazniki)
+		{
+			<tr>
+				<td>@wynik.Item1.Name</td>
+				<td>@wynik.Item2</td>
+			</tr>
+		}
+	</table>
+
+}

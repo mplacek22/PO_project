@@ -5,7 +5,10 @@ using PO_project.Data;
 using PO_project.Models;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
+using System.IO;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,28 +23,21 @@ namespace PO_project.Tests
         [Fact]
         public void DbTest()
         {
-            _context.Stopnie.Add(new Stopien { StopienId = 1, Name = "I" });
-            _context.Stopnie.Add(new Stopien { StopienId = 2, Name = "II" });
-            _context.Tryby.Add(new Tryb { TrybId = 1, Name = "Stacjonarny" });
-            _context.Tryby.Add(new Tryb { TrybId = 2, Name = "Niestacjonarny" });
-            _context.Kierunki.Add(new Kierunek { KierunekId = 1, StopienId = 1, TrybId = 1 });
-            _context.Kierunki.Add(new Kierunek { KierunekId = 2, Name = "", StopienId = 2, TrybId = 2 });
-            _context.SaveChanges();
             Assert.Equal(2, _context.Stopnie.Count());
         }
 
         [Fact]
-        public void Test2()
+        public void NoCalculatorViewForBacheloreCourse_ReturnsNotFound()
         {
             var controller = new KierunekController(_context);
 
-            var result = controller.Calculator(2, null, null);
+            var result = controller.Calculator(0, null, null);
 
             Assert.IsType<NotFoundResult>(result);
         }
 
         [Fact]
-        public void Test3()
+        public void MastersCourse_ReturnsView()
         {
             var controller = new KierunekController(_context);
 

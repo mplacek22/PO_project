@@ -10,6 +10,32 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Views\KalkulatorWskaznikaISt\Index.cshtml" />
+    <None Remove="Views\KalkulatorWskaznikaISt\Results.cshtml" />
+    <None Remove="Views\Kalkulatory\Budownictwo_2_N.cshtml" />
+    <None Remove="Views\Kalkulatory\Matematyka_2_N.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Views\KalkulatorWskaznikaISt\Index.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\KalkulatorWskaznikaISt\Results.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Kalkulatory\Budownictwo_2_N.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="Views\Kalkulatory\Matematyka_2_N.cshtml">
+      <ExcludeFromSingleFile>true</ExcludeFromSingleFile>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" Version="7.0.0" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.7.1" />
     <PackageReference Include="Moq" Version="4.20.70" />

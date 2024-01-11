@@ -25,18 +25,29 @@ namespace PO_project.Controllers
 				{
                     return NotFound();
                 }
-				var model = wskaznikiRekrutacyjne.Select(wynik => new RecommendationViewModel
-				{
-					CourseId = wynik.Item1.KierunekId,
-					Course = wynik.Item1.Name,
-					Description = wynik.Item1.Description,
-                    ProbabilityOfAdmission = RecommendationViewModel.CalculateProbabilityOfAdmission(_context.HistoryczneDane.Where(dane => dane.KierunekId == wynik.Item1.KierunekId).ToArray(), wynik.Item2),
-					AvgPointThreshold = RecommendationViewModel.CalculateAvgPointThreshold(_context.HistoryczneDane.Where(dane => dane.KierunekId == wynik.Item1.KierunekId).ToArray()),
-					CancdidateRecruitmentIndicator = wynik.Item2,
-				})
+				var model = wskaznikiRekrutacyjne
+					.Select(wynik => new RecommendationViewModel
+					{
+						CourseId = wynik.Item1.KierunekId,
+						Course = wynik.Item1.Name,
+						Description = wynik.Item1.Description,
+						ProbabilityOfAdmission = RecommendationViewModel.CalculateProbabilityOfAdmission(_context.HistoryczneDane.Where(dane => dane.KierunekId == wynik.Item1.KierunekId).ToArray(), wynik.Item2),
+						AvgPointThreshold = RecommendationViewModel.CalculateAvgPointThreshold(_context.HistoryczneDane.Where(dane => dane.KierunekId == wynik.Item1.KierunekId).ToArray()),
+						CancdidateRecruitmentIndicator = wynik.Item2,
+					})
 					.OrderByDescending(model => model.ProbabilityOfAdmission)
 					.ToArray();
+				if (TempData["AnkietaResults"] is string ankietaResultsJson)
+				{
+					var ankietaResults =
+						(Newtonsoft.Json.JsonConvert.DeserializeObject<List<Kierunek>>(ankietaResultsJson) ??
+						 new List<Kierunek>()).Select(k => k.KierunekId);
+					model = model.Where(x => ankietaResults.Contains(x.CourseId)).ToArray();
+
+				}
+
 				return View(model);
+
 			}
 			return NotFound();
 			

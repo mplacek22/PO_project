@@ -48,29 +48,27 @@ namespace PO_project.Controllers
 
         public IActionResult Recomendations(int? answer5)
         {
-
-            if (answer5 == 13)
-            {
-                return View(_context.Kierunki.Where(k => k.StopienId == 1)
-                                   .Where(k => k.WydzialId == 4)
-                                   .Where(k => k.TrybId == 1)
-                                   .Where(k => k.JezykId == 1).ToList());
-            }
-            else if (answer5 == 14)
-            {
-                return View(_context.Kierunki.Where(k => k.StopienId == 2)
-                                   .Where(k => k.WydzialId == 2)
-                                   .Where(k => k.TrybId == 2)
-                                   .Where(k => k.JezykId == 1).ToList());
-            }
-            else if (answer5 == 15)
-            {
-                return View(_context.Kierunki.Where(k => k.StopienId == 1)
-                                   .Where(k => k.WydzialId == 1)
-                                   .Where(k => k.TrybId == 1)
-                                   .Where(k => k.JezykId == 1).ToList());
-            }
-            return View(_context.Kierunki.ToList());
+	        var results = answer5 switch
+	        {
+		        13 => _context.Kierunki.Where(k => k.StopienId == 1)
+			        .Where(k => k.WydzialId == 4)
+			        .Where(k => k.TrybId == 1)
+			        .Where(k => k.JezykId == 1)
+			        .ToList(),
+		        14 => _context.Kierunki.Where(k => k.StopienId == 2)
+			        .Where(k => k.WydzialId == 2)
+			        .Where(k => k.TrybId == 2)
+			        .Where(k => k.JezykId == 1)
+			        .ToList(),
+		        15 => _context.Kierunki.Where(k => k.StopienId == 1)
+			        .Where(k => k.WydzialId == 1)
+			        .Where(k => k.TrybId == 1)
+			        .Where(k => k.JezykId == 1)
+			        .ToList(),
+		        _ => _context.Kierunki.ToList()
+	        };
+	        TempData["AnkietaResults"] = Newtonsoft.Json.JsonConvert.SerializeObject(results.Where(k => k.StopienId == 1).ToList());
+			return View(results);
         }
 
         private bool PytanieExists(int id)

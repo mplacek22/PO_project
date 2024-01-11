@@ -40,10 +40,12 @@ namespace PO_project.Controllers
 				if (TempData["AnkietaResults"] is string ankietaResultsJson)
 				{
 					var ankietaResults =
-						(Newtonsoft.Json.JsonConvert.DeserializeObject<List<Kierunek>>(ankietaResultsJson) ?? new List<Kierunek>()).Select(k => k.KierunekId);
+						(Newtonsoft.Json.JsonConvert.DeserializeObject<List<Kierunek>>(ankietaResultsJson) ??
+						 new List<Kierunek>()).Select(k => k.KierunekId);
 					model = model.Where(x => ankietaResults.Contains(x.CourseId)).ToArray();
 
 				}
+
 				return View(model);
 
 			}

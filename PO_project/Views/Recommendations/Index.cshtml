@@ -6,36 +6,37 @@
 <h1 class="text-center">Rekomendowane kierunki studiów</h1>
 <hr />
 <section class="recommendations">
-    <hr />
-    @foreach (var recommendation in Model)
+	@foreach (var recommendation in Model)
     {
-    <a asp-action="Details" asp-controller="Kierunek" asp-route-id="@recommendation.CourseId" class="card-link">
-        <article class="card @GetChancesClass(recommendation.ProbabilityOfAdmission)">
-            <header>
-                <h3>@recommendation.Course</h3>
-            </header>
-                @if (recommendation.Description == string.Empty)
-			{
-				<p>-- Brak opisu --</p>
-			}
-			else
-			{
-				<p>@recommendation.Description</p>
-			}
-            @if (recommendation.AvgPointThreshold == -1)
-            {
-                <p>-- Brak danych dot. historycznych progów punktowych --</p>
-            }
-            else
-            {
-                <p>Średni próg punktowy z ubiegłych lat rekrutacji:<strong>@recommendation.AvgPointThreshold</strong></p>
-            }
-                <p>Twój wskaźnik rekrutacyjny:<strong>@recommendation.CancdidateRecruitmentIndicator</strong></p>
-            <footer>
-            <p><strong>Szanse dostania się:</strong>@recommendation.ChancesOfGettingIn</p>
-            </footer>
-        </article>
-    </a>
+			<div class="col-md-2 card @GetChancesClass(recommendation.ProbabilityOfAdmission)">
+		    <a asp-action="Details" asp-controller="Kierunek" asp-route-id="@recommendation.CourseId" class="card-link">
+			    <article>
+				    <header>
+					    <h3>@recommendation.Course</h3>
+				    </header>
+				    @if (recommendation.Description == string.Empty)
+				    {
+					    <p>-- Brak opisu --</p>
+				    }
+				    else
+				    {
+					    <p>@recommendation.Description</p>
+				    }
+				    @if (recommendation.AvgPointThreshold == -1)
+				    {
+					    <p>-- Brak danych dot. historycznych progów punktowych --</p>
+				    }
+				    else
+				    {
+					    <p>Średni próg punktowy z ubiegłych lat rekrutacji:<strong>@recommendation.AvgPointThreshold</strong></p>
+				    }
+				    <p>Twój wskaźnik rekrutacyjny:<strong>@recommendation.CancdidateRecruitmentIndicator</strong></p>
+				    <footer>
+					    <p><strong>Szanse dostania się:</strong>@recommendation.ChancesOfGettingIn</p>
+				    </footer>
+			    </article>
+		    </a>
+	    </div>
     }
 </section>
 

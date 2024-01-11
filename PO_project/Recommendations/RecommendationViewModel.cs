@@ -20,6 +20,8 @@ namespace PO_project.Recommendations
 
         public double ProbabilityOfAdmission { get; set; }
 
+        public List<Kierunek>? AnkietaResults { get; set; }
+
         public string ChancesOfGettingIn
         {
             get
@@ -45,11 +47,7 @@ namespace PO_project.Recommendations
 
         public static double CalculateProbabilityOfAdmission(HistoryczneDane[] historicalData, double recruitmentIndicator)
         {
-            //if (historicalData.IsNullOrEmpty())
-            //{
-            //    return -1;
-            //}
-            var thresholds = historicalData.Select(dane => dane.PointThreshold).ToList();
+	        var thresholds = historicalData.Select(dane => dane.PointThreshold).ToList();
             var numberOfPeoplePerSpot = historicalData.Select(dane => dane.CandidatesPerSpot).ToList();
 
             var statisticalIndicator = thresholds.Select((t, i) => t * numberOfPeoplePerSpot[i]).Sum();

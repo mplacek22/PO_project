@@ -29,7 +29,7 @@ namespace PO_project.Controllers
 			{
 				formularz.Olimpiady = selectedOlimpiadas;
 				formularz.ObliczWskaznikiRekrutacyjne(_context.Kierunki.Where(k => k.Stopien.Name == "I").ToArray()); //todo: change to enum
-               TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz);
+                TempData["Formularz"] = Newtonsoft.Json.JsonConvert.SerializeObject(formularz);
                 return RedirectToAction(nameof(Results));
             }
             return View(formularz);

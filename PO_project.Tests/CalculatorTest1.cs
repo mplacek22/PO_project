@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PO_project.Controllers;
 using PO_project.Data;
 using PO_project.Models;
+using PO_project.RecrutationCalc;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -44,6 +45,24 @@ namespace PO_project.Tests
             var result = controller.Calculator(1, null, null);
 
             Assert.IsType<ViewResult>(result);
+        }
+
+        [Fact]
+        public void CaclulatePoints_NoCustomFunctionForCourse_CalculatesCorrectPoints()
+        {
+            Assert.Equal((50, 50), Bachelore.Calculate("", 4.5, 5, 0, 0));
+        }
+
+        [Fact]
+        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints()
+        {
+            Assert.Equal((50, 65), Bachelore.Calculate("Budownictwo", 4.5, 5, 5, 10));
+        }
+
+        [Fact]
+        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints2()
+        {
+            Assert.Equal((50, 55), Bachelore.Calculate("Matematyka", 4.5, 5, 5, 0));
         }
     }
 

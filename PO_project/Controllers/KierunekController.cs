@@ -88,7 +88,10 @@ namespace PO_project.Controllers
             if (System.IO.File.Exists(path))
                 return View("~/" + path, kierunek);
 
-            return View(kierunek);
+            if (kierunek.StopienId == 1)
+                return View(kierunek);
+            else
+                return View("~/Views/Kierunek/Default2St.cshtml", kierunek);
         }
 
         public IActionResult Calculator(int? id, double? pointsKierunek, double? points)
@@ -113,7 +116,7 @@ namespace PO_project.Controllers
             {
                 String path = ("Views/Kalkulatory/" + getFileName(kierunek));
                 if (!System.IO.File.Exists(path))
-                    return NotFound();
+                    return View("~/Views/Kalkulatory/Default_2.cshtml", (kierunek, pointsKierunek, points));
                 
                 return View("~/" + path, (kierunek, pointsKierunek, points));
             } 

@@ -20,7 +20,7 @@
         </div>
         <div class="metrics-info">
             <h4>Czas trwania</h4>
-            <p> @Html.DisplayFor(model => model.CzasTrwania.Value) <em>(ilość semestrów)</em></p>
+            <p> @Html.Raw(Model.CzasTrwania.Value * 2) <em>(ilość semestrów)</em></p>
         </div>
 
         <div class="metrics-info">

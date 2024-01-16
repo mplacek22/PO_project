@@ -20,7 +20,7 @@
         </div>
         <div class="metrics-info">
             <h4>Czas trwania</h4>
-            <p> @Html.DisplayFor(model => model.CzasTrwania.Value) <em>(ilość semestrów)</em></p>
+            <p> @Html.Raw(Model.CzasTrwania.Value * 2) <em>(ilość semestrów)</em></p>
         </div>
 
         <div class="metrics-info">
@@ -51,6 +51,10 @@
                 <span>Specjalności</span>
             </label>
         }
+        <label class="description-holder">
+            <input type="radio" name="content-switch" class="input" onchange="onInputChecked()" />
+            <span>Kryteria</span>
+        </label>
     </div>
 
     <div class="chosen-content" id="description-container" style="display: block;">
@@ -74,6 +78,26 @@
         }
     </div>
 
+    @{
+        <div class="chosen-content" id="criteria-container" style="display: none;">
+            <div class="criteria-header">
+                <span>D*10 + SR</span>
+            </div>
+            <div class="criteria-body">
+                <div class="labeled-definitions">
+                    <div class="labeled-definition subject">
+                        <span>D</span>
+                        <p>Ocena na dyplomie</p>
+                    </div>
+
+                    <div class="labeled-definition subject">
+                        <span>SR</span>
+                        <p>Średnia ze studiów</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
 </div>
 
 
@@ -135,16 +159,32 @@
         }
 
         var switchDisplay = function (index, displayType) {
-            switch (index) {
-                case 0:
-                    descContainer.style.display = displayType;
-                    break;
-                case 1:
-                    criteriaContainer.style.display = displayType;
-                    break;
-                default:
-                    break;
-            }
+            if (inputs.length == 2) {
+                switch (index) {
+                    case 0:
+                        descContainer.style.display = displayType;
+                        break;
+                    case 1:
+                        criteriaContainer.style.display = displayType;
+                        break;
+                    default:
+                        break;
+                }
+            } else {
+                var specializationsContainer = document.getElementById('specializations-container')
+                switch (index) {
+                    case 0:
+                        descContainer.style.display = displayType;
+                        break;
+                    case 1:
+                        specializationsContainer.style.display = displayType;
+                        break;
+                    case 2:
+                        criteriaContainer.style.display = displayType;
+                        break;
+                    default:
+                        break;
+                }
             }
         }
     </script>

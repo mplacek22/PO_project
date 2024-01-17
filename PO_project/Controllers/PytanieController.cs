@@ -67,8 +67,13 @@ namespace PO_project.Controllers
 			        .ToList(),
 		        _ => _context.Kierunki.ToList()
 	        };
-	        TempData["AnkietaResults"] = Newtonsoft.Json.JsonConvert.SerializeObject(results.Where(k => k.StopienId == 1).ToList());
-			return View(results);
+
+            if (TempData != null)
+            {
+                TempData["AnkietaResults"] = Newtonsoft.Json.JsonConvert.SerializeObject(results.Where(k => k.StopienId == 1).ToList());
+            }
+
+            return View(results);
         }
 
         private bool PytanieExists(int id)

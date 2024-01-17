@@ -53,7 +53,7 @@
 }
 else
 {
-    <form>
+    <form id="questionForm" data-question-id="@Model.First().PytanieId">
         @foreach (var odpowiedz in @Model.First().Odpowiedzi)
         {
             <div class="radioGroup">
@@ -71,9 +71,44 @@ else
         if (selectedRadioButton) {
             var selectedValue = selectedRadioButton.value;
             this.action = "@Url.Action("Recomendations", "Pytanie")?answer5=" + selectedValue;
+
+            for (var key in sessionStorage) {
+                if (key.startsWith("question_")) {
+                    sessionStorage.removeItem(key);
+                }
+            }
         }
     });
 </script>
 
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        function saveSelection(questionId, selectedValue) {
+            sessionStorage.setItem("question_" + questionId, selectedValue);
+        }
 
+        function getSavedSelection(questionId) {
+            return sessionStorage.getItem("question_" + questionId);
+        }
+
+        var form = document.getElementById("questionForm");
+        var questionId = form.getAttribute("data-question-id");
+
+        var radioButtons = document.querySelectorAll('input[type="radio"]');
+        radioButtons.forEach(function (radioButton) {
+            radioButton.addEventListener("change", function () {
+                var selectedValue = radioButton.value;
+                saveSelection(questionId, selectedValue);
+            });
+        });
+
+        var previousSelection = getSavedSelection(questionId);
+        if (previousSelection) {
+            var radioButtonToCheck = document.querySelector('input[value="' + CSS.escape(previousSelection) + '"]');
+            if (radioButtonToCheck) {
+                radioButtonToCheck.checked = true;
+            }
+        }
+    });
+</script>

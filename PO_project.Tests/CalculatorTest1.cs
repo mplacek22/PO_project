@@ -28,13 +28,40 @@ namespace PO_project.Tests
         }
 
         [Fact]
-        public void NoCalculatorViewForBacheloreCourse_ReturnsNotFound()
+        public void NoBacheloreCourse_ReturnsNotFound()
         {
             var controller = new KierunekController(_context);
 
             var result = controller.Calculator(0, null, null);
 
             Assert.IsType<NotFoundResult>(result);
+        }
+
+        [Fact]
+        public void NoCalculatorViewForBacheloreCourse_ReturnsDefaultView()
+        {
+            var controller = new KierunekController(_context);
+
+            var result = controller.Calculator(4, null, null);
+
+            var viewResult = Assert.IsType<ViewResult>(result);
+            Assert.IsType<ValueTuple<Kierunek, double?, double?>>(viewResult.Model);
+        }
+
+        [Fact]
+        public void BatcheloreDefaultCalculate_RedirectsWithCorrectData()
+        {
+            var controller = new KierunekController(_context);
+
+            var result = controller.Calculate(2, 5, 4, null, null);
+
+            var viewResult = Assert.IsType<RedirectToActionResult>(result);
+
+            Assert.Equal("Calculator", viewResult.ActionName);
+            var routeValues = viewResult.RouteValues!.Values.ToList();
+            Assert.Equal(3, routeValues.Count);
+            Assert.Equal((double)54, routeValues[1]);
+            Assert.Equal((double)54, routeValues[2]);
         }
 
         [Fact]
@@ -45,6 +72,7 @@ namespace PO_project.Tests
             var result = controller.Calculator(1, null, null);
 
             Assert.IsType<ViewResult>(result);
+
         }
 
         [Fact]

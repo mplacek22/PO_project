@@ -2,7 +2,7 @@ using PO_project.Controllers;
 using PO_project.Data;
 using PO_project.Enums;
 using PO_project.Models;
-using PO_project.RecrutationCalc;
+using PO_project.RecruitmentCalculator;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Xunit;

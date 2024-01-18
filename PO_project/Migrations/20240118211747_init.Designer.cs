@@ -12,8 +12,8 @@ using PO_project.Data;
 namespace PO_project.Migrations
 {
     [DbContext(typeof(PwrDbContext))]
-    [Migration("20240117110107_Init")]
-    partial class Init
+    [Migration("20240118211747_init")]
+    partial class init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -695,13 +695,13 @@ namespace PO_project.Migrations
                         });
                 });
 
-            modelBuilder.Entity("PO_project.Models.Odzpowiedz", b =>
+            modelBuilder.Entity("PO_project.Models.Odpowiedz", b =>
                 {
-                    b.Property<int>("OdzpowiedzId")
+                    b.Property<int>("OdpowiedzId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OdzpowiedzId"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("OdpowiedzId"));
 
                     b.Property<int>("PytanieId")
                         .HasColumnType("int");
@@ -710,7 +710,7 @@ namespace PO_project.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("OdzpowiedzId");
+                    b.HasKey("OdpowiedzId");
 
                     b.HasIndex("PytanieId");
 
@@ -719,91 +719,91 @@ namespace PO_project.Migrations
                     b.HasData(
                         new
                         {
-                            OdzpowiedzId = 1,
+                            OdpowiedzId = 1,
                             PytanieId = 1,
                             Tresc = "Abstrakcyjny świat liczb i teorii to coś, co przyciąga moją uwagę."
                         },
                         new
                         {
-                            OdzpowiedzId = 2,
+                            OdpowiedzId = 2,
                             PytanieId = 1,
                             Tresc = "Bardziej czuję się komfortowo w realnym środowisku projektowym."
                         },
                         new
                         {
-                            OdzpowiedzId = 3,
+                            OdpowiedzId = 3,
                             PytanieId = 1,
                             Tresc = "Zależy od sytuacji, lubię łączyć oba światy."
                         },
                         new
                         {
-                            OdzpowiedzId = 4,
+                            OdpowiedzId = 4,
                             PytanieId = 2,
                             Tresc = "Lubię analizować i rozwiązywać problemy, zastanawiać się nad ich korzeniami."
                         },
                         new
                         {
-                            OdzpowiedzId = 5,
+                            OdpowiedzId = 5,
                             PytanieId = 2,
                             Tresc = "Cenię sobie konkretną pracę projektową nad analizą problemów."
                         },
                         new
                         {
-                            OdzpowiedzId = 6,
+                            OdpowiedzId = 6,
                             PytanieId = 2,
                             Tresc = "Zarówno analiza problemów, jak i prace projektowe są dla mnie równie interesujące."
                         },
                         new
                         {
-                            OdzpowiedzId = 7,
+                            OdpowiedzId = 7,
                             PytanieId = 3,
                             Tresc = "Proces projektowania algorytmów to coś, co mnie naprawdę fascynuje."
                         },
                         new
                         {
-                            OdzpowiedzId = 8,
+                            OdpowiedzId = 8,
                             PytanieId = 3,
                             Tresc = "Bardziej kieruje mnie praktyczne zastosowanie rozwiązań niż projektowanie algorytmów."
                         },
                         new
                         {
-                            OdzpowiedzId = 9,
+                            OdpowiedzId = 9,
                             PytanieId = 3,
                             Tresc = "Nie mam jednoznacznej preferencji, obie strony są dla mnie atrakcyjne."
                         },
                         new
                         {
-                            OdzpowiedzId = 10,
+                            OdpowiedzId = 10,
                             PytanieId = 4,
                             Tresc = "Inspiruje mnie projektowanie nowoczesnych przestrzeni architektonicznych."
                         },
                         new
                         {
-                            OdzpowiedzId = 11,
+                            OdpowiedzId = 11,
                             PytanieId = 4,
                             Tresc = "Interesują mnie bardziej aspekty techniczne i konstrukcyjne budowy."
                         },
                         new
                         {
-                            OdzpowiedzId = 12,
+                            OdpowiedzId = 12,
                             PytanieId = 4,
                             Tresc = "Trudno mi się zdecydować, obie dziedziny wydają się interesujące."
                         },
                         new
                         {
-                            OdzpowiedzId = 13,
+                            OdpowiedzId = 13,
                             PytanieId = 5,
                             Tresc = "Praca nad systemami informatycznymi przyciąga moją uwagę."
                         },
                         new
                         {
-                            OdzpowiedzId = 14,
+                            OdpowiedzId = 14,
                             PytanieId = 5,
                             Tresc = "Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną."
                         },
                         new
                         {
-                            OdzpowiedzId = 15,
+                            OdpowiedzId = 15,
                             PytanieId = 5,
                             Tresc = "preferuję projektowanie infrastruktur"
                         });
@@ -1202,7 +1202,7 @@ namespace PO_project.Migrations
                     b.Navigation("Pracodawca");
                 });
 
-            modelBuilder.Entity("PO_project.Models.Odzpowiedz", b =>
+            modelBuilder.Entity("PO_project.Models.Odpowiedz", b =>
                 {
                     b.HasOne("PO_project.Models.Pytanie", "Pytanie")
                         .WithMany("Odpowiedzi")

@@ -7,7 +7,7 @@
 namespace PO_project.Migrations
 {
     /// <inheritdoc />
-    public partial class Init : Migration
+    public partial class init : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -153,14 +153,14 @@ namespace PO_project.Migrations
                 name: "Odpowiedzi",
                 columns: table => new
                 {
-                    OdzpowiedzId = table.Column<int>(type: "int", nullable: false)
+                    OdpowiedzId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     Tresc = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     PytanieId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Odpowiedzi", x => x.OdzpowiedzId);
+                    table.PrimaryKey("PK_Odpowiedzi", x => x.OdpowiedzId);
                     table.ForeignKey(
                         name: "FK_Odpowiedzi_Pytania_PytanieId",
                         column: x => x.PytanieId,

@@ -1,6 +1,6 @@
 ﻿using PO_project.Enums;
-using PO_project.KalkulatorWskaznika;
 using PO_project.Models;
+using PO_project.RecruitmentCalculator;
 
 namespace PO_project.Tests
 {

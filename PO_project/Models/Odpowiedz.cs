@@ -1,15 +1,14 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace PO_project.Models
 {
-    public class Odzpowiedz
+    public class Odpowiedz
     {
-        public int OdzpowiedzId { get; set; }
+        public int OdpowiedzId { get; set; }
 
         public string Tresc { get; set; } = string.Empty;
 
-        [Required, NotNull]
+        [Required]
         public int PytanieId { get; set; }
         public Pytanie Pytanie { get; set; } = null!;
     }

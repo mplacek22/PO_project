@@ -1,15 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Reflection;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
-using PO_project.KalkulatorWskaznika;
 using PO_project.Models;
-using PO_project.RecrutationCalc;
+using PO_project.RecruitmentCalculator;
 
 namespace PO_project.Controllers
 {
@@ -83,7 +77,7 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            String path = ("Views/Kierunki/" + getFileName(kierunek));
+            String path = ("Views/KierunkiIISt/" + getFileName(kierunek));
 
             if (System.IO.File.Exists(path))
                 return View("~/" + path, kierunek);
@@ -91,7 +85,7 @@ namespace PO_project.Controllers
             if (kierunek.StopienId == 1)
                 return View(kierunek);
             else
-                return View("~/Views/Kierunek/Default2St.cshtml", kierunek);
+                return View("~/Views/KierunkiIISt/Default2St.cshtml", kierunek);
         }
 
         public IActionResult Calculator(int? id, double? pointsKierunek, double? points)
@@ -144,7 +138,7 @@ namespace PO_project.Controllers
             od ??= 0;
 
 
-            (points, pointsKierunek) = Bachelore.Calculate(kierunek.Name, (double)d, (double)sr,(double)e,(int)od);
+            (points, pointsKierunek) = WzoryKalkulacyjne2st.Calculate(kierunek.Name, (double)d, (double)sr,(double)e,(int)od);
 
             return RedirectToAction("Calculator", new {id, pointsKierunek, points});
         }

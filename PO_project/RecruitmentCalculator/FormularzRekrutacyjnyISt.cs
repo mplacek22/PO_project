@@ -1,9 +1,9 @@
-﻿using PO_project.Enums;
-using PO_project.Models;
-using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
+using PO_project.Enums;
+using PO_project.Models;
 
-namespace PO_project.KalkulatorWskaznika
+namespace PO_project.RecruitmentCalculator
 {
 	public class FormularzRekrutacyjnyISt
     {

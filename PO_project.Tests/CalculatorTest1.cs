@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using PO_project.Controllers;
 using PO_project.Data;
 using PO_project.Models;
-using PO_project.RecrutationCalc;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -12,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using PO_project.RecruitmentCalculator;
 
 namespace PO_project.Tests
 {
@@ -78,19 +78,15 @@ namespace PO_project.Tests
         [Fact]
         public void CaclulatePoints_NoCustomFunctionForCourse_CalculatesCorrectPoints()
         {
-            Assert.Equal((50, 50), Bachelore.Calculate("", 4.5, 5, 0, 0));
+            Assert.Equal((50, 50), WzoryKalkulacyjne2st.Calculate("", 4.5, 5, 0, 0));
         }
 
-        [Fact]
-        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints()
+        [Theory]
+        [InlineData(50, 65, "Budownictwo", 4.5, 5, 5, 10)]
+        [InlineData(50, 55, "Matematyka", 4.5, 5, 5, 0)]
+        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints(double expectedGeneralPoints, double expectedCoursePoints, String courseName, double d, double sr, double e, int od)
         {
-            Assert.Equal((50, 65), Bachelore.Calculate("Budownictwo", 4.5, 5, 5, 10));
-        }
-
-        [Fact]
-        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints2()
-        {
-            Assert.Equal((50, 55), Bachelore.Calculate("Matematyka", 4.5, 5, 5, 0));
+            Assert.Equal((expectedGeneralPoints, expectedCoursePoints), WzoryKalkulacyjne2st.Calculate(courseName, d, sr, e, od));
         }
     }
 

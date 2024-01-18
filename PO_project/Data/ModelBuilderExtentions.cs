@@ -615,94 +615,94 @@ namespace PO_project.Data
             #endregion
 
             #region Odpowiedz
-            modelBuilder.Entity<Odzpowiedz>().HasData(
-                new Odzpowiedz()
+            modelBuilder.Entity<Odpowiedz>().HasData(
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 1,
+                    OdpowiedzId = 1,
                     Tresc = "Abstrakcyjny świat liczb i teorii to coś, co przyciąga moją uwagę.",
                     PytanieId = 1
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 2,
+                    OdpowiedzId = 2,
                     Tresc = "Bardziej czuję się komfortowo w realnym środowisku projektowym.",
                     PytanieId = 1
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 3,
+                    OdpowiedzId = 3,
                     Tresc = "Zależy od sytuacji, lubię łączyć oba światy.",
                     PytanieId = 1
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 4,
+                    OdpowiedzId = 4,
                     Tresc = "Lubię analizować i rozwiązywać problemy, zastanawiać się nad ich korzeniami.",
                     PytanieId = 2
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 5,
+                    OdpowiedzId = 5,
                     Tresc = "Cenię sobie konkretną pracę projektową nad analizą problemów.",
                     PytanieId = 2
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 6,
+                    OdpowiedzId = 6,
                     Tresc = "Zarówno analiza problemów, jak i prace projektowe są dla mnie równie interesujące.",
                     PytanieId = 2
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 7,
+                    OdpowiedzId = 7,
                     Tresc = "Proces projektowania algorytmów to coś, co mnie naprawdę fascynuje.",
                     PytanieId = 3
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 8,
+                    OdpowiedzId = 8,
                     Tresc = "Bardziej kieruje mnie praktyczne zastosowanie rozwiązań niż projektowanie algorytmów.",
                     PytanieId = 3
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 9,
+                    OdpowiedzId = 9,
                     Tresc = "Nie mam jednoznacznej preferencji, obie strony są dla mnie atrakcyjne.",
                     PytanieId = 3
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 10,
+                    OdpowiedzId = 10,
                     Tresc = "Inspiruje mnie projektowanie nowoczesnych przestrzeni architektonicznych.",
                     PytanieId = 4
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 11,
+                    OdpowiedzId = 11,
                     Tresc = "Interesują mnie bardziej aspekty techniczne i konstrukcyjne budowy.",
                     PytanieId = 4
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 12,
+                    OdpowiedzId = 12,
                     Tresc = "Trudno mi się zdecydować, obie dziedziny wydają się interesujące.",
                     PytanieId = 4
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 13,
+                    OdpowiedzId = 13,
                     Tresc = "Praca nad systemami informatycznymi przyciąga moją uwagę.",
                     PytanieId = 5
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 14,
+                    OdpowiedzId = 14,
                     Tresc = "Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną.",
                     PytanieId = 5
                 },
-                new Odzpowiedz()
+                new Odpowiedz()
                 {
-                    OdzpowiedzId = 15,
+                    OdpowiedzId = 15,
                     Tresc = "preferuję projektowanie infrastruktur",
                     PytanieId = 5
                 }

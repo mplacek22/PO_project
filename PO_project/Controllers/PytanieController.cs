@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
-using PO_project.Models;
 
 namespace PO_project.Controllers
 {
@@ -35,7 +30,7 @@ namespace PO_project.Controllers
                 currentQuestionIndex = 4;
             }
 
-            ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdzpowiedzId", "Tresc").ToList();
+            ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdpowiedzId", "Tresc").ToList();
 
             var pytania = _context.Pytania.Include(p => p.Odpowiedzi).Skip(currentQuestionIndex).Take(1);
             return View(pytania);

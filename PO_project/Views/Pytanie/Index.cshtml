@@ -43,8 +43,8 @@
         @foreach (var odpowiedz in @Model.First().Odpowiedzi)
         {
             <div class="radioGroup">
-                <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer5" value="@odpowiedz.OdzpowiedzId">
-                <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+                <input type="radio" id="@odpowiedz.OdpowiedzId" name="answer5" value="@odpowiedz.OdpowiedzId">
+                <label for="@odpowiedz.OdpowiedzId">@odpowiedz.Tresc</label>
             </div>
         }
 
@@ -57,8 +57,8 @@ else
         @foreach (var odpowiedz in @Model.First().Odpowiedzi)
         {
             <div class="radioGroup">
-                <input type="radio" id="@odpowiedz.OdzpowiedzId" name="answer" value="@odpowiedz.Tresc">
-                <label for="@odpowiedz.OdzpowiedzId">@odpowiedz.Tresc</label>
+                <input type="radio" id="@odpowiedz.OdpowiedzId" name="answer" value="@odpowiedz.Tresc">
+                <label for="@odpowiedz.OdpowiedzId">@odpowiedz.Tresc</label>
             </div>
         }
     </form>

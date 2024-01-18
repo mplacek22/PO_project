@@ -22,7 +22,7 @@ namespace PO_project.Data
         public DbSet<HistoryczneDane> HistoryczneDane { get; set; }
         public DbSet<KierunekMiejscaPracy> MiejscaPracy { get; set; }
         public DbSet<Pytanie> Pytania { get; set; }
-        public DbSet<Odzpowiedz> Odpowiedzi { get; set; }
+        public DbSet<Odpowiedz> Odpowiedzi { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

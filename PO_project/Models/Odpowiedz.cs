@@ -1,5 +1,4 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.CodeAnalysis;
 
 namespace PO_project.Models
 {
@@ -9,7 +8,7 @@ namespace PO_project.Models
 
         public string Tresc { get; set; } = string.Empty;
 
-        [Required, NotNull]
+        [Required]
         public int PytanieId { get; set; }
         public Pytanie Pytanie { get; set; } = null!;
     }

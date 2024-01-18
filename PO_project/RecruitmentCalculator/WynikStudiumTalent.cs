@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using PO_project.Enums;
 
-namespace PO_project.RecruimentCalculator
+namespace PO_project.RecruitmentCalculator
 {
     public class WynikStudiumTalent
     {

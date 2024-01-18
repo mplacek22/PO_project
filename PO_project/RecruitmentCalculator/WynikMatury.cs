@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace PO_project.RecruimentCalculator
+namespace PO_project.RecruitmentCalculator
 {
     public class WynikMatury
     {

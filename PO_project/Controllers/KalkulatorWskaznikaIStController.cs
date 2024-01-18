@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using PO_project.Data;
 using PO_project.Enums;
-using PO_project.RecruimentCalculator;
+using PO_project.RecruitmentCalculator;
 
 namespace PO_project.Controllers
 {

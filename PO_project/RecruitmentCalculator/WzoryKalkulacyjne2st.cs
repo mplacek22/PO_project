@@ -1,7 +1,6 @@
-﻿using PO_project.Models;
-using System.Reflection;
+﻿using System.Reflection;
 
-namespace PO_project.RecruimentCalculator
+namespace PO_project.RecruitmentCalculator
 {
     public static class WzoryKalkulacyjne2st
     {

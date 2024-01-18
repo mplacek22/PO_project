@@ -3,7 +3,6 @@ using Microsoft.EntityFrameworkCore;
 using PO_project.Controllers;
 using PO_project.Data;
 using PO_project.Models;
-using PO_project.RecruimentCalculator;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;
@@ -12,6 +11,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
+using PO_project.RecruitmentCalculator;
 
 namespace PO_project.Tests
 {

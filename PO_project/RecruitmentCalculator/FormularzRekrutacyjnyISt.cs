@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using PO_project.Enums;
 using PO_project.Models;
 
-namespace PO_project.RecruimentCalculator
+namespace PO_project.RecruitmentCalculator
 {
 	public class FormularzRekrutacyjnyISt
     {

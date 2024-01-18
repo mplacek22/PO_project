@@ -81,16 +81,12 @@ namespace PO_project.Tests
             Assert.Equal((50, 50), Bachelore.Calculate("", 4.5, 5, 0, 0));
         }
 
-        [Fact]
-        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints()
+        [Theory]
+        [InlineData(50, 65, "Budownictwo", 4.5, 5, 5, 10)]
+        [InlineData(50, 55, "Matematyka", 4.5, 5, 5, 0)]
+        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints(double expectedGeneralPoints, double expectedCoursePoints, String courseName, double d, double sr, double e, int od)
         {
-            Assert.Equal((50, 65), Bachelore.Calculate("Budownictwo", 4.5, 5, 5, 10));
-        }
-
-        [Fact]
-        public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints2()
-        {
-            Assert.Equal((50, 55), Bachelore.Calculate("Matematyka", 4.5, 5, 5, 0));
+            Assert.Equal((expectedGeneralPoints, expectedCoursePoints), Bachelore.Calculate(courseName, d, sr, e, od));
         }
     }
 

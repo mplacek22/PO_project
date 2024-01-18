@@ -78,7 +78,7 @@ namespace PO_project.Tests
         [Fact]
         public void CaclulatePoints_NoCustomFunctionForCourse_CalculatesCorrectPoints()
         {
-            Assert.Equal((50, 50), Bachelore.Calculate("", 4.5, 5, 0, 0));
+            Assert.Equal((50, 50), WzoryKalkulacyjne2st.Calculate("", 4.5, 5, 0, 0));
         }
 
         [Theory]
@@ -86,7 +86,7 @@ namespace PO_project.Tests
         [InlineData(50, 55, "Matematyka", 4.5, 5, 5, 0)]
         public void CaclulatePoints_CustomFunctionExists_CalculatesCorrectPoints(double expectedGeneralPoints, double expectedCoursePoints, String courseName, double d, double sr, double e, int od)
         {
-            Assert.Equal((expectedGeneralPoints, expectedCoursePoints), Bachelore.Calculate(courseName, d, sr, e, od));
+            Assert.Equal((expectedGeneralPoints, expectedCoursePoints), WzoryKalkulacyjne2st.Calculate(courseName, d, sr, e, od));
         }
     }
 

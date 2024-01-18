@@ -9,7 +9,6 @@ using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
 using PO_project.KalkulatorWskaznika;
 using PO_project.Models;
-using PO_project.RecrutationCalc;
 
 namespace PO_project.Controllers
 {
@@ -83,7 +82,7 @@ namespace PO_project.Controllers
                 return NotFound();
             }
 
-            String path = ("Views/Kierunki/" + getFileName(kierunek));
+            String path = ("Views/KierunkiIISt/" + getFileName(kierunek));
 
             if (System.IO.File.Exists(path))
                 return View("~/" + path, kierunek);
@@ -91,7 +90,7 @@ namespace PO_project.Controllers
             if (kierunek.StopienId == 1)
                 return View(kierunek);
             else
-                return View("~/Views/Kierunek/Default2St.cshtml", kierunek);
+                return View("~/Views/KierunkiIISt/Default2St.cshtml", kierunek);
         }
 
         public IActionResult Calculator(int? id, double? pointsKierunek, double? points)

@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using PO_project.Controllers;
 using PO_project.Data;
 using PO_project.Models;
-using PO_project.RecrutationCalc;
+using PO_project.RecruimentCalculator;
 using System;
 using System.Collections.Generic;
 using System.Drawing.Printing;

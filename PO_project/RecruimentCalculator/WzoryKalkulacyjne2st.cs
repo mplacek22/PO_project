@@ -1,16 +1,16 @@
 ﻿using PO_project.Models;
 using System.Reflection;
 
-namespace PO_project.RecrutationCalc
+namespace PO_project.RecruimentCalculator
 {
     public static class WzoryKalkulacyjne2st
     {
 
-        public static ValueTuple<double, double> Calculate(String name, double d, double sr, double e, int od)
+        public static ValueTuple<double, double> Calculate(string name, double d, double sr, double e, int od)
         {
 
             MethodInfo? calculatorMethodInfo;
-            double points = WzoryKalkulacyjne2st.Base((double)d, (double)sr);
+            double points = Base((double)d, (double)sr);
             double pointsKierunek = points;
 
             if ((calculatorMethodInfo = typeof(WzoryKalkulacyjne2st)
@@ -48,10 +48,10 @@ namespace PO_project.RecrutationCalc
 
         public static double Base(double d, double sr)
         {
-            return Round(d* 10 + sr);
+            return Round(d * 10 + sr);
         }
 
-        public static double Budownictwo(double d, double sr, double e, int od )
+        public static double Budownictwo(double d, double sr, double e, int od)
         {
             return Round(Base(d, sr) + e + od);
         }

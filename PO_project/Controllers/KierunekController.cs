@@ -7,8 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using PO_project.Data;
-using PO_project.KalkulatorWskaznika;
 using PO_project.Models;
+using PO_project.RecruimentCalculator;
 
 namespace PO_project.Controllers
 {
@@ -143,7 +143,7 @@ namespace PO_project.Controllers
             od ??= 0;
 
 
-            (points, pointsKierunek) = Bachelore.Calculate(kierunek.Name, (double)d, (double)sr,(double)e,(int)od);
+            (points, pointsKierunek) = WzoryKalkulacyjne2st.Calculate(kierunek.Name, (double)d, (double)sr,(double)e,(int)od);
 
             return RedirectToAction("Calculator", new {id, pointsKierunek, points});
         }

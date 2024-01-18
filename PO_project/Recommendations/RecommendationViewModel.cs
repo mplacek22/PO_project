@@ -26,10 +26,12 @@ namespace PO_project.Recommendations
         {
             get
             {
+
+                Console.WriteLine($"{CourseId}: {ProbabilityOfAdmission}");
                 return ProbabilityOfAdmission switch
                 {
-                    var p when p < Low => "Niskie prawdopodobieństwo dostania się",
-                    var p when Math.Abs(p - Low) < 0.0001 => "Warto spróbować, gdyż jest szansa dostania się",
+                var p when p < Low => "Niskie prawdopodobieństwo dostania się",
+                    var p when Math.Abs(p - Low) < 0.1 => "Warto spróbować, gdyż jest szansa dostania się",
                     var p when p > High => "Wysokie prawdopodobieństwo dostania się",
                     _ => "---",
                 };

@@ -416,7 +416,7 @@ namespace PO_project.Migrations
 
             migrationBuilder.InsertData(
                 table: "Odpowiedzi",
-                columns: new[] { "OdzpowiedzId", "PytanieId", "Tresc" },
+                columns: new[] { "OdpowiedzId", "PytanieId", "Tresc" },
                 values: new object[,]
                 {
                     { 1, 1, "Abstrakcyjny świat liczb i teorii to coś, co przyciąga moją uwagę." },

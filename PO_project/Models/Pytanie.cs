@@ -9,7 +9,7 @@ namespace PO_project.Models
         [Required]
         public string Tresc { get; set; } = string.Empty;
 
-        public List<Odzpowiedz> Odpowiedzi{ get; } = new();
+        public List<Odpowiedz> Odpowiedzi{ get; } = new();
 
     }
 }

@@ -35,7 +35,7 @@ namespace PO_project.Controllers
                 currentQuestionIndex = 4;
             }
 
-            ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdzpowiedzId", "Tresc").ToList();
+            ViewBag.Odpowiedzi = new SelectList(_context.Odpowiedzi, "OdpowiedzId", "Tresc").ToList();
 
             var pytania = _context.Pytania.Include(p => p.Odpowiedzi).Skip(currentQuestionIndex).Take(1);
             return View(pytania);

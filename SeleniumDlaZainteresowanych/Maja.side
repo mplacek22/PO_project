@@ -1,0 +1,1748 @@
+{
+  "id": "d8d78fcc-7fb7-473a-bbd4-7c6c06d3a23a",
+  "version": "2.0",
+  "name": "PO_project",
+  "url": "https://localhost:7262",
+  "tests": [{
+    "id": "5e35623b-f76b-4def-a309-69259be6a88b",
+    "name": "Kalkulator_wskaznika_I_st_invalid_data",
+    "commands": [{
+      "id": "950597b7-07c6-4216-ba5e-cba7368b77c6",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "46df2b4c-64db-4e3f-bd66-2da23ec28238",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ceb82321-9e7e-4d5f-8b7f-e075e689aab4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "89bd255f-b8f9-46ad-9fbb-d1c3cfd4ce7a",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "248.1999969482422,43.600006103515625"
+    }, {
+      "id": "ba97f55b-5db6-48c0-8564-7c5a278c4511",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "248.1999969482422,43.600006103515625"
+    }, {
+      "id": "b009e3dd-ae15-4214-86ad-7ef9cbd2a659",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "248.1999969482422,43.600006103515625"
+    }, {
+      "id": "aaa99f71-8685-4fff-9089-891dbb86b86c",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(3) tr:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "396a396d-4d83-4c01-a357-487aa20d23be",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Matematyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Matematyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Matematyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Matematyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Matematyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "-1"
+    }, {
+      "id": "74c63aa5-b3bb-4055-bf67-198cc5f9b751",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "0500b231-f597-483c-bb63-136db4d787de",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.text-center",
+      "targets": [
+        ["css=.text-center", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Kalkulator wskaźnika rekrutacyjnego na studia I stopnia')]", "xpath:innerText"]
+      ],
+      "value": "Kalkulator I st - PO_project"
+    }, {
+      "id": "79ac4706-c9a5-49fe-86f1-30b34d233e2e",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(3) tr:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "48e232a8-56da-4bd6-9651-1766bed9dd2c",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Matematyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Matematyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Matematyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Matematyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Matematyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "110"
+    }, {
+      "id": "d2c00a52-6889-40bd-822d-1d49e36896cf",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4ccd8c05-b404-42ba-902e-f8818e328752",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.text-center",
+      "targets": [
+        ["css=.text-center", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Kalkulator wskaźnika rekrutacyjnego na studia I stopnia')]", "xpath:innerText"]
+      ],
+      "value": "Kalkulator I st - PO_project"
+    }, {
+      "id": "be040fe5-a127-451b-b9b6-d5e1766f3afe",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ad3491f9-cd4a-46d9-a709-00472a59e3fb",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Matematyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Matematyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Matematyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Matematyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Matematyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "aa76418f-f71b-442d-af2f-73b9ba4dc462",
+      "comment": "",
+      "command": "click",
+      "target": "css=form",
+      "targets": [
+        ["css=form", "css:finder"],
+        ["xpath=//form[@action='/KalkulatorWskaznikaISt']", "xpath:attributes"],
+        ["xpath=//form", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "3434e067-ba2d-459e-a669-f9ba461943d2",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(9) tr",
+      "targets": [
+        ["css=table:nth-child(9) tr", "css:finder"],
+        ["xpath=//table[3]/tbody/tr", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "fa5e24ac-8c09-4653-aaef-9ddb54cab063",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "-1"
+    }, {
+      "id": "cb3854d6-efcf-446e-9d2e-1705f7556a6c",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.text-center",
+      "targets": [
+        ["css=.text-center", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Kalkulator wskaźnika rekrutacyjnego na studia I stopnia')]", "xpath:innerText"]
+      ],
+      "value": "Kalkulator I st - PO_project"
+    }, {
+      "id": "e9e44577-2a23-47b7-b8dc-bdc7c0017048",
+      "comment": "",
+      "command": "sendKeys",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "${KEY_ENTER}"
+    }, {
+      "id": "98b7b43a-42d0-41a8-aa92-1c5d80540e3b",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "2929cd90-ff3d-4c6f-a1fc-0f5d4d3c985c",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(9) tr",
+      "targets": [
+        ["css=table:nth-child(9) tr", "css:finder"],
+        ["xpath=//table[3]/tbody/tr", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1020481d-ec53-48a0-8a31-0965288f6420",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "10000"
+    }, {
+      "id": "c0702b74-4631-4e12-8c2d-b8a9cbbdd92d",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "7bebef84-0c02-4af0-bfaa-fb761ce878b2",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.text-center",
+      "targets": [
+        ["css=.text-center", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Kalkulator wskaźnika rekrutacyjnego na studia I stopnia')]", "xpath:innerText"]
+      ],
+      "value": "Kalkulator I st - PO_project"
+    }]
+  }, {
+    "id": "fff7618e-160a-45bb-bbba-c7c7af70582f",
+    "name": "Kalkulator_wskaznika_I_st_empty_form",
+    "commands": [{
+      "id": "52032c9b-342d-42fb-b72c-187debba32e3",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "87ccb946-cc62-43eb-837a-168b7d654711",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "14685d3c-3ac2-40c0-bb28-a0589cd89515",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ba88e957-d17c-4d3d-90e6-b9ed2d1c85d9",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "33507c0e-a1e0-479c-a376-3aec6882d5f5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(5) td:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(5) td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'0')]", "xpath:innerText"]
+      ],
+      "value": "0"
+    }, {
+      "id": "93fdeb56-6e74-48e1-9360-db0368b36d4e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)",
+      "targets": [],
+      "value": "0"
+    }, {
+      "id": "f83d076e-bdd6-4758-bd77-b49e70ec53a7",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)",
+      "targets": [],
+      "value": "0"
+    }, {
+      "id": "ead5e354-80df-4320-b702-f8129b8d6b5d",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(3) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[3]/td[2]", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "6bd5fa01-c4be-487a-9dc2-b58065a60bfc",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(4) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[4]/td[2]", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "acdec720-02a1-4238-9640-2593bf973ab5",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(5) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(5) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[5]/td[2]", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "6c068a61-a93f-42ba-9d92-dc3d4a1d22f9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(5) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(5) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[5]/td[2]", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "742307dd-4c76-4db6-9235-30c58b268394",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(6) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(6) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[6]/td[2]", "xpath:position"]
+      ],
+      "value": "0"
+    }]
+  }, {
+    "id": "aa73f5d6-3a7b-42fb-a46e-e728f12caa3f",
+    "name": "Kalkulator_wskaznika_valid_data",
+    "commands": [{
+      "id": "74a45c97-aaf9-4c2b-8825-a5acffe40210",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ac511521-14e5-4108-bb09-45b22ba1a83d",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "91cb28b3-1a57-4d5f-8d2c-926e95cdb2b8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8ce0992a-bae8-45c0-b096-0abe7b680259",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "259.1999969482422,35.600006103515625"
+    }, {
+      "id": "89d3f525-b839-4698-a3da-a3abfd28d755",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "259.1999969482422,35.600006103515625"
+    }, {
+      "id": "70c6b8b0-ee92-435c-8d3f-c9c63cf809c0",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "259.1999969482422,35.600006103515625"
+    }, {
+      "id": "521d339f-29b8-4926-bb78-9b340b69e35f",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(3) tr:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9939b23a-0da8-4e39-b36c-d102646b96e7",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Matematyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Matematyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Matematyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Matematyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Matematyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "90"
+    }, {
+      "id": "c462cf8a-42af-4968-b50c-e234fc73c6ba",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(2) > td:nth-child(3)",
+      "targets": [
+        ["css=tr:nth-child(2) > td:nth-child(3)", "css:finder"],
+        ["xpath=//td[3]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "d1722e8d-41e5-45ca-b45a-3afa6e520670",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Matematyka__Rozszerzenie",
+      "targets": [
+        ["id=WynikiZMatur_Matematyka__Rozszerzenie", "id"],
+        ["name=WynikiZMatur[Matematyka].Rozszerzenie", "name"],
+        ["css=#WynikiZMatur_Matematyka__Rozszerzenie", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Matematyka__Rozszerzenie']", "xpath:attributes"],
+        ["xpath=//td[3]/input", "xpath:position"]
+      ],
+      "value": "67"
+    }, {
+      "id": "a9f4405d-73c7-4345-846f-07303806d355",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=WynikiZMatur_JezykPolski__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_JezykPolski__Podstawa", "id"],
+        ["name=WynikiZMatur[JezykPolski].Podstawa", "name"],
+        ["css=#WynikiZMatur_JezykPolski__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_JezykPolski__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "28.92498779296875,19.399978637695312"
+    }, {
+      "id": "35410baa-cfe7-4408-9c92-11080e3cf1f0",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=WynikiZMatur_JezykPolski__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_JezykPolski__Podstawa", "id"],
+        ["name=WynikiZMatur[JezykPolski].Podstawa", "name"],
+        ["css=#WynikiZMatur_JezykPolski__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_JezykPolski__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "28.92498779296875,19.399978637695312"
+    }, {
+      "id": "76db334c-b568-4706-b0c3-a2b9b108bad0",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=WynikiZMatur_JezykPolski__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_JezykPolski__Podstawa", "id"],
+        ["name=WynikiZMatur[JezykPolski].Podstawa", "name"],
+        ["css=#WynikiZMatur_JezykPolski__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_JezykPolski__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "28.92498779296875,19.399978637695312"
+    }, {
+      "id": "e71a89eb-9762-40ab-812e-956ca5dbcb0e",
+      "comment": "",
+      "command": "click",
+      "target": "id=WynikiZMatur_JezykPolski__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_JezykPolski__Podstawa", "id"],
+        ["name=WynikiZMatur[JezykPolski].Podstawa", "name"],
+        ["css=#WynikiZMatur_JezykPolski__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_JezykPolski__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "e660cc7f-b2b0-448a-aa37-4b677ee70d4c",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_JezykPolski__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_JezykPolski__Podstawa", "id"],
+        ["name=WynikiZMatur[JezykPolski].Podstawa", "name"],
+        ["css=#WynikiZMatur_JezykPolski__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_JezykPolski__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[3]/td[2]/input", "xpath:position"]
+      ],
+      "value": "50"
+    }, {
+      "id": "4cefe632-923b-4e20-bb0f-64388118c5eb",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=tr:nth-child(8) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(8) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[8]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Fizyka')]", "xpath:innerText"]
+      ],
+      "value": "251.1999969482422,35.399993896484375"
+    }, {
+      "id": "60821fdf-1c94-44d7-9d0b-0b5f18eb4b53",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=tr:nth-child(8) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(8) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[8]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Fizyka')]", "xpath:innerText"]
+      ],
+      "value": "251.1999969482422,35.399993896484375"
+    }, {
+      "id": "13b75751-5bea-4314-96fb-af89b38be61b",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=tr:nth-child(8) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(8) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[8]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Fizyka')]", "xpath:innerText"]
+      ],
+      "value": "251.1999969482422,35.399993896484375"
+    }, {
+      "id": "41eff2d4-e20a-439e-a356-4468f5634d7b",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(8)",
+      "targets": [
+        ["css=tr:nth-child(8)", "css:finder"],
+        ["xpath=//tr[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "bbd6346c-baa7-4087-b058-143a173178ca",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Fizyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Fizyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Fizyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[2]/input", "xpath:position"]
+      ],
+      "value": "51"
+    }, {
+      "id": "6febd803-9f4e-4722-99f9-b6d3bdee99fa",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=WynikiZMatur_Fizyka__Rozszerzenie",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Rozszerzenie", "id"],
+        ["name=WynikiZMatur[Fizyka].Rozszerzenie", "name"],
+        ["css=#WynikiZMatur_Fizyka__Rozszerzenie", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Rozszerzenie']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[3]/input", "xpath:position"]
+      ],
+      "value": "48.5,16.399993896484375"
+    }, {
+      "id": "c6977d71-7882-4762-b706-1f3321bb52a4",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=WynikiZMatur_Fizyka__Rozszerzenie",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Rozszerzenie", "id"],
+        ["name=WynikiZMatur[Fizyka].Rozszerzenie", "name"],
+        ["css=#WynikiZMatur_Fizyka__Rozszerzenie", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Rozszerzenie']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[3]/input", "xpath:position"]
+      ],
+      "value": "48.5,16.399993896484375"
+    }, {
+      "id": "54aff6d2-6364-43b5-b6f3-d7e97a5eb647",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=WynikiZMatur_Fizyka__Rozszerzenie",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Rozszerzenie", "id"],
+        ["name=WynikiZMatur[Fizyka].Rozszerzenie", "name"],
+        ["css=#WynikiZMatur_Fizyka__Rozszerzenie", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Rozszerzenie']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[3]/input", "xpath:position"]
+      ],
+      "value": "48.5,16.399993896484375"
+    }, {
+      "id": "3ea5e35f-ad2c-4c91-9a01-9f1964a4b378",
+      "comment": "",
+      "command": "click",
+      "target": "id=WynikiZMatur_Fizyka__Rozszerzenie",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Rozszerzenie", "id"],
+        ["name=WynikiZMatur[Fizyka].Rozszerzenie", "name"],
+        ["css=#WynikiZMatur_Fizyka__Rozszerzenie", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Rozszerzenie']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[3]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "62d645f4-086c-44f8-8716-588215e84f42",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Fizyka__Rozszerzenie",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Rozszerzenie", "id"],
+        ["name=WynikiZMatur[Fizyka].Rozszerzenie", "name"],
+        ["css=#WynikiZMatur_Fizyka__Rozszerzenie", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Rozszerzenie']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[3]/input", "xpath:position"]
+      ],
+      "value": "66"
+    }, {
+      "id": "aa07f124-85c5-40f1-b94c-a4c4edb6c14a",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(11)",
+      "targets": [
+        ["css=tr:nth-child(11)", "css:finder"],
+        ["xpath=//tr[11]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "596966b3-0aac-4cbd-ac43-124e5c7f6012",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_JezykObcy__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_JezykObcy__Podstawa", "id"],
+        ["name=WynikiZMatur[JezykObcy].Podstawa", "name"],
+        ["css=#WynikiZMatur_JezykObcy__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_JezykObcy__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[11]/td[2]/input", "xpath:position"]
+      ],
+      "value": "67"
+    }, {
+      "id": "2c48149e-003d-4842-b745-5eab181db505",
+      "comment": "",
+      "command": "click",
+      "target": "id=WynikiStudiumTalent_Matematyka_",
+      "targets": [
+        ["id=WynikiStudiumTalent_Matematyka_", "id"],
+        ["name=WynikiStudiumTalent[Matematyka]", "name"],
+        ["css=#WynikiStudiumTalent_Matematyka_", "css:finder"],
+        ["xpath=//select[@id='WynikiStudiumTalent_Matematyka_']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'0\n3\n3,5\n4\n5\n5,5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c7e69fe2-d3ff-4704-a1c1-bcc441a33650",
+      "comment": "",
+      "command": "select",
+      "target": "id=WynikiStudiumTalent_Matematyka_",
+      "targets": [],
+      "value": "label=4"
+    }, {
+      "id": "1ed871c4-f10b-44dc-a981-ce1567a37eb0",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "4b126399-0b8c-451a-9844-7ac4b457ccc3",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//table[2]/tbody/tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'407,2')]", "xpath:innerText"]
+      ],
+      "value": "407,2"
+    }, {
+      "id": "5b9e4d47-f7d3-424a-ad49-70c85dc20d51",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(3) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(3) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[3]/td[2]", "xpath:position"]
+      ],
+      "value": "407,2"
+    }, {
+      "id": "491ae253-77b2-4d16-b740-919693aa6935",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(4) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(4) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[4]/td[2]", "xpath:position"]
+      ],
+      "value": "407,2"
+    }, {
+      "id": "336e94a3-28e7-4803-804c-e4e0d863133e",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=tr:nth-child(5) > td:nth-child(2)",
+      "targets": [
+        ["css=tr:nth-child(5) > td:nth-child(2)", "css:finder"],
+        ["xpath=//tr[5]/td[2]", "xpath:position"]
+      ],
+      "value": "407,2"
+    }, {
+      "id": "647c2919-92f6-4899-aebb-b00e64f2efcd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//table[2]/tbody/tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'407,2')]", "xpath:innerText"]
+      ],
+      "value": "407,2"
+    }, {
+      "id": "ff6d9f88-5469-4ed1-b4f8-e61132bafff9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(5) td:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(5) td:nth-child(2)", "css:finder"],
+        ["xpath=//td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'0')]", "xpath:innerText"]
+      ],
+      "value": "0"
+    }]
+  }, {
+    "id": "b15b5a01-b432-4863-b0d4-0cf51c3e841e",
+    "name": "Recommendations_all_zero",
+    "commands": [{
+      "id": "a5b82bef-ad7c-4b31-b652-b4708aecd3da",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6fd9ffea-7aed-4bcd-8b6e-04cd209aa841",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1536x824",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "24d9e35a-0c55-47d1-ad1a-e1acceb14128",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "f0c84b7b-5f0c-43bd-adcf-4df7883be4c4",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "5975728a-98cc-4158-9c8a-e0896ca8a6d0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Przeglądaj rekomendacje kierunków studiów",
+      "targets": [
+        ["linkText=Przeglądaj rekomendacje kierunków studiów", "linkText"],
+        ["css=.link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Przeglądaj rekomendacje kierunków studiów')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt/Recommendations')]", "xpath:href"],
+        ["xpath=//main/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Przeglądaj rekomendacje kierunków studiów')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e8cb9547-b849-4b6b-8822-77bff12f3760",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col-md-2:nth-child(1) p:nth-child(4) > strong",
+      "targets": [
+        ["css=.col-md-2:nth-child(1) p:nth-child(4) > strong", "css:finder"],
+        ["xpath=//p[3]/strong", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "551b3c83-1673-41bf-966d-2c02bc02a1bd",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.col-md-2:nth-child(2) p:nth-child(4) > strong",
+      "targets": [
+        ["css=.col-md-2:nth-child(2) p:nth-child(4) > strong", "css:finder"],
+        ["xpath=//div[2]/a/article/p[3]/strong", "xpath:position"]
+      ],
+      "value": "0"
+    }, {
+      "id": "056db899-6d78-443f-82a7-0e2203475d45",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "css=.col-md-2:nth-child(1) footer > p",
+      "targets": [],
+      "value": "Szanse dostania się: Wysokie prawdopodobieństwo dostania się"
+    }, {
+      "id": "fc28f359-15cc-4f2a-8ead-e30bb7a9cb97",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "css=.col-md-2:nth-child(2) footer > p",
+      "targets": [],
+      "value": "Szanse dostania się: Wysokie prawdopodobieństwo dostania się"
+    }]
+  }, {
+    "id": "401ee596-48f5-4911-af44-b44ba770b04e",
+    "name": "Recomendations_empty",
+    "commands": [{
+      "id": "402effc2-1145-44b1-b618-73005ff8029a",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "6b9c24ab-1228-40de-9576-3b313db4459c",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1520x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2ccf276f-311f-4380-b101-f006ee262256",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Ankieta",
+      "targets": [
+        ["linkText=Ankieta", "linkText"],
+        ["css=.nav-item:nth-child(3) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Ankieta')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/Pytanie')]", "xpath:href"],
+        ["xpath=//li[3]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Ankieta')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "615862ff-e3ce-4ebc-8a2e-4d04acb92d21",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton",
+      "targets": [
+        ["css=.surveyButton", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/1'\"]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "e77a87db-1ee8-4c9b-afba-40575ed7b3ac",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton:nth-child(2)",
+      "targets": [
+        ["css=.surveyButton:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/2'\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ab39d97b-b220-4c99-bb16-7d9682ea5506",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton:nth-child(2)",
+      "targets": [
+        ["css=.surveyButton:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/3'\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ca738418-873c-454d-ba32-088b67189e6d",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton:nth-child(2)",
+      "targets": [
+        ["css=.surveyButton:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/4'\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "af7f0259-be1f-42e8-a1c2-7dbbe13ac800",
+      "comment": "",
+      "command": "click",
+      "target": "css=.radioGroup:nth-child(2) > label",
+      "targets": [
+        ["css=.radioGroup:nth-child(2) > label", "css:finder"],
+        ["xpath=//form[@id='recomendationsForm']/div[2]/label", "xpath:idRelative"],
+        ["xpath=//div[2]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Skłaniam się bardziej w stronę zajmowania się infrastrukturą energetyczną.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "abd2dd07-326c-4ddb-8a35-712852779948",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inputSurvey",
+      "targets": [
+        ["css=.inputSurvey", "css:finder"],
+        ["xpath=//input[@value='Zakończ']", "xpath:attributes"],
+        ["xpath=//form[@id='recomendationsForm']/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "8de5adbb-cf8f-47ec-84f7-bd233624b3bd",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "6fcdbf98-c791-4cac-9de3-cf2e95d77f34",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "b28826dd-2540-4219-9a11-ff06ae6af8c6",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Przeglądaj rekomendacje kierunków studiów",
+      "targets": [
+        ["linkText=Przeglądaj rekomendacje kierunków studiów", "linkText"],
+        ["css=.link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Przeglądaj rekomendacje kierunków studiów')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt/Recommendations')]", "xpath:href"],
+        ["xpath=//main/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Przeglądaj rekomendacje kierunków studiów')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1bec3e41-069b-4686-b2c2-ab36d31ede89",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=h3",
+      "targets": [
+        ["css=h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Brak dostępnych rekomendacji kierunków studiów. Uzupełnij swoje dane do obliczenia wskaźnika rekrutacyjnego oraz wypełnij ankietę. Następnie spróbuj ponownie')]", "xpath:innerText"]
+      ],
+      "value": "Brak dostępnych rekomendacji kierunków studiów. Uzupełnij swoje dane do obliczenia wskaźnika rekrutacyjnego oraz wypełnij ankietę. Następnie spróbuj ponownie"
+    }]
+  }, {
+    "id": "dd831850-f30c-475e-bf4c-80958eea6d3b",
+    "name": "Kalkulator_wskaznika_I_st_olimpiada",
+    "commands": [{
+      "id": "784a11c0-d0de-4036-95c0-7e6c31824021",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "f858e993-18d0-4b9a-8de7-7b44c1582cdf",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1520x806",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "2de3e22a-54fc-49b1-af68-2bf137e9b591",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1ec1fe6f-66a6-47c6-b59b-4f5331458683",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(12) > label",
+      "targets": [
+        ["css=div:nth-child(12) > label", "css:finder"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Matematyczna')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "fc419426-31ff-4b97-9074-97a7abc7d08a",
+      "comment": "",
+      "command": "click",
+      "target": "css=div:nth-child(13) > label",
+      "targets": [
+        ["css=div:nth-child(13) > label", "css:finder"],
+        ["xpath=//div[2]/label", "xpath:position"],
+        ["xpath=//label[contains(.,'Fizyczna')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "1b40d62a-d8fe-4b2a-a411-eb30a36f16e6",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a81d6e7c-22d4-4d26-99c2-eb5bd15078c0",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(7) tr:nth-child(2) > td:nth-child(2)", "css:finder"],
+        ["xpath=//table[2]/tbody/tr[2]/td[2]", "xpath:position"],
+        ["xpath=//td[contains(.,'535')]", "xpath:innerText"]
+      ],
+      "value": "535"
+    }]
+  }, {
+    "id": "41e9c873-d4f6-43b2-9a1b-506d355459e7",
+    "name": "Recommendations_valid_data",
+    "commands": [{
+      "id": "221be050-d21d-44d1-9d2a-f162f6bef606",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "daf50fa2-1ce7-4159-839c-8be939223388",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1523x810",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "b1d614ec-bb8c-46f3-92ec-db763f0d4e95",
+      "comment": "",
+      "command": "click",
+      "target": "css=.navbar",
+      "targets": [
+        ["css=.navbar", "css:finder"],
+        ["xpath=//nav", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "9dea16a3-4433-4656-92dd-e73ec3f87891",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "eb206c9f-c65f-4e97-9c06-ee8dbbf92691",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "250.4000015258789,27.600006103515625"
+    }, {
+      "id": "c8d28f9e-2de4-4037-b223-23f8bc8dd1ec",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "250.4000015258789,27.600006103515625"
+    }, {
+      "id": "6b733099-074f-4858-906c-57e405fa93b3",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2) > td:nth-child(1)", "css:finder"],
+        ["xpath=//td", "xpath:position"],
+        ["xpath=//td[contains(.,'Matematyka')]", "xpath:innerText"]
+      ],
+      "value": "250.4000015258789,27.600006103515625"
+    }, {
+      "id": "8b65b55f-2d01-413f-b6a6-afb29b37cb2a",
+      "comment": "",
+      "command": "click",
+      "target": "css=table:nth-child(3) tr:nth-child(2)",
+      "targets": [
+        ["css=table:nth-child(3) tr:nth-child(2)", "css:finder"],
+        ["xpath=//tr[2]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a8c49c3a-3ee3-4c34-9091-5624b18e59f3",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Matematyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Matematyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Matematyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Matematyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Matematyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "3938690b-bb2c-478a-9cbf-7b089821fc1c",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "css=tr:nth-child(8) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(8) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[8]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Fizyka')]", "xpath:innerText"]
+      ],
+      "value": "262.4000015258789,28.399993896484375"
+    }, {
+      "id": "224f8dcb-cee1-45b4-b332-cfff9f3231ad",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "css=tr:nth-child(8) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(8) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[8]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Fizyka')]", "xpath:innerText"]
+      ],
+      "value": "262.4000015258789,28.399993896484375"
+    }, {
+      "id": "a1ff34d5-502d-4270-ad7d-ee917f6ca0f3",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "css=tr:nth-child(8) > td:nth-child(1)",
+      "targets": [
+        ["css=tr:nth-child(8) > td:nth-child(1)", "css:finder"],
+        ["xpath=//tr[8]/td", "xpath:position"],
+        ["xpath=//td[contains(.,'Fizyka')]", "xpath:innerText"]
+      ],
+      "value": "262.4000015258789,28.399993896484375"
+    }, {
+      "id": "9ab9e8cf-5973-4dcd-a288-4d42f82f6679",
+      "comment": "",
+      "command": "click",
+      "target": "css=tr:nth-child(8)",
+      "targets": [
+        ["css=tr:nth-child(8)", "css:finder"],
+        ["xpath=//tr[8]", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "ec341630-f2f2-4a26-94ab-a9682a7a1e88",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikiZMatur_Fizyka__Podstawa",
+      "targets": [
+        ["id=WynikiZMatur_Fizyka__Podstawa", "id"],
+        ["name=WynikiZMatur[Fizyka].Podstawa", "name"],
+        ["css=#WynikiZMatur_Fizyka__Podstawa", "css:finder"],
+        ["xpath=//input[@id='WynikiZMatur_Fizyka__Podstawa']", "xpath:attributes"],
+        ["xpath=//tr[8]/td[2]/input", "xpath:position"]
+      ],
+      "value": "100"
+    }, {
+      "id": "ba6ba4a5-0b82-4279-8fd7-39028351f906",
+      "comment": "",
+      "command": "click",
+      "target": "id=WynikiStudiumTalent_Matematyka_",
+      "targets": [
+        ["id=WynikiStudiumTalent_Matematyka_", "id"],
+        ["name=WynikiStudiumTalent[Matematyka]", "name"],
+        ["css=#WynikiStudiumTalent_Matematyka_", "css:finder"],
+        ["xpath=//select[@id='WynikiStudiumTalent_Matematyka_']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'0\n3\n3,5\n4\n5\n5,5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "74b5acc3-4725-48ce-a0f6-5c6acde36b66",
+      "comment": "",
+      "command": "click",
+      "target": "id=WynikiStudiumTalent_Matematyka_",
+      "targets": [
+        ["id=WynikiStudiumTalent_Matematyka_", "id"],
+        ["name=WynikiStudiumTalent[Matematyka]", "name"],
+        ["css=#WynikiStudiumTalent_Matematyka_", "css:finder"],
+        ["xpath=//select[@id='WynikiStudiumTalent_Matematyka_']", "xpath:attributes"],
+        ["xpath=//select", "xpath:position"],
+        ["xpath=//select[contains(.,'0\n3\n3,5\n4\n5\n5,5')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "80247e3f-0b64-4bbb-9a1f-52ab34b595ac",
+      "comment": "",
+      "command": "mouseDownAt",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "5.262481689453125,27.39996337890625"
+    }, {
+      "id": "0d4360af-5998-4bbf-a76b-49fd0b169266",
+      "comment": "",
+      "command": "mouseMoveAt",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "5.262481689453125,27.39996337890625"
+    }, {
+      "id": "c1ec2374-867f-45e6-9c3c-1b966a411835",
+      "comment": "",
+      "command": "mouseUpAt",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "5.262481689453125,27.39996337890625"
+    }, {
+      "id": "6e4ab69b-8a58-4349-a640-eba9e3228b89",
+      "comment": "",
+      "command": "click",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "a945eef2-81dc-4e5b-9cf2-0548343ad6e0",
+      "comment": "",
+      "command": "type",
+      "target": "id=WynikEgzaminuZRysunku",
+      "targets": [
+        ["id=WynikEgzaminuZRysunku", "id"],
+        ["name=WynikEgzaminuZRysunku", "name"],
+        ["css=#WynikEgzaminuZRysunku", "css:finder"],
+        ["xpath=//input[@id='WynikEgzaminuZRysunku']", "xpath:attributes"],
+        ["xpath=//table[3]/tbody/tr/td[2]/input", "xpath:position"]
+      ],
+      "value": "230"
+    }, {
+      "id": "8dcb22ab-1d14-42ec-ad34-9f2663b9a93c",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "46b6e323-fcb4-4900-a1d6-ea4ccd6c4d92",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Przeglądaj rekomendacje kierunków studiów",
+      "targets": [
+        ["linkText=Przeglądaj rekomendacje kierunków studiów", "linkText"],
+        ["css=.link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Przeglądaj rekomendacje kierunków studiów')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt/Recommendations')]", "xpath:href"],
+        ["xpath=//main/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Przeglądaj rekomendacje kierunków studiów')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "c873238f-52f4-457e-bb96-58c6412026c9",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.high p:nth-child(3) > strong",
+      "targets": [
+        ["css=.high p:nth-child(3) > strong", "css:finder"],
+        ["xpath=//strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'360')]", "xpath:innerText"]
+      ],
+      "value": "360"
+    }, {
+      "id": "a1f0bbc4-a293-4df0-b718-2932e4af3639",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.mid p:nth-child(3) > strong",
+      "targets": [
+        ["css=.mid p:nth-child(3) > strong", "css:finder"],
+        ["xpath=//div[2]/a/article/p[2]/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'200')]", "xpath:innerText"]
+      ],
+      "value": "200"
+    }, {
+      "id": "64acd748-c594-49e3-a46c-9633630f0ee6",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.low p:nth-child(3) > strong",
+      "targets": [
+        ["css=.low p:nth-child(3) > strong", "css:finder"],
+        ["xpath=//div[3]/a/article/p[2]/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'400')]", "xpath:innerText"]
+      ],
+      "value": "400"
+    }, {
+      "id": "d8467514-ac2c-4fa7-b863-8aaebe1be59c",
+      "comment": "",
+      "command": "assertText",
+      "target": "css=.high p:nth-child(4) > strong",
+      "targets": [
+        ["css=.high p:nth-child(4) > strong", "css:finder"],
+        ["xpath=//p[3]/strong", "xpath:position"],
+        ["xpath=//strong[contains(.,'430')]", "xpath:innerText"]
+      ],
+      "value": "430"
+    }, {
+      "id": "931103a5-9aec-4616-9b27-b27fa7d79c15",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.high h3",
+      "targets": [
+        ["css=.high h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Architektura')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }]
+  }, {
+    "id": "5bef10b2-788f-4066-92fc-73a090f3c834",
+    "name": "Recommendations_kierunek",
+    "commands": [{
+      "id": "86923e0d-2ac1-4937-ba15-3a04fc71400c",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "edec5c92-e9d7-447b-8456-34dbb3efea21",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1524x812",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "d3139d91-9f46-42c0-a794-c83e5c7a26f4",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "565bba5a-9100-4abf-9269-2a16f160506a",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "1764b110-a279-4c80-91ed-2e55a87a5b44",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Przeglądaj rekomendacje kierunków studiów",
+      "targets": [
+        ["linkText=Przeglądaj rekomendacje kierunków studiów", "linkText"],
+        ["css=.link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Przeglądaj rekomendacje kierunków studiów')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt/Recommendations')]", "xpath:href"],
+        ["xpath=//main/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Przeglądaj rekomendacje kierunków studiów')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "61e206fe-3cc6-4256-b7b3-f1a7920876f5",
+      "comment": "",
+      "command": "click",
+      "target": "css=.col-md-2:nth-child(1) h3",
+      "targets": [
+        ["css=.col-md-2:nth-child(1) h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Informatyka Stosowana')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "0064da76-3229-4af3-80ea-40bf19da72b0",
+      "comment": "",
+      "command": "assertElementPresent",
+      "target": "css=.course-header > h1",
+      "targets": [
+        ["css=.course-header > h1", "css:finder"],
+        ["xpath=//h1", "xpath:position"],
+        ["xpath=//h1[contains(.,'Informatyka Stosowana')]", "xpath:innerText"]
+      ],
+      "value": "Informatyka Stosowana"
+    }]
+  }, {
+    "id": "8cdee645-bc66-4c8f-b4cb-197caef3d26c",
+    "name": "Recommendations_filtered",
+    "commands": [{
+      "id": "f1a768e6-2137-4606-8ed9-bf01f5d839c4",
+      "comment": "",
+      "command": "open",
+      "target": "/",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ffe6df6a-c656-43f1-bd76-b391758d1788",
+      "comment": "",
+      "command": "setWindowSize",
+      "target": "1520x808",
+      "targets": [],
+      "value": ""
+    }, {
+      "id": "ddc06a4f-fd97-4c97-b0ac-16f92d9963c8",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "2fa9d619-6e89-473c-a981-ff53da0705c8",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "98efa1f3-3e5d-4af1-923f-130896bb84af",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Wypełnij ankietę zainteresowań",
+      "targets": [
+        ["linkText=Wypełnij ankietę zainteresowań", "linkText"],
+        ["css=.link:nth-child(2)", "css:finder"],
+        ["xpath=//a[contains(text(),'Wypełnij ankietę zainteresowań')]", "xpath:link"],
+        ["xpath=(//a[contains(@href, '/Pytanie')])[2]", "xpath:href"],
+        ["xpath=//a[2]", "xpath:position"],
+        ["xpath=//a[contains(.,'Wypełnij ankietę zainteresowań')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cbfdec52-ef6b-475b-8e1e-08ebe705da14",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton",
+      "targets": [
+        ["css=.surveyButton", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/1'\"]", "xpath:attributes"],
+        ["xpath=//div[2]/button", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "51a1fd08-ed57-4d8e-a4b3-81ad4728b372",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton:nth-child(2)",
+      "targets": [
+        ["css=.surveyButton:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/2'\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "70d5ceb4-8e5d-4486-a83c-29d336c2e2c6",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton:nth-child(2)",
+      "targets": [
+        ["css=.surveyButton:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/3'\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "24bfa90a-9240-4a23-9173-b2e840e69537",
+      "comment": "",
+      "command": "click",
+      "target": "css=.surveyButton:nth-child(2)",
+      "targets": [
+        ["css=.surveyButton:nth-child(2)", "css:finder"],
+        ["xpath=//button[@onclick=\"window.location.href='/Pytanie/Index/4'\"]", "xpath:attributes"],
+        ["xpath=//button[2]", "xpath:position"],
+        ["xpath=//button[contains(.,'Dalej')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "8fdd9d4a-22d5-449a-85a6-30379c3fc37e",
+      "comment": "",
+      "command": "click",
+      "target": "css=.radioGroup:nth-child(1) > label",
+      "targets": [
+        ["css=.radioGroup:nth-child(1) > label", "css:finder"],
+        ["xpath=//form[@id='recomendationsForm']/div/label", "xpath:idRelative"],
+        ["xpath=//label", "xpath:position"],
+        ["xpath=//label[contains(.,'Praca nad systemami informatycznymi przyciąga moją uwagę.')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "ce7b303b-a29d-4b80-8c1d-636ec7079e76",
+      "comment": "",
+      "command": "click",
+      "target": "css=.inputSurvey",
+      "targets": [
+        ["css=.inputSurvey", "css:finder"],
+        ["xpath=//input[@value='Zakończ']", "xpath:attributes"],
+        ["xpath=//form[@id='recomendationsForm']/input", "xpath:idRelative"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "75e7c82d-1498-44ef-a0d5-7b8b88fa85a0",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Kalkulator wskaźnika I st",
+      "targets": [
+        ["linkText=Kalkulator wskaźnika I st", "linkText"],
+        ["css=.nav-item:nth-child(5) > .nav-link", "css:finder"],
+        ["xpath=//a[contains(text(),'Kalkulator wskaźnika I st')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt')]", "xpath:href"],
+        ["xpath=//li[5]/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Kalkulator wskaźnika I st')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "4739559f-2729-4fdf-b005-632127e1869f",
+      "comment": "",
+      "command": "click",
+      "target": "css=input:nth-child(40)",
+      "targets": [
+        ["css=input:nth-child(40)", "css:finder"],
+        ["xpath=//input[@value='Oblicz wskaźnik rekrutacyjny']", "xpath:attributes"],
+        ["xpath=//form/input", "xpath:position"]
+      ],
+      "value": ""
+    }, {
+      "id": "64ed2f4d-c1c1-4c1e-a74e-7f9cf0bc6974",
+      "comment": "",
+      "command": "click",
+      "target": "linkText=Przeglądaj rekomendacje kierunków studiów",
+      "targets": [
+        ["linkText=Przeglądaj rekomendacje kierunków studiów", "linkText"],
+        ["css=.link:nth-child(1)", "css:finder"],
+        ["xpath=//a[contains(text(),'Przeglądaj rekomendacje kierunków studiów')]", "xpath:link"],
+        ["xpath=//a[contains(@href, '/KalkulatorWskaznikaISt/Recommendations')]", "xpath:href"],
+        ["xpath=//main/div/a", "xpath:position"],
+        ["xpath=//a[contains(.,'Przeglądaj rekomendacje kierunków studiów')]", "xpath:innerText"]
+      ],
+      "value": ""
+    }, {
+      "id": "cd94524a-b8c1-4c53-b6c0-1aa146c657d6",
+      "comment": "",
+      "command": "assertNotText",
+      "target": "css=.low h3",
+      "targets": [
+        ["css=.low h3", "css:finder"],
+        ["xpath=//h3", "xpath:position"],
+        ["xpath=//h3[contains(.,'Informatyka Stosowana')]", "xpath:innerText"]
+      ],
+      "value": "Architektura"
+    }]
+  }],
+  "suites": [{
+    "id": "62581361-e2d5-4ed8-9e66-81debd337ee1",
+    "name": "Default Suite",
+    "persistSession": false,
+    "parallel": false,
+    "timeout": 300,
+    "tests": ["5e35623b-f76b-4def-a309-69259be6a88b", "fff7618e-160a-45bb-bbba-c7c7af70582f", "aa73f5d6-3a7b-42fb-a46e-e728f12caa3f"]
+  }],
+  "urls": ["https://localhost:7262/"],
+  "plugins": []
+}

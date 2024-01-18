@@ -1,0 +1,1 @@
+search_result['42']=["topic_0000000000000012.html","PytanieController Constructor","konstruktor kontrolera PytanieController - ustawia kontekst bazy danych"];

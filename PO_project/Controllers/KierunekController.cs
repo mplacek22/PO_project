@@ -7,27 +7,44 @@ using PO_project.RecruitmentCalculator;
 
 namespace PO_project.Controllers
 {
+    /// <summary>  
+    /// Kontroler odpowiedzialny za obsługę widoków związanych z kierunkami studiów.
+    /// </summary>  
+    ///
     public class KierunekController : Controller
     {
+        /// <summary>
+        /// _context - kontekst bazy danych
+        /// </summary>
         private readonly PwrDbContext _context;
 
+        /// <summary>
+        /// konstruktor kontrolera KierunekController - ustawia kontekst bazy danych
+        /// </summary>
         public KierunekController(PwrDbContext context)
         {
             _context = context;
         }
 
-        // GET: Kierunek
-        //public async Task<IActionResult> Index()
-        //{
-        //    var pwrDbContext = _context.Kierunki.Include(k => k.CzasTrwania).Include(k => k.Jezyk).Include(k => k.Stopien).Include(k => k.Tryb).Include(k => k.Wydzial);
-        //    return View(await pwrDbContext.ToListAsync());
-        //}
-
+        /// <summary>
+        /// metoda przyjmuje kierunek i zwraca nazwę pliku z widokiem
+        /// </summary>
+        /// <param name="kierunek"> Kierunek do którego ma być zwrócona ścieżka </param>
+        /// <returns> Ścieżka do widoku detali danego kierunku </returns>  
+        ///
         private String getFileName(Kierunek kierunek)
         {
             return kierunek.Name.Replace(' ', '_') + '_' + kierunek.StopienId + '_' + kierunek.Tryb.Name.Substring(0, 1).ToUpper() + ".cshtml";
         }
 
+        /// <summary>
+        /// metoda zwraca widok z listą kierunków na podstawie podanych parametrów
+        /// </summary>
+        /// <param name="stopienId"></param>
+        /// <param name="wydzialId"></param>
+        /// <param name="trybId"></param>
+        /// <param name="jezykId"></param>
+        /// <returns> Filtrowany widok listy kierunków na podstawie zastosowanych parametrów</returns>
         public IActionResult Index(int? stopienId, int? wydzialId, int? trybId, int? jezykId)
         {
             ViewBag.Stopnie = new SelectList(_context.Stopnie, "StopienId", "Name", stopienId);
@@ -48,7 +65,11 @@ namespace PO_project.Controllers
             return View(kierunki);
         }
 
-        // GET: Kierunek/Details/5
+        /// <summary>
+        /// metoda zwraca widok z detalami kierunku o podanym id
+        /// </summary>
+        /// <param name="id">Id kierunku</param>
+        /// <returns> Widok detali kierunku o podanym ID</returns>
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Kierunki == null)
@@ -88,6 +109,13 @@ namespace PO_project.Controllers
                 return View("~/Views/KierunkiIISt/Default2St.cshtml", kierunek);
         }
 
+        /// <summary>
+        /// metoda zwraca widok z formularzem do obliczenia wskaźnika rekrutacyjnego na studia I stopnia
+        /// </summary>
+        /// <param name="id">identyfikator kierunku</param>
+        /// <param name="pointsKierunek"> punkty rekrutacyjne dla kierunku o danym id </param>
+        /// <param name="points"> bazowa ilość punktów dla kierunków 2 st. </param>
+        /// <returns>widok z formularzem wskaźnika rekrutacyjnego na studia I stopnia</returns>
         public IActionResult Calculator(int? id, double? pointsKierunek, double? points)
         {
             if (id == null || _context.Kierunki == null)
@@ -118,6 +146,15 @@ namespace PO_project.Controllers
             return View("~/Views/KalkulatorWskaznikaISt/Index.cshtml", new FormularzRekrutacyjnyISt());
         }
 
+        /// <summary>
+        /// metoda zwraca widok z formularzem do obliczenia wskaźnika rekrutacyjnego na studia II stopnia
+        /// </summary>
+        /// <param name="id">identyfikator kierunku</param>
+        /// <param name="d">ocena na dyplomie</param>
+        /// <param name="sr">średnia ze studiów I st.</param>
+        /// <param name="e">ocena z dodatkowego egzaminu przeprowadzanego na uczelni</param>
+        /// <param name="od">inne punkty dodatkowe</param>
+        /// <returns> widok z formularzem do obliczenia wskaźnika rekrutacyjnego na studia II stopnia </returns>
         public IActionResult Calculate(int? id, double? d, double? sr, double? e, int? od)
         {
             var kierunek = _context.Kierunki.Find(id);
@@ -143,6 +180,11 @@ namespace PO_project.Controllers
             return RedirectToAction("Calculator", new {id, pointsKierunek, points});
         }
 
+        /// <summary>
+        /// sprawdzenie czy istnieje kierunek o podanym id
+        /// </summary>
+        /// <param name="id"></param>
+        /// <returns>wartość boolowska oznaczająca czy dany kierunek istnieje</returns>
         private bool KierunekExists(int id)
         {
           return (_context.Kierunki?.Any(e => e.KierunekId == id)).GetValueOrDefault();

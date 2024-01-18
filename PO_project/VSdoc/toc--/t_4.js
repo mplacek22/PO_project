@@ -1,0 +1,1 @@
+c['4']=[['5',"HomeController Class","topic_0000000000000001.html",1],['10',"KalkulatorWskaznikaIStController Class","topic_0000000000000005.html",1],['18',"KierunekController Class","topic_000000000000000B.html",1],['25',"PytanieController Class","topic_0000000000000011.html",1],['31',"RecommendationsController Class","topic_0000000000000016.html",1]];

@@ -1,0 +1,1 @@
+search_result['43']=["topic_0000000000000013.html","PytanieController.Index Method","metoda wyświetla widok ankiety dla danego pytania"];

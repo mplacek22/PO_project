@@ -5,16 +5,32 @@ using PO_project.Data;
 
 namespace PO_project.Controllers
 {
+    /// <summary>
+    /// Kontroler odpowiedzialny za obsługę widoków związanych z ankieta.
+    /// </summary>
     public class PytanieController : Controller
     {
+        /// <summary>
+        /// _context - kontekst bazy danych
+        /// currentQuestionIndex - indeks aktualnego pytania
+        /// </summary>
         private readonly PwrDbContext _context;
         private int currentQuestionIndex = 0;
 
+        /// <summary>
+        /// konstruktor kontrolera PytanieController - ustawia kontekst bazy danych
+        /// </summary>
+        /// <param name="context">kontekst bazy danych</param>
         public PytanieController(PwrDbContext context)
         {
             _context = context;
         }
 
+        /// <summary>
+        /// metoda wyświetla widok ankiety dla danego pytania
+        /// </summary>
+        /// <param name="id">id pytania</param>
+        /// <returns>widok ankiety dla danego pytania</returns>
         public IActionResult Index(int? id)
         {
             if (id.HasValue && id.Value < 5 && id.Value >= 0)
@@ -36,11 +52,20 @@ namespace PO_project.Controllers
             return View(pytania);
         }
 
+        /// <summary>
+        /// getter dla currentQuestionIndex
+        /// </summary>
+        /// <returns> wartość currentQuestionIndex </returns>
         public int getCurrentQuestionIndex()
         {
             return currentQuestionIndex;
         }
 
+        /// <summary>
+        /// metoda zwraca widok z listą rekomendowanych kierunków na podstawie podanych parametrów
+        /// </summary>
+        /// <param name="answer5"></param>
+        /// <returns>widok z listą rekomendowanych kierunków na podstawie podanych parametrów</returns>
         public IActionResult Recomendations(int? answer5)
         {
 	        var results = answer5 switch

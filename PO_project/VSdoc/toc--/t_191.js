@@ -1,0 +1,1 @@
+c['191']=[['192',"Abbreviation Property","topic_00000000000000C9.html",0],['193',"Kierunki Property","topic_00000000000000CC.html",0],['194',"Lokalizacja Property","topic_00000000000000CB.html",0],['195',"LokalizacjaId Property","topic_00000000000000CA.html",0],['196',"Name Property","topic_00000000000000C8.html",0],['197',"WydzialId Property","topic_00000000000000C7.html",0]];

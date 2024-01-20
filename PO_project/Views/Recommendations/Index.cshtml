@@ -49,9 +49,9 @@
     {
         return probabilityOfAdmission switch
 	    {
-		    var p when p < RecommendationViewModel.Low => "low",
-            var p when Math.Abs(p - RecommendationViewModel.Low) < 0.1 => "mid",
-            var p when p > RecommendationViewModel.High => "high",
+		    var p when p <= RecommendationViewModel.Low => "low",
+			var p when p > RecommendationViewModel.Low && p < RecommendationViewModel.High  => "mid",
+            var p when p >= RecommendationViewModel.High => "high",
 		    _ => "default",
 		    };
     }

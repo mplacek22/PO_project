@@ -1,0 +1,1 @@
+c['239']=[['240',"Base Method","topic_00000000000000EE.html",0],['241',"Budownictwo Method","topic_00000000000000EF.html",0],['242',"Calculate Method","topic_00000000000000ED.html",0],['243',"Matematyka Method","topic_00000000000000F0.html",0]];

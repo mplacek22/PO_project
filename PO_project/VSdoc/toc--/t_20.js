@@ -1,0 +1,1 @@
+c['20']=[['21',"Calculate Method","topic_0000000000000010.html",0],['22',"Calculator Method","topic_000000000000000F.html",0],['23',"Details Method","topic_000000000000000E.html",0],['24',"Index Method","topic_000000000000000D.html",0]];

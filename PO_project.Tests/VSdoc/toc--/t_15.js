@@ -1,0 +1,1 @@
+c['15']=[['16',"TestCountPytanieController Method","topic_000000000000000B.html",0],['17',"TestIndexPytanieController Method","topic_000000000000000C.html",0],['18',"TestPytanieControllerIndex Method","topic_000000000000000A.html",0],['19',"TestRecomendations Method","topic_000000000000000D.html",0]];

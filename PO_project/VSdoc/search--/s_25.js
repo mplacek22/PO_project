@@ -1,0 +1,1 @@
+search_result['25']=["topic_000000000000000B.html","KierunekController Class","Kontroler odpowiedzialny za obsługę widoków związanych z kierunkami studiów."];

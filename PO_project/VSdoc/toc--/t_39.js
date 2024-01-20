@@ -1,0 +1,1 @@
+c['39']=[['40',"PwrDbContext Constructor","topic_000000000000001D_overloads--.html",1],['43',"Properties","topic_000000000000001C_props--.html",1],['60',"Methods","topic_000000000000001C_methods--.html",1]];

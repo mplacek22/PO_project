@@ -1,0 +1,1 @@
+search_result['45']=["topic_0000000000000015.html","PytanieController.Recomendations Method","metoda zwraca widok z listą rekomendowanych kierunków na podstawie podanych parametrów"];

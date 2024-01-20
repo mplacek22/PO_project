@@ -1,0 +1,1 @@
+search_result['34']=["topic_000000000000000F.html","KierunekController.Calculator Method","metoda zwraca widok z formularzem do obliczenia wskaźnika rekrutacyjnego na studia I stopnia"];
